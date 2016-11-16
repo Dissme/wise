@@ -7,7 +7,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> </meta>
 </head>
-
+<script>
+    !function(win, option) {
+            var count = 0, 
+                designWidth = option.designWidth, 
+                designHeight = option.designHeight || 0, 
+                designFontSize = option.designFontSize || 20, 
+                callback = option.callback || null,
+                root = document.documentElement,
+                body = document.body,
+                rootWidth, newSize, t, self;
+                root.style.width = '100%';
+            function _getNewFontSize() {
+                var scale = designHeight !== 0 ? Math.min(win.innerWidth / designWidth, win.innerHeight / designHeight) : win.innerWidth / designWidth;
+                return parseInt( scale * 10000 * designFontSize ) / 10000;
+            }
+            !function () {
+                rootWidth = root.getBoundingClientRect().width;
+                self = self ? self : arguments.callee;
+                if( rootWidth !== win.innerWidth &&  count < 20 ) {
+                    win.setTimeout(function () {
+                        count++;
+                        self();
+                    }, 0);
+                } else {
+                newSize = _getNewFontSize();
+                    if( newSize + 'px' !== getComputedStyle(root)['font-size'] ) {
+                        root.style.fontSize = newSize + "px";
+                        return callback && callback(newSize);
+                    };
+                };
+            }();
+            win.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+                clearTimeout(t);
+                t = setTimeout(function () {
+                    self();
+                }, 300);
+            }, false);
+        }(window, {
+            designWidth: 750,
+            designHeight: 1136, 
+            designFontSize: 100
+        });
+</script>
 <body>
     <style>
         @font-face {
@@ -39,7 +81,26 @@
             height: 55px;
             background: url('wise-logo.png') no-repeat 0 0;
             background-size: cover;
-            margin: 20px auto 0;
+            margin: .5rem auto 0;
+            position: relative;
+            font-size: 0;
+            white-space: nowrap;
+        }
+        .logo:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            height: 100%;
+            width: 30%;
+            animation: ani 4s infinite ease;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+        }
+        @keyframes ani{
+            from{transform: translate(-100%,0) rotate(25deg);opacity:0;}
+            70%{transform: translate(-100%,0) rotate(25deg);opacity:1;}
+            to{transform: translate(137px,0) rotate(25deg);}
         }
         .keep{
             color: white;
@@ -50,7 +111,7 @@
             white-space: nowrap;
             padding: 5px 0 10px;
             width: 50%;
-            margin: 38px auto 0;
+            margin: 1rem auto 0;
             letter-spacing: 3px;
             text-shadow: #333 1px 1px 1px;
         }
@@ -90,7 +151,7 @@
             background-size: contain;
             margin: auto;
             position: absolute;
-            bottom: 10px;
+            bottom: .1rem;
             left: 0;
             right: 0;
         }
@@ -98,19 +159,21 @@
             text-shadow: #333 1px 1px 1px;
             letter-spacing: 2px;
             display: inline-block;
-            margin: 25px auto 0;
+            margin: .5rem auto 0;
             text-align: center;
             color: #fff;
             font-size: 35px;
             font-weight: 100;
             line-height: 1;
-            padding: 10px 20px;
+            padding: .2rem .4rem;
             border: 2px solid #fff;
-            box-shadow: #333 0 1px 2px,inset #333 0 0 3px;
+            box-shadow: #333 0 1px 1px,inset #333 0 0 3px;
         }
     </style>
     <div class="bg">
-        <div class="logo"></div>
+        <div class="logo">
+            <span></span>
+        </div>
         <div class="keep">
             KEEP<br>FIGHTING<br><span>AND</span><br>CARRAY<br>ON
             <div class="cn">保持战斗 继续前行</div>
