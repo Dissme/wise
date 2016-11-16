@@ -1,0 +1,187 @@
+<define id="schedule_board_item">
+	<div data-date="{{date}}" data-start='{{start}}' data-end='{{end}}' class="schedule_board_item" onclick="location.href='/?q={{name}}'">
+		<div class="time">{{start_time}} - {{end_time}}</div>
+		<div class="title" style="color:#{{color}}">{{name}}</div>
+		<div class="speakers" style="color:#{{color}}">{{speakers}}</div>
+	</div>
+</define>
+
+<inject appendTo="#outerlayer">
+	<style>
+		#outerlayer{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+			width: 100%;
+			overflow: auto;
+		}
+		.bgHolder {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+		
+		.main {
+			position: relative;
+			color: white;
+			text-align: center;
+		    height: 100%;
+		    width: 100%;
+			box-sizing: border-box;
+			-webkit-box-sizing:border-box; /* Safari */
+			overflow: hidden;
+		}
+
+		.main .logo_contain{
+			width: 180px;
+			height: 33px;
+			margin: 2rem auto;
+			text-align: center;
+			line-height: 33px;
+			font-size: 0;
+		}
+
+		.main .logo1{
+			width: 76px;
+			height: 33px;
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		.main .logo2{
+			width: 89px;
+			height: 22px;
+			display: inline-block;
+		}
+		
+		.main h1 {
+			text-align: center;
+			font-size: 25px;
+			padding: 0;
+			margin: 0 0 2rem;
+			font-weight: bold;
+			color: #5f6d9a;
+		}
+		
+		.main .logo {
+			display: block;
+			height: 25px;
+			margin: 15px;
+		}
+		
+		.schedule_board {
+			border: 1px solid rgba(102,119,157,.7);
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+			background-repeat: no-repeat;
+			height: 25%;
+			margin: 2rem 1rem 0;
+			transition: all .3s ease;
+		}
+
+		.schedule_board.focus {
+			transform: translateY(2rem);
+		}
+		
+		.schedule_board_item {
+			background: transparent;
+			text-align: left;
+			padding: 10px;
+		}
+		
+		.schedule_board_item .time {
+			display: inline-block;
+			color: rgb(197, 43, 50);
+			font-size: 0.8em;
+			margin-bottom: 10px;
+			border-bottom: 4px solid rgb(197, 43, 50);
+		}
+		
+		.schedule_board_item .title {
+			display: block;
+			color: white;
+			font-size: 1em;
+			margin-bottom: 10px;
+		}
+		
+		.schedule_board_item .speakers {
+			display: block;
+			color: rgba(255, 255, 255, 0.5);
+			font-size: 0.8em;
+		}
+		
+		.schedule_board_item {
+			border-bottom: 1px solid rgba(102, 119, 157, .5);
+		}
+		
+		.schedule_board_item:last-child {
+			border-bottom: 1px solid rgba(255, 255, 255, 0);
+		}
+	</style>
+	<div class="bgHolder">
+		<template id="bg" />
+	</div>
+	<div class="main">
+		<div class="logo_contain">
+			<img src="{{root}}/assets/logo1.png" class="logo1"/>
+			<img src="{{root}}/assets/logo2.png" class="logo2"/>
+		</div>
+		<h1><span style="font-family: Arial;font-size: 20px;">2016(第10届)</span><br>创业周暨全球创业周中国站<br><span style="font-family: Arial;font-size: 12px;">2016 GLOBAL ENTREPRENEURSHIP WEEK CHINA</span></h1>
+		<template id="searchbar" />
+		<div class="schedule_board dots">
+			<div id="schedule_board_container" class="rbox scrollbox">
+
+			</div>
+		</div>
+		<template id="entries" />
+	</div>
+</inject>
+
+<script>
+
+var all = [];
+var t = $("#schedule_board_container");
+var len = colors.length;
+for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
+	var n = i % len;
+	var obj = $$$.extend($$$edgeData$$$.schedule[i],{color: colors[n]});
+    all.push($$$template("schedule_board_item", obj).appendTo(t));
+}
+
+function update() {
+    var now = new Date();
+    var time = now.getTime();
+    var mindate = now.getDate();
+    for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
+        var sch = $$$edgeData$$$.schedule[i];
+        if (mindate > 0 && mindate !== parseInt(sch.date)) {
+            all[i].css("display", "none");
+            continue;
+        }
+        //only show stuff in da future
+        if (sch.end < time) {
+            //done.
+            all[i].css("display", "none");			
+        }
+        else if (sch.start < time) {
+            all[i].css("display", "block");
+            //all[i].find(".tag").css("visibility", "visible");
+            if (mindate == 0) {
+                mindate = parseInt(sch.date);
+            }
+        } else {
+            all[i].css("display", "block");
+            //all[i].find(".tag").css("visibility", "collapse");
+            if (mindate == 0) {
+                mindate = parseInt(sch.date);
+            }
+        }
+    }
+}
+update();
+setInterval(update, 3000);
+</script>

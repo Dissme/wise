@@ -1,0 +1,227 @@
+<template id="bg">
+	<style>
+		.bg {
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+			transition: all 0.2s ease;
+			transform: translate(0, 0);
+			background: url('{{root}}/assets/bg.png') no-repeat center 100%;
+			background-size: cover;
+		}
+	</style>
+	<div class="bg">
+
+	</div>
+</template>
+
+<template id="bg2">
+	<style>
+		.bg2 {
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+			transition: all 0.2s ease;
+			transform: translate(0, 0);
+			background: url('{{root}}/assets/bg-detail.png') no-repeat center 0;
+			background-size: cover;
+		}
+	</style>
+	<div class="bg2">
+
+	</div>
+</template>
+
+<template id="entries">
+	<style>
+		.entries {
+			width: 100%;
+			color: white;
+			text-align: center;
+			white-space: nowrap;
+			font-size: 0.8em;
+			position: absolute;
+			left: 0;
+			bottom: 30px;
+		}
+		
+		.entries a img {
+			display: inline-block;
+			height: 20px;
+			margin: 5px;
+			margin-top: 5px;
+			margin-bottom: 8px;
+		}
+		
+		.entries a span {
+			font-weight: 300;
+			display: block;
+			color: #5f6d9a;
+		}
+		
+		.entries a {
+			width: 22%;
+			display: inline-block;
+			text-decoration: none;
+			text-align: center;
+		}
+	</style>
+	<div class="entries">
+		<a href="{{root}}/?q=活动安排">
+			<img src="{{root}}/assets/calendar.png" />
+			<span>活动安排</span>
+		</a>
+		<a href="{{root}}/?q=嘉宾介绍">
+			<img src="{{root}}/assets/speaker.png" />
+			<span>嘉宾介绍</span>
+		</a>
+		<a href="{{root}}/?q=参展项目">
+			<img src="{{root}}/assets/projects.png" style="transform:translateY(1.5px) scale(1.2);" />
+			<span>参展项目</span>
+		</a>
+		<a href="{{root}}/?q=关于">
+			<img src="{{root}}/assets/about.png" />
+			<span>关于我们</span>
+		</a>
+	</div>
+</template>
+
+
+<template id="searchbar">
+	<style>
+		.searchbar {
+			height: 45px;
+			position: relative;
+			width: 100%;
+			top: 5px;
+			margin-bottom: 10px;
+		}
+		
+		.searchbar > .rbox {
+			margin-left: 1rem;
+			margin-right: 1rem;
+			width: auto;
+			outline: none;
+			border: 1px solid #5f6d9a;
+		}
+		
+		.searchbar > .rbox > div:nth-of-type(1) {
+			height: 47px;
+			width: 47px;
+			position: absolute;
+			right: -1px;
+			top: -1px;
+			background: #e38f2a;
+			background-image: url("{{root}}/assets/search.png");
+			background-size: 20px 20px;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+		}
+		
+		.searchbar input {
+			width: 100%;
+			height: 100%;
+			outline: none;
+			padding: 2px 70px 1px 7px;
+			font-size: 1.2em;
+			border-radius: 0;
+			border: none;
+			background: rgba(255, 255, 255, 0.6);
+			transition: background 0.8s ease;
+		}
+		
+		.searchbar input:focus {
+			background: rgba(255, 255, 255, 1);
+		}
+		
+		.searchbar .sug {
+			position: absolute;
+			left: -1px;
+			right: -1px;
+			top: 100%;
+			z-index: 9999;
+			display: none;
+		}
+		
+		.searchbar .sug.focus {
+			display: block;
+		}
+		
+		.searchbar .sug a:first-child {
+			border-top: 1px solid #5f6d9a;
+		}
+		
+		.searchbar .sug a {
+			height: 35px;
+			display: block;
+			border: 1px solid #5f6d9a;
+			border-top: none;
+			background: white;
+			color: #000;
+			line-height: 38px;
+			text-align: left;
+			font-size: 0.9em;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			padding-left: 10px;
+			padding-right: 10px;
+			white-space: nowrap;
+			text-decoration: none;
+		}
+		
+		.searchbar .sug a i {
+			margin-right: 5px;
+		}
+	</style>
+	<div class="searchbar">
+		<div class="rbox">
+			<input type="text"></input>
+			<div id='searchbtn'></div>
+			<div class='sug'>
+
+				<a href="test">某某某人的某某</a>
+				<a href="test">某某某人的某某</a>
+				<a href="test">某某某人的某某</a>
+				<a href="test">某某某人的某某</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+        var search_container = document.querySelector(".searchbar");
+        var search_element = document.querySelector(".searchbar input");
+        var search_btn = document.querySelector("#searchbtn");
+        var search_sug = document.querySelector(".searchbar .sug");
+		var schedule_board = document.querySelector(".schedule_board");
+        search_element.addEventListener("focus", function(){
+            search_container.classList.add("focus") 
+            search_sug.classList.add("focus");
+			schedule_board.classList.add("focus");
+        });
+        search_element.addEventListener("blur", function(e){
+            setTimeout(function(){
+            search_sug.classList.remove("focus");
+            search_container.classList.remove("focus");
+			schedule_board.classList.remove("focus"); 
+            }, 1);
+        });
+        search_element.addEventListener("keydown", function(e){
+            if(e.keyCode == 13) window.location.href = ("{{root}}/?q=" + encodeURIComponent(search_element.value));
+        });
+
+        search_btn.addEventListener("click", function(e){
+            window.location.href = ("{{root}}/?q=" + encodeURIComponent(search_element.value));
+        });
+
+        if(window.word) {
+            search_element.value = window.word;
+        }
+        
+    </script>
+</template>
+
+<template id="search_sug">
+	<a href="{{root}}/?q={{keyword}}" style="color: #{{color}}"><i class="fa fa-{{icon}}"></i> {{text}}</a>
+</template>

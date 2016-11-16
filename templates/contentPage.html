@@ -1,0 +1,328 @@
+<inject appendTo="body">
+	<style>
+		.header {
+			position: relative;
+			padding-bottom: 10px;
+			margin-bottom: 15px;
+		}
+		
+		.container {
+			margin: 15px;
+		}
+		
+		.bgHolder {
+			top: -15px;
+			left: 0;
+			right: 0;
+			bottom: 0px;
+			position: absolute;
+			z-index: 0;
+			overflow: hidden;
+		}
+
+		.header .logo_contain{
+			width: 180px;
+			height: 33px;
+			margin: 1rem auto;
+			text-align: center;
+			line-height: 33px;
+			font-size: 0;
+		}
+
+		.header .logo1{
+			width: 76px;
+			height: 33px;
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		.header .logo2{
+			width: 89px;
+			height: 22px;
+			display: inline-block;
+		}
+		
+		.header .display {
+			z-index: 1;
+			position: relative;
+		}
+		
+		.logo {
+			display: block;
+			height: 25px;
+			margin: 15px;
+			margin-bottom: 30px;
+		}
+		
+		.logoTxt {
+			display: block;
+			position: absolute;
+			top: 0px;
+			font-weight: 900;
+			text-align: right;
+			right: 15px;
+			color: white;
+		}
+
+		.entries{
+			position: relative!important;
+			bottom: -10px!important;
+		}
+
+		.countparent{
+			background: rgba(99, 154, 198, .2);
+		}
+	</style>
+	<div class="header">
+		<div class="bgHolder">
+			<template id="bg2" />
+		</div>
+		<div class="display">
+			<div class="logo_contain">
+				<img src="{{root}}/assets/logo1.png" class="logo1"/>
+				<img src="{{root}}/assets/logo2.png" class="logo2"/>
+			</div>
+			<template id="searchbar" />
+		</div>
+		<template id="entries" />
+	</div>
+	<div class="container">
+		<div class="about-grid" style="display: none">
+			<template id="about"></template>
+			<template id="contact"></template>
+			<template id="sns"></template>
+		</div>
+		<div class="matches"></div>
+		<!--<template id="schedule-detail"/>
+		<template id="company-detail"/>
+		<template id="investor-detail"/>
+		<template id="speaker-detail"/>-->
+		<div class="countparent" id="expand-speaker">
+			<template id="expandable">
+				{ "section":"嘉宾介绍", "sec_en":"Guests", "icon": "speaker", "count": 0, "target": "#speaker-container", "open": "" }
+			</template>
+			<div class="list countme" id="speaker-container">
+			</div>
+		</div>
+		<div class="countparent" id="expand-schedule">
+			<template id="expandable">
+				{ "section":"活动安排", "sec_en":"Agenda", "icon": "schedule", "count": 0, "target": "#schedule-container", "open": "" }
+			</template>
+			<div class="tablist" id="schedule-container">
+				<div class="tabs">
+					<!--<div data-day="7">Mon<b>07</b></div>
+					<div data-day="8">Tues<b>08</b></div>-->
+				</div>
+				<div class="countme tabContainer">
+
+				</div>
+			</div>
+		</div>
+
+		<div class="countparent" id="expand-company">
+			<template id="expandable">
+				{ "section":"参展项目", "sec_en":"Projects", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
+			</template>
+			<div class="list countme" style="padding-bottom:0" id="company-container">
+			</div>
+		</div>
+
+		<div class="failedsearch detail none">
+			<div style="color: #aaa; text-align: center;">暂未找到结果</div>
+		</div>
+	</div>
+</inject>
+
+
+<script>
+	var total = gresult.length + fresult.length;
+
+	var gsch = [];
+	for(var i = 0; i < gresult.length; i++) {
+		var cur = gresult[i];
+		if(cur.key == "schedule") {
+			gsch.push(cur.obj);
+			continue;
+		}
+		var container = $(".matches");
+		var templ = $$$template(cur.key + "-detail", cur.obj);
+		templ.appendTo(container);
+	}
+
+	gsch = gsch.sort(function(a,b){
+		return a.end - b.end;
+	});
+
+	for(var i = 0; i < gsch.length; i++) {
+		var cur = gsch[i];
+		var container = $(".matches");
+		var templ = $$$template("schedule-detail", cur);
+		templ.appendTo(container);
+	}
+
+	//fix speakers
+	var speaker_containers = $(".schedule-speaker-container"); //find all
+	for(var c = 0; c < speaker_containers.length; c++) {
+		var cont = $(speaker_containers[c]);
+		var sp = cont.attr("data-speakers").split(",");
+		for(var s = 0; s < sp.length; s++) {
+			var speaker = findSpeaker(sp[s]);
+			if(speaker !== undefined) {
+				$$$template("speaker", speaker).appendTo(cont);
+			}
+		}
+	}
+
+	var fsch = [];
+	for(var i = fresult.length - 1; i >= 0; i--) {
+		var cur = fresult[i];
+		if(cur.key == "schedule") {
+			fsch.push(cur.obj);
+			continue;
+		}
+		var container = $("#" + cur.key + "-container .countme, " + "#" + cur.key + "-container.countme");
+		if(container.length == 0) continue;
+		var templ = $$$template(cur.key, cur.obj);
+		templ.appendTo(container);
+	}
+
+	fsch = fsch.sort(function(a,b){
+		return a.end - b.end;
+	});
+
+	for(var i = 0; i < fsch.length; i++) {
+		var cur = fsch[i];
+		var container = $("#schedule-container .countme, " + "#schedule-container.countme");
+		if(container.length == 0) continue;
+		var templ = $$$template("schedule", cur);
+		templ.appendTo(container);
+	}
+
+	//finish loading
+	//count
+	var counts = $(".countme");
+	var parts = 0;
+	for(var i = 0; i < counts.length; i++) {
+		var cur = $(counts[i]);
+		var par = cur.parents(".countparent");
+		if(cur.children().length == 0) {
+			par.remove();
+		} else {
+			parts++;
+			par.find(".count").text(cur.children().length);
+		}
+	}
+	if(total == 0){
+		$(".failedsearch").removeClass("none");
+	}
+	if(parts == 1) {
+		$(".expandable").addClass("open");
+		$(".countme").parent().removeClass("close");
+	}
+
+
+	function twoDigits(text) {
+		return text.length == 1 ? ("0" + text) : text;
+	}
+
+	var dayMap = {
+		7: "#1da1d3",
+		8: "#e38f2a",
+		14: "#1da1d3",
+		15: "#e38f2a",
+		16: "#df93a0",
+		17: "#cec91e",
+		18: "#cc372b",
+		19: "#942a62",
+		20: "#6676a1"
+	}
+
+	var tabs = $(".tablist");
+	for(var i = 0; i < tabs.length; i++) {
+		(function (i) {
+			var tabparent = $(tabs[i]);
+			var days = [];
+			var dayObjs = {};
+			var tabcontainer = tabparent.find(".tabs");
+			var children = tabparent.find(".tabContainer > *");
+			for(var i = 0 ; i <children.length; i++) {
+				var day = $(children[i]).data("date");
+				if(!day) {
+					day = $(children[i]).data("datespan");
+				}
+				if(!day) continue;
+				day = day.toString().split(",");
+				for(var j = 0; j < day.length; j++) {
+					if(days.indexOf(day[j]) == -1) {
+						days.push(day[j]);
+						dayObjs[day[j]] = [];
+					}
+					dayObjs[day[j]].push($(children[i]));
+				}
+			}
+			function select(j, color) {
+				for(var key in dayObjs) {
+					if(key.toString() == j) {
+						for(var l in dayObjs[key]) {
+							dayObjs[key][l].css({"display":"block", "color":color});
+						}
+					} else {
+						for(var l in dayObjs[key]) {
+							dayObjs[key][l].css("display", "none");
+						}
+					}
+				}
+			}
+			days = days.sort();
+			var allTabs = [];
+			for(var j = 0; j < days.length; j++){
+				(function (j){
+					var tab = $("<div data-day='" + days[j] + "' data-color='" + dayMap[days[j]] + "'>" + twoDigits(days[j]) + "</div>");
+					tab.appendTo(tabcontainer);
+					if(j == 0) {
+						tab.addClass("active");
+						tab.css({"background":tab.data("color"),"color":"white"});
+						select(days[j], tab.data("color"));
+					}
+					allTabs.push(tab);
+					tab.click(function(){
+						for(var q = 0; q < allTabs.length; q++) {
+							if(allTabs[q] != tab) {
+								allTabs[q].removeClass("active").css({"background":"none","color":"rgba(102, 118, 161, 0.5)"});
+							}
+						}
+						tab.addClass("active");
+						tab.css({"background":tab.data("color"),"color":"white"});
+						select(days[j], tab.data("color"));
+					});
+				})(j)
+			}
+		})(i)
+	}
+	//handle tabs
+
+	//handle schedules
+	var schedules = $(".schedule_item");
+	function handleSchedules() {
+		var date = Date.now();
+		for(var i = 0; i < schedules.length; i++) {
+			var cur = $(schedules[i]);
+			if(cur.data("start") > date) {
+				cur.removeClass("active")
+				cur.removeClass("disabled")
+			} else if(cur.data("end") < date) {
+				cur.addClass("disabled")
+				cur.removeClass("active")
+			} else {
+				cur.addClass("active")
+				cur.removeClass("disabled")
+			}
+		} 
+	}
+	setInterval(handleSchedules, 5000);
+	handleSchedules();
+
+	if((/(week china|GLOBAL ENTREPRENEURSHIP|联系|关于|contact|about)/i).test(window.word)) {
+		document.querySelector(".about-grid").style.display = "block";
+	}
+</script>

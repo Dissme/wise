@@ -1,0 +1,417 @@
+<inject appendTo="body">
+	<style>
+		.expandable {}
+		
+		.expandable-title {
+			height: 3.5rem;
+			border-color: #6676a1;
+			margin-top: -1px;
+			line-height: 3.5rem;
+			vertical-align: middle;
+			color: #6676a1;
+			position: relative;
+			background: transparent;
+			transition: all 0.5s ease;
+			padding: 1rem 1.5rem .5rem;
+		}
+		
+		.expandable-title img:nth-child(1) {
+			height: 20px;
+			width: 20px;
+			margin-left: 15px;
+			margin-right: 5px;
+			vertical-align: middle;
+			display: inline-block;
+			transform: translateY(-1px);
+		}
+		
+		.expandable-title span {
+			vertical-align: middle;
+			font-size: 1.4rem;
+			font-weight: 400;
+			margin-left: 8px;
+			opacity: 1;
+			line-height: 1.2;
+			margin: auto;
+		}
+		
+		.expandable-title .right {
+			position: absolute;
+			right: 4px;
+			top: 0;
+			bottom: 0;
+			height: 3.5rem;
+			margin: auto;
+		}
+		
+		.expandable-title .right .count {
+			color: #e38f2a;
+			font-size: 25px;
+		}
+		
+		.expandable-title .right img {
+			width: 20px;
+			margin: 0px 15px;
+			transform-origin: 50% 50%;
+			transform: rotate(0deg);
+			transition: all 0.5s ease;
+		}
+		
+		.expandable.open .right img {
+			transform: rotate(-180deg);
+		}
+		
+		.expandable.open .dots:before,
+		.expandable.open .dots:after {
+			background: none !important;
+		}
+		
+		.expandable.open .expandable-title {
+			background: rgba(99, 154, 198, .2);
+		}
+		
+		.expandable.open .count {
+			color: rgba(0, 0, 0, 0);
+		}
+		
+		.close {
+			display: none;
+		}
+	</style>
+</inject>
+
+<template id="expandable">
+	<script>
+        if("{{open}}") {
+        } else {
+            $('{{target}}').addClass('close');
+        }
+    </script>
+	<div class="expandable {{open}}" onclick="$(this).toggleClass('open');$('{{target}}').toggleClass('close');">
+		<div class="expandable-title dots">
+			<span>{{section}}<br>{{sec_en}}</span>
+			<div class='right'>
+				<span class="count">{{count}}</span>
+				<img src="{{root}}/assets/up.png" />
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+	.list {
+		border: 1px solid rgb(102, 118, 161);
+		margin-top: -1px;
+		color: rgb(102, 118, 161);
+		max-height: 400px;
+		overflow: scroll;
+		background: white;
+		text-align: center;
+	}
+	
+	.list > * {
+		background: transparent;
+	}
+	.list > *:last-child {
+		border-bottom: none;
+	}
+	
+	.tablist {
+		border: 1px solid #6676a1;
+		margin-top: -1px;
+		color: rgb(102, 118, 161);
+	}
+
+	.tablist > .tabContainer {
+		max-height: 250px;
+		overflow: scroll;
+	}
+	
+	.tablist > .tabContainer *:last-child {
+		border-bottom: none !important;
+	}
+	
+	.tablist .tabs {
+		min-height: 3.5rem;
+		color: rgba(102, 118, 161, 0.5);
+	}
+	
+	.tablist .tabs.selected {
+		color: rgba(47, 143, 35, 1);
+	}
+	
+	.tablist .tabs > div {
+		width: 2.4rem;
+		height: 2.4rem;
+		line-height: 2.4rem;
+		text-align: center;
+		display: inline-block;
+		font-size: 1.2rem;
+		border-radius: 50%;
+		margin: .5rem;
+	}
+	
+	.tablist .tabs > div b {
+		font-size: 1.9em;
+		margin-top: -0.2em;
+		display: block;
+		font-weight: 900;
+	}
+	
+	.vmid {
+		display: block;
+		vertical-align: middle;
+		top: 50%;
+		position: relative;
+		transform: translateY(-50%);
+	}
+</style>
+
+
+<style>
+	.speaker_item {
+		position: relative;
+		float: left;
+		width: 43%;
+	}
+
+	.speaker_item:nth-child(odd){
+		margin: 5% 2% 5% 5%;
+	}
+
+	.speaker_item:nth-child(even){
+		margin: 5% 5% 5% 2%;
+	}
+	
+	.speaker_item > div:nth-child(1) {
+		width: 6rem;
+		background-repeat: no-repeat;
+		background-position: 50% 50%, 50% 50%;
+		background-size: cover, cover;
+		height: 6rem;
+		margin: auto;
+		border-radius: 50%;
+	}
+	
+	.speaker_item > div:nth-child(2) {
+		height: 3rem;
+		text-align: center;
+	}
+	
+	.speaker_item b {
+		display: block;
+		font-size: 1.2em;
+		padding-top: 0.5rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-weight: 500;
+	}
+	
+	.speaker_item span {
+		display: block;
+		padding-top: 0.1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		font-size: 0.8em;
+		text-overflow: ellipsis;
+		opacity: .7;
+	}
+</style>
+<template id="speaker">
+	<div class="speaker_item" onclick="window.location.href='{{root}}/?q={{name}}'">
+		<div style="background-image:url('{{root}}/assets/circle.png'), url('{{root}}/assets/speakers/{{id}}.png')"></div>
+		<div>
+			<b>{{name}}</b>
+			<span>{{title}}</span>
+		</div>
+	</div>
+</template>
+
+<style>
+	.company_item {
+		position: relative;
+		background: white;
+		display: inline-block;
+		width: 25%;
+		margin: 2.5%;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	.company_item > div:nth-child(1) {
+		width: 4rem;
+		background-repeat: no-repeat;
+		background-position: 50% 50%, 50% 50%;
+		background-size: cover, cover;
+		height: 4rem;
+		margin: auto;
+		border-radius: 50%;
+	}
+	
+	.company_item > div:nth-child(2) {
+		height: 2rem;
+		text-align: center;
+	}
+	
+	.company_item b {
+		display: block;
+		font-size: 0.8em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.company_item span {
+		display: block;
+		padding-top: 0.1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>
+
+<template id="company">
+	<div class="company_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
+		<div style="background-image:url('{{root}}/assets/circle.png'),url('{{root}}/assets/company/{{id}}.png')"></div>
+		<div>
+			<div class="vmid">
+				<b>{{name}}</b>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+<style>
+	.schedule_item {
+		height: 3.8rem;
+		position: relative;
+		background: white;
+	}
+	
+	.schedule_item > div:nth-child(1) {
+		width: 4.8rem;
+		background-position: 50% 50%;
+		background-size: cover;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		text-align: center;
+		font-size: 0.8em;
+	}
+	
+	.schedule_item > div:nth-child(2) {
+		height: 100%;
+		text-align: left;
+		margin-left: 5.0rem;
+	}
+	
+	.schedule_item .schtext b {
+		display: block;
+		font-size: 1.2em;
+		white-space: nowrap;
+		overflow: hidden;
+		margin-top: 0.1em;
+		margin-bottom: -0.1em;
+		text-overflow: ellipsis;
+	}
+	
+	.schedule_item .schtext span {
+		display: block;
+		padding-top: 0.1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.schedule_item.active .tag {
+		display: block;
+	}
+	.schedule_item .tag {
+		display: none;
+	}
+	.time{
+		color: #66779a;
+	}
+</style>
+<template id="schedule">
+	<div data-date="{{date}}" data-start="{{start}}" data-end="{{end}}" class="schedule_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
+		<div>
+			<div class="vmid">
+				<b class="time">{{start_time}}-{{end_time}}</b><br>
+				<span class="tag">正在进行</span>
+			</div>
+		</div>
+		<div class="schtext">
+			<div class="vmid">
+				<b>{{name}}</b>
+				<span>{{speakers}}</span>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+	.investor_item {
+		height: 3.8rem;
+		position: relative;
+		background: black;
+		color: white;
+		border-bottom: 1px solid rgb(47, 143, 35);
+	}
+	
+	.investor_item > div:nth-child(1) {
+		width: 5.8rem;
+		background-position: 50% 50%;
+		background-size: cover;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding-left: 0.8rem;
+		text-align: left;
+		font-size: 0.8em;
+	}
+	
+	.investor_item > div:nth-child(2) {
+		height: 100%;
+		text-align: left;
+		margin-left: 7.2rem;
+	}
+	
+	.investor_item .invtext b {
+		display: block;
+		font-size: 1.2em;
+		white-space: nowrap;
+		overflow: hidden;
+		margin-top: 0.1em;
+		margin-bottom: -0.1em;
+		text-overflow: ellipsis;
+	}
+	
+	.investor_item .invtext span {
+		display: block;
+		padding-top: 0.1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>
+
+<template id="investor">
+	<div data-datespan="{{time}}" class="investor_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
+		<div>
+			<div class="vmid">
+				<b>{{name}}</b>
+			</div>
+		</div>
+		<div class="invtext">
+			<div class="vmid">
+				<b>{{tags}}</b>
+			</div>
+		</div>
+	</div>
+</template>
+

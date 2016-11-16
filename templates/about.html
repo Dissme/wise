@@ -1,0 +1,140 @@
+<template id="contact">
+	<style>
+		.about {
+			background: white;
+			padding: 30px;
+			text-align: center;
+			color: rgb(95, 109, 154);
+			font-size: 1em;
+		}
+		
+		.about a {
+			color: #e38f2a;
+			text-decoration: none;
+			font-weight: 800;
+			font-size: 1.2em;
+			margin: 5px;
+			display: block;
+		}
+		
+		.about .underline {
+			display: inline-block;
+			border-bottom: 1px solid #e38f2a;
+		}
+	</style>
+	<div class='about'>
+		<div>/联系我们</div>
+		<div>
+			<a target="_blank" href="mailto:eweek@stefg.org">eweek@stefg.org</a>
+			<a href="tel:021-55238377" target="_blank">021-55238377</a>
+			<a href="tel:021-55235592" target="_blank">021-55235592</a>
+		</div>
+		<br>
+		<div>/创业基金会</div>
+		<div>
+			<a class="underline" target="_blank" href="www.stefg.org">www.stefg.org</a>
+		</div>
+		<br>
+		<div>/全球创业周</div>
+		<div>
+			<a class="underline" target="_blank" href="www.genglobal.org">www.genglobal.org</a>
+		</div>
+	</div>
+</template>
+<template id="about">
+	<style>
+		.about-grid {
+			border: 1px solid #5f6d9a;
+			margin-bottom: 8px;
+		}
+		
+		.intro {
+			color: rgba(95, 109, 154, 0.7);
+		}
+		
+		.intro .introtitle {
+			padding: 0.5rem 1.5rem;
+			font-size: 1.4em;
+			color: #5f6d9a;
+			margin-bottom: 8px;
+			background: rgba(99, 154, 198, .2);
+		}
+		
+		.intro_content {
+			padding: 0 1rem;
+		}
+		
+		.intro_content p {
+			margin: 0;
+			padding: 0.5rem 0;
+			font-size: 0.8em;
+		}
+	</style>
+
+	<div class="intro">
+		<div class="introtitle">关于创业周<br>About</div>
+		<div class="intro_content">
+			<p>2004年，在前英国首相戈登·布朗推动下，英国创业周启动。受该活动的启发，美国于2007年首次举办美国创业周。全球创业周正是这两项活动的结合与拓展。2007中国上海市大学生科技创业基金会主办中国创业周。</p>
+			<p>在一周的时间内，通过当地、全国以及全球活动，将全世界数百万的年轻人联系起来，帮助他们激发创业和创新的潜能。创业者、学生、教育者、企业、商业领袖、雇员、非营利组织领导、政府官员等将参与一系列活动，发动社会各界的力量，让人们行动起来，通过推动当地和全球的创业活动，加速全球创业事业的发展。这一全球性的创举激励着年轻人开发创新能力、想象力和创造力。</p>
+			<p>全球创业周通过充满热情的全球互动活动，弘扬创业</p>
+		</div>
+	</div>
+</template>
+<template id="sns">
+	<style>
+		.sns {
+			color: #5f6d9a;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-size: 1.2em;
+		}
+		
+		.sns > div {
+			white-space: nowrap;
+			margin: 0 auto 20px;
+			width: 11em;
+			height: 2.6em;
+			line-height: 2.6em;
+			border-radius: 6px;
+			color: white;
+			font-weight: 100;
+		}
+		
+		.sns .yellow {
+			background: #e38f2a;
+		}
+		
+		.sns .gray {
+			background: #ccc;
+		}
+		
+		.splash {
+			transition: opacity 0.5s ease;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			background: rgba(0, 0, 0, 0.5);
+			background-position: 50% 50%;
+			z-index: 10000;
+			background-repeat: no-repeat;
+			background-size: 40% auto;
+			pointer-events: none;
+		}
+		
+		.splash.visible {
+			pointer-events: all;
+			opacity: 1;
+		}
+	</style>
+	<div class="sns">
+		<div class="yellow" onclick="document.querySelector('#qr-cyz').classList.add('visible')">微信关注全球创业周</div>
+		<div class="gray" onclick="document.querySelector('#qr-jjh').classList.add('visible')">微信关注创业基金会</div>
+	</div>
+
+	<div onclick="this.classList.remove('visible')" class="splash" id="qr-jjh" style="background-image:url({{root}}/assets/qr_jjh.png)"></div>
+	<div onclick="this.classList.remove('visible')" class="splash" id="qr-cyz" style="background-image:url({{root}}/assets/qr_cyz.png)"></div>
+</template>

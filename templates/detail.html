@@ -1,0 +1,255 @@
+<style>
+	.detail {
+		background: rgba(99, 154, 198, .2);
+		border: 1px solid #6676a1;
+		margin: 30px;
+		margin-left: 0;
+		margin-right: 0;
+		position: relative;
+		text-align: center;
+	}
+	
+	.detail .dots {
+		padding: 0 0 1rem;
+		margin: 0;
+		background: white;
+		border: 0;
+	}
+	
+	.dots[data-desc=""] {
+		display: none;
+	}
+
+    .text[data-desc=""] {
+		display: none;
+	}
+	
+	.detail .avatar {
+		width: 5rem;
+		height: 5rem;
+		padding: 0;
+		margin: auto auto;
+		background-position: 50% 50%;
+		background-size: contain;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		float: left;
+	}
+
+	.detail .desc{
+		overflow: hidden;
+		padding: .5rem 0 0 1rem;
+	}
+	
+	.detail .avatar[data-img=""] {
+		display: none;
+	}
+	
+	.detail .name {
+		font-weight: bold;
+		text-align: left;
+		font-size: 20px;
+		margin-bottom: 15px;
+		color: #6676a1;
+	}
+	
+	.detail .subname {
+		color: #6676a1;
+		text-align: left;
+		font-size: 15px;
+		margin-top: -15px;
+		opacity: 0.5;
+	}
+	
+	.detail .text {
+		color: #6676a1;
+		padding: 20px;
+		font-size: 15px;
+	}
+
+	.detail .topic{
+		padding: 20px 20px 0;
+		font-size: 18px;
+		color: #6676a1;
+		text-align: left; 
+	}
+	
+	.detail .url {
+		margin: 1rem auto 0;
+		text-align: center;
+		display: block;
+		padding: 15px;
+		text-decoration: none;
+		color: white;
+		font-size: 17px;
+		line-height: 17px;
+		font-weight: bold;
+		background: #6676a1;
+		border-radius: 30px;
+		width: 125px;
+	}
+	
+	.detail .url[href=''] {
+		display: none !important;
+	}
+	
+	.investor-detail .dots {
+		border-color: rgb(250, 110, 0);
+	}
+	
+	.investor-detail .url {
+		background: rgb(250, 110, 0);
+	}
+
+	.schedule-speaker-container{
+		overflow: hidden;
+		background: #fff;
+	}
+	
+	.schedule-detail {
+		background: rgba(99, 154, 198, .2) url('{{root}}/assets/home-bg.png') no-repeat 10% 100%;
+		background-size: 120%;
+		position: relative;
+		overflow: hidden;
+	}
+	.schedule-detail:before{
+		position: absolute;
+		right: 0;
+		top: 0;
+		content: '';
+		width: 0;
+		height: 0;
+		border: 1rem solid #e38f2a;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+	}
+	
+	.schedule-detail .text {
+		color: #fff;
+		text-align: left;
+		font-size: 18px;
+		font-weight: bold;
+		background: rgba(99, 154, 198, .2);
+	}
+
+	.detail header{
+		overflow: hidden;
+		padding: 1rem 1.5rem;
+	}
+
+	.name {
+		white-space: pre-line;
+	}
+
+	.contents .text{
+		padding: 1rem 0;
+		border-bottom: 2px solid #e38f2a;
+		margin-bottom: 1rem;
+	}
+</style>
+
+<template id="company-detail">
+	<div class="detail">
+		<header>
+			<div class="dots avatar" style="background-image:url('{{root}}/assets/circle.png'), url('{{root}}/assets/company/{{id}}.png')"></div>
+			<div class="desc">
+				<div class="name">{{name}}</div>
+				<div class="subname">{{topic}}</div>
+			</div>
+		</header>
+		<div class="dots">
+			<div class="topic">{{comp}}</div>
+			<div class="text">{{desc}}</div>
+			<a href="{{url}}" target="_blank" class="url">官方网站</a>
+		</div>
+	</div>
+</template>
+
+<template id="investor-detail">
+	<div class="investor-detail detail">
+		<div data-img="asdf" class="dots avatar" style="background-image:url('{{root}}/assets/circle.png'), url('{{root}}/assets/investors/{{id}}.png')"></div>
+		<div class="name" style="color:rgb(250, 110, 0)">{{name}}</div>
+		<div class="dots">
+			<div data-desc="{{desc}}" class="text">{{desc}}</div>
+			<a href="{{url}}" target="_blank" class="url">官方网站</a>
+		</div>
+	</div>
+</template>
+
+<template id="speaker-detail">
+	<div class="speaker-detail detail">
+		<header>
+			<div class="dots avatar" style="background-image:url('{{root}}/assets/circle.png'), url('{{root}}/assets/speakers/{{id}}.png')"></div>
+			<div class="desc">
+				<div class="name">{{name}}</div>
+				<div class="subname">{{title}}</div>
+			</div>
+		</header>
+		<div class="dots" data-desc="{{desc}}">
+			<div class="text">{{desc}}</div>
+		</div>
+	</div>
+</template>
+
+<define id="schedule-detail">
+	<style>
+		.contents{
+			background: #fff;
+			text-align: left;
+			padding: 0 2rem 1rem;
+		}
+		.schedule-detail:after{
+			content: '{{date}}';
+			color: white;
+			position: absolute;
+			right: 0;
+			top: 0;
+			text-align: center;
+			font-size: 12px;
+			width: 1.2rem;
+			height: 1.2rem;
+			line-height: 1.2rem;
+		}
+		.sclink{
+			margin: 1rem auto 0;
+		    text-align: center;
+		    padding: 15px;
+		    text-decoration: none;
+		    color: white;
+		    font-size: 17px;
+		    line-height: 17px;
+		    font-weight: bold;
+		    background: #6676a1;
+		    width: 125px;
+		    border-radius: 30px;
+		    display: none;
+		}
+		.schedule-detail .text:first-line{
+			font-size: 14px;
+			line-height: 1.5;
+		}
+	</style>
+	<div class="detail">
+		<div class="schedule-detail green" style="background-image: url('{{root}}/assets/schedule/{{pic}}')">
+			<div class='text'>
+				{{topic}}：<br>{{name}}
+			</div>
+		</div>
+		<div class="contents">
+			<div class="text">
+				{{desc}}
+			</div>
+			<div class="time">
+				时间：2016年11月{{date}}日 {{start_time}}-{{end_time}}<br>
+			</div>
+			<a href="{{href}}" class="sclink">项目介绍</a>
+		</div>
+		<div data-speakers="{{speakers}}" class="schedule-speaker-container">
+		</div>
+	</div>
+	<script>
+		if(!/undifined|null|NaN/.test('{{href}}')){
+			$$$('.sclink').css('display','block');
+		}
+	</script>
+</define>
