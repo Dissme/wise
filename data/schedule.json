@@ -1,704 +1,233 @@
 [
     {
-        "name": "“亚洲创业风向标”—— 2016 INNOSPACE+国际路演日",
-        "speakers": null,
-        "topic": "国际项目路演",
-        "desc": "INNOSPACE+、香港数码港、KISED（韩国中小企业厅下属的创业振兴院）、NCTU（台湾国立交通大学）、NTUitive Pte Ltd（新加坡南洋理工大学科创有限公司联合举办多家国际项目路演",
-        "date": "14",
+        "name": "签到",
+        "speakers": "",
+        "start_time": "8:30",
+        "end_time": "9:30",
+        "date": "7"
+    },
+    {
+        "name": "开幕词",
+        "speakers": "Ned Desmond,卢刚",
         "start_time": "9:30",
+        "end_time": "9:35",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话：中国互联网的创新和趋势 ",
+        "speakers": "李开复",
+        "start_time": "9:35",
+        "end_time": "10:05",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话:  家用机器人行业缔造者",
+        "speakers": "Colin Angle",
+        "start_time": "10:05",
+        "end_time": "10:35",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话 ：在线教育-中国教育资源不平衡的解决之道",
+        "speakers": "陈向东",
+        "start_time": "10:35",
+        "end_time": "11:05",
+        "date": "7"
+    },
+    {
+        "name": "圆桌对话：人工智能",
+        "speakers": "杜奕瑾,杨铭,徐冰",
+        "start_time": "11:05",
+        "end_time": "11:35",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话：One Step",
+        "speakers": "朱萧木,卢刚",
+        "start_time": "11:35",
+        "end_time": "12:05",
+        "date": "7"
+    },
+    {
+        "name": "午餐",
+        "speakers": "",
+        "start_time": "12:05",
+        "end_time": "13:00",
+        "date": "7"
+    },
+    {
+        "name": "圆桌讨论：体育人的创业心",
+        "speakers": "徐云龙,邓乐军,卢刚",
+        "start_time": "13:00",
+        "end_time": "13:30",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话: 自行车的商业价值和梦想",
+        "speakers": "张向东,卢刚",
+        "start_time": "13:30",
+        "end_time": "14:00",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话：中国智造的全球品牌梦想",
+        "speakers": "阳萌",
+        "start_time": "14:00",
+        "end_time": "14:30",
+        "date": "7"
+    },
+    {
+        "name": "圆桌讨论：知识分享让沟通更专业",
+        "speakers": "欧阳杞浚,邹志渭,朱晓华",
+        "start_time": "14:30",
+        "end_time": "15:00",
+        "date": "7"
+    },
+    {
+        "name": "圆桌讨论： 科技&美学",
+        "speakers": "朱哲琴,雷海波,卢刚",
+        "start_time": "15:00",
+        "end_time": "15:30",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话：设计推动科技",
+        "speakers": "Clive van Heerden,要文瑾",
+        "start_time": "15:30",
+        "end_time": "16:00",
+        "date": "7"
+    },
+    {
+        "name": "圆桌论坛：中国硬件出海",
+        "speakers": "雕明容,廖杨,熊逸放",
+        "start_time": "16:00",
+        "end_time": "16:30",
+        "date": "7"
+    },
+    {
+        "name": "炉边对话：直播平台",
+        "speakers": "",
+        "start_time": "16:30",
+        "end_time": "17:00",
+        "date": "7"
+    },
+    {
+        "name": "圆桌论坛：比特币和区块链",
+        "speakers": "徐明星,杨再勇,花松秀",
+        "start_time": "17:00",
+        "end_time": "17:30",
+        "date": "7"
+    },
+    {
+        "name": "VIP晚宴",
+        "speakers": "",
+        "start_time": "18:30",
+        "end_time": "21:30",
+        "date": "7"
+    },
+    {
+        "name": "签到",
+        "speakers": "",
+        "start_time": "8:30",
+        "end_time": "9:30",
+        "date": "8"
+    },
+    {
+        "name": "炉边对话：乐视的海外生态圈",
+        "speakers": "许长虹",
+        "start_time": "9:30",
+        "end_time": "10:00",
+        "date": "8"
+    },
+    {
+        "name": "炉边对话：创业服务：重度垂直",
+        "speakers": "牛文文,卢刚",
+        "start_time": "10:00",
+        "end_time": "10:30",
+        "date": "8"
+    },
+    {
+        "name": "圆桌讨论：大企业的创新链条",
+        "speakers": "罗斌,詹慧川",
+        "start_time": "10:30",
+        "end_time": "11:00",
+        "date": "8"
+    },
+    {
+        "name": "圆桌论坛：下一年爆点：生物基因？",
+        "speakers": "邓杏飞,陈斌,赵瑞林",
+        "start_time": "11:00",
         "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=208",
-        "pic": "6.png"
+        "date": "8"
     },
     {
-        "name": "路演价值创造力",
-        "speakers": "王慧,路演工场创始人&CEO",
-        "topic": "《路演价值创造力》主题演讲",
-        "desc": "自主研发路演价值管理系统,对企业、孵化器、平台等不同类型机构的运营管理具有深入的创新理论、 路径及实践探索经验。路演系统涉猎路演经济学、路演心理学、路演社会学、路演管理学、路演传媒学、路演资本学等多维立体知识系统。",
-        "date": "14",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=232"
+        "name": "圆桌对话：无所不能的机器人",
+        "speakers": "魏建仓,张云飞,邢玉柱,于立峰",
+        "start_time": "11:30",
+        "end_time": "12:00",
+        "date": "8"
     },
     {
-        "name": "2016（第10届）全球创业周中国站开幕式",
-        "speakers": null,
-        "topic": "全球创业周中国站开幕式",
-        "desc": "创业大佬主题演讲、雏鹰奖颁奖、10年雄鹰奖颁奖、创业新锐分享瞿芳 小红书联合创始人张莉  伊尔庚创始人阮晨杰,南芯半导体创始人\r\n",
-        "date": "14",
+        "name": "午餐",
+        "speakers": "",
+        "start_time": "12:00",
+        "end_time": "13:00",
+        "date": "8"
+    },
+    {
+        "name": "炉边对话：共享骑行-不止打通最后一公里",
+        "speakers": "夏一平",
+        "start_time": "13:00",
+        "end_time": "13:30",
+        "date": "8"
+    },
+    {
+        "name": "炉边对话：无界与跨界-谈VLiveShow的全领域知识分享世界",
+        "speakers": "黄舒骏,卢刚",
+        "start_time": "13:30",
+        "end_time": "14:00",
+        "date": "8"
+    },
+    {
+        "name": "炉边对话：TMT职场招聘透视资本寒冬",
+        "speakers": "鲍艾乐",
         "start_time": "14:00",
+        "end_time": "14:30",
+        "date": "8"
+    },
+    {
+        "name": "圆桌讨论：投资东南亚",
+        "speakers": "邱家睦,Jeffrey Paine,Adrian Li",
+        "start_time": "14:30",
+        "end_time": "15:00",
+        "date": "8"
+    },
+    {
+        "name": "圆桌讨论：VR的击进之路",
+        "speakers": "",
+        "start_time": "15:00",
+        "end_time": "15:30",
+        "date": "8"
+    },
+    {
+        "name": "圆桌讨论：投资全球化",
+        "speakers": "计越,卜君全,郑俊聪,赵鸿",
+        "start_time": "15:30",
+        "end_time": "16:00",
+        "date": "8"
+    },
+    {
+        "name": "2016 TechCrunch 国际创新峰会（北京）创业大赛决赛",
+        "speakers": "",
+        "start_time": "16:00",
         "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=20",
-        "pic": "8.png"
+        "date": "8"
     },
     {
-        "name": "上海“30-30”青年创客评选暨《众创空间蓝皮书》发布会",
-        "speakers": null,
-        "topic": "青年创客评选暨《众创空间蓝皮书》发布会\r\n",
-        "desc": "本次活动结合高校、社会、媒体的力量,旨在针对青年创客的创业投资进行深度探讨,面向30周岁以下的青年创客,评选出30位30周岁以下优秀青年创客作为时代榜样进行表彰。在本次峰会上,同时将发布上海高校创新创业教育联盟智库成果——《2016众创空间蓝皮书》,为创新创业提供参考。",
-        "date": "14",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=207"
-    },
-    {
-        "name": "“Hello World,全球大观”——秋季移动出海主题沙龙",
-        "speakers": null,
-        "topic": "中国移动互联网出海高峰论坛",
-        "desc": "大观资本是国内第一只专注于移动互联网出海项目投资与服务的风险投资机构,致力于陪伴、参与和推动中国优秀创业企业登上全球舞台,目前在上海、北京、硅谷设置办公室。大观资本关注市场趋势,专注寻找移动互联网出海领域的早期优质项目,重视出海领域的各个核心节点,目标是建立出海生态体系。",
-        "date": "14",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=264"
-    },
-    {
-        "name": "全球产业创新技术项目路演&论“谈”",
-        "speakers": null,
-        "topic": "创新技术项目路演",
-        "desc": "迈科技MetaLab作为中国领先的技术与产业对接平台,已汇集美国、德国、英国、新加坡、荷兰、日本、以色列、澳大利亚等全球优质创新项目与应用型科技成果,努力打造产业科技创新生态圈。全球科技创新项目通过迈科技的对接平台得以推广应用,推动发展瓶颈中的企业加快转型升级,让企业家、技术方、投资人、服务方等由不同角度参与科技创新项目中的合伙人合作共赢。",
-        "date": "14",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=210"
-    },
-    {
-        "name": "2016（第六届）天使及早期投资峰会",
-        "speakers": null,
-        "topic": "天使及早期投资峰会",
-        "desc": "合作伙伴：创业接力天使, 创业接力基金, 创业接力金融, 麦腾创投, We+联合办公空间, 怡宝",
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=251",
-        "pic": "12.png"
-    },
-    {
-        "name": "硅谷视角：成就十亿美金的价值",
-        "speakers": "SteveHoffman,Founders Space创始人",
-        "topic": "中美创新创业大咖论坛",
-        "desc": "中美创新创业大咖论坛",
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=231",
-        "pic": "13.png"
-    },
-    {
-        "name": "大疆之后,人工智能的下一个爆点在哪儿？",
-        "speakers": null,
-        "topic": "天翼创投主题演讲",
-        "desc": "天翼创投是中国电信旗下为创业者提供全方位孵化服务和风险投资的机构。信旗下为创业者致力于从孵化和天使投资的角度介入移动互联领域,通过向创业者开放电信的客户、网络、渠道、云计算等资源,以及支付、音乐、视频、阅读等能力,投资孵化新兴创业企业。天翼创投专注TMT领域,结合电信主业,重点关注以下七类投资机会：4G相关应用、云服务/大数据、视频应用、车联网、智慧家庭、互联网金融和可穿戴设备。机构于2012年5月成立,目前已孵化超过200个项目并投资20家公司。",
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=238"
-    },
-    {
-        "name": "寻找消费升级的下一个G点",
-        "speakers": null,
-        "topic": "寻找消费升级的下一个G点",
-        "desc": null,
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=263",
-        "pic": "15.png"
-    },
-    {
-        "name": "投资后管理与服务专场",
-        "speakers": "宋思勤,新生资本创始合伙人,王坤,英诺天使基金 运营合伙人,付利军,英诺天使合伙人",
-        "topic": "主题演讲",
-        "desc": "英诺天使基金秉承“成人达己、投资创新”的理念,投资效率高、后续融资成功率高、回报速度快倍数高。基金同时广泛布局孵化加速器、创业媒体、创业教育、创业工具、众筹平台等创业生态圈,得到创业者和其他投资机构的广泛认可。",
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=213",
-        "pic": "16.png"
-    },
-    {
-        "name": "改变世界的机器人 - 上海傅筹者联盟启动仪式",
-        "speakers": null,
-        "topic": "机器人企业展示",
-        "desc": "活动概况：保持对这个世界的好奇心,对世界保持热情,对科学好奇好奇,对机器人的憧憬和梦想也从不停歇,从铁臂阿童木,到多啦a梦,钢铁侠到机器人瓦力,到暖萌的大白,到AlphaGO战胜了人类,这个标志性的里程碑事件,也在不断的提醒着我们,机器人已经不仅仅只是梦想,机器人离我们的生活已经越来越近。机器人,已经在不断的改变着我们的生活",
-        "date": "15",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=267"
-    },
-    {
-        "name": "FF17 Pitch Competition 金融科技路演竞赛",
-        "speakers": "周炜,XNode 创始人,CEO,Jon-TzenNg,平安科技,战略设计负责人,JeromeEger杰罗姆,Ginmon 联合创始人,中国区执行总裁",
-        "topic": "路演竞赛",
-        "desc": "还记得去年全球创业周期间盛大的InnoSpace国际路演日吗？经过一年的精心筹备,INNOSPACE+联合各国合作伙伴,网罗了亚洲各国顶尖孵化平台推送的优质项目,在11月14日（周一）上午,2016年全球创业周开幕式的第一天为投资人准备了这场饕餮大餐！",
-        "date": "15",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=198",
-        "pic": "18.png"
-    },
-    {
-        "name": "创业在复旦",
-        "speakers": null,
-        "topic": "复旦大学创业活动",
-        "desc": null,
-        "date": "15",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=234"
-    },
-    {
-        "name": "私董+,让企业家尖叫令顶级创业学院纷纷引入的学习革命",
-        "speakers": null,
-        "topic": "私董功场创业活动",
-        "desc": null,
-        "date": "15",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=276"
-    },
-    {
-        "name": "天使有约",
-        "speakers": null,
-        "topic": "创业者与投资人的约会",
-        "desc": "创业者与投资人近距离接触",
-        "date": "15",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=273",
-        "pic": "21.png"
-    },
-    {
-        "name": "创投新能量 第七季",
-        "speakers": "霍中彦,合鲸资本合伙人,段兰春,凯辉基金管理合伙人,洪伟力,复旦大学经济学院全球校友会副会长,梁维弘,熊猫资本创始合伙人,孟庆海,麦腾创投创始合伙人,杨希,沣扬资本创始合伙人,韩彦,光速中国基金合伙人,潘鸿,水滴石基金合伙人",
-        "topic": "主题演讲&圆桌论坛",
-        "desc": "IPO.fm成立于2012年,是国内领先的创投综合服务平台,致力于帮助创业者实现创业理想,推动中国双创事业发展,在创投领域形成了强大的集聚效应。通过自身强大的媒体资源优势,为创业项目打通传播渠道,帮助创业者挖掘品牌价值,树立企业形象；提供独家深度报道和第一手融资资讯,为创业者和投资人搭建有效的沟通交流平台。",
-        "date": "16",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=218",
-        "pic": "22.png"
-    },
-    {
-        "name": "大数据农业与创新创业高峰论坛",
-        "speakers": null,
-        "topic": "创新创业高峰论坛",
-        "desc": "凤岐茶社旨在通过创新的互联网技术,实现资本资源、产业资源、人才资源、技术资源的云端聚集,以局部导入的方式,将国内外优质创业资源引入线下茶社,打破创业资源分布地域差距大、发展不均衡的局面,为茶社的广大创业者提供适合创业的微观环境和系统支撑。",
-        "date": "16",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=247",
-        "pic": "23.png"
-    },
-    {
-        "name": "2016第二季“阳光好人”专场路演",
-        "speakers": "周君强,V领地青年创客社区CEO,李传斌,复星集团星健资本助理总裁兼投资管理部总经理,李宏韬,V领地青年创客社区视讯产业中心总监",
-        "topic": "专场路演",
-        "desc": "由上海阳光公益基金会和V领地青年创客社区共同推出的“阳光好人”计划于2016年7月正式启动。“阳光好人”计划主题是：“散播阳光、心怀公益、创业创新、争当好人”,旨在助力年轻人心怀慈善、拥抱美好未来！主要面向：已经具备良好创业计划和创业项目,正在为梦想积极努力的创客；以及积极参加志愿活动、公益活动,为慈善公益事业贡献出力量的“公益人”。",
-        "date": "16",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=201",
-        "pic": "24.png"
-    },
-    {
-        "name": "TDC2016·中国硬科技创新论坛（上海）",
-        "speakers": null,
-        "topic": "中国硬科技创新论坛",
-        "desc": "由中科院西安光机所联合社会资本发起创办,是国内首个专注于“硬科技”领域的高科技企业投资孵化平台,旨在引进全球硬科技领域高端创业领军人才,孵化行业颠覆性技术,培育行业领跑型企业,探索特色鲜明的科技成果产业化模式,打造以“研究机构+天使基金+孵化器+创业培训”为一体的科技创业热带雨林生态,“众创空间+孵化器+加速器+种子基金+天使投资”的全链条孵化服务网络体系。",
-        "date": "16",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=220"
-    },
-    {
-        "name": "2016（第五届）创业服务新业态论坛",
-        "speakers": null,
-        "topic": "如何提升创业服务",
-        "desc": null,
-        "date": "16",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=193",
-        "pic": "26.png"
-    },
-    {
-        "name": "天使走进实验室",
-        "speakers": null,
-        "topic": "路演",
-        "desc": "“天使走进实验室”路演活动是上海市研究生创新创业能力培养计划优秀学员项目的展示窗口。所有路演项目都来自研究生计划最具创新和成长性的项目,行业覆盖TMT、新材料、生物医药等。路演会将邀请与高科技企业有过紧密合作、有多个成功投融资案例的投资机构及定向特邀媒体参加。",
-        "date": "16",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=204",
-        "pic": "27.png"
-    },
-    {
-        "name": "2016众筹家项目路演交锋会全球创业周专场",
-        "speakers": "李光一,资深媒体人,杨勇,众筹家创始人、CEO",
-        "topic": "项目路演",
-        "desc": "“双创、四众”风起,众筹站上时代的潮头,并逐渐成为经济结构转型中投融资的重要形式。立足历史机遇,众筹家应运而生,作为《理财周刊》旗下众筹行业第三方门户,总部立足于上海,并在北京、深圳、成都等重点城市完成战略布局。众筹家业务涵盖众筹资讯、平台导航、众筹项目、众筹数据、众筹社区等五大板块,并致力于面向行业和社会培养众筹思维、培训众筹知识、挖掘众筹创新模式、共享众筹资源、建立众筹金融研究数据库,向所有众筹参与者与各行业从业者、创业者提供成套的相关服务。",
-        "date": "16",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=252"
-    },
-    {
-        "name": "互联网时代下的品牌营销洞察",
-        "speakers": "王洋,第一财经新媒体科技有限公司首席市场官,张旻,智源动力总经理",
-        "topic": "嘉宾演讲",
-        "desc": "资深市场营销专家智源动力总经理张旻、第一财经新媒体科技首席市场官王洋将为大家带来《移动互联网时代下的品牌营销洞察》主题分享。通过大量的案例分享及品牌营销实操讨论,深度剖析对创业团队而言,品牌工作到底是“需要”还是“想要”；面临品牌建设与市场销售的问题,该如何做抉择；如何通过线上线下的组合拳,将品牌传播以小搏大等方式讨论,使创业团队在早期发展阶段便拥有全面完善的市场营销战略,加速助力实现创业梦想。",
-        "date": "16",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=265",
-        "pic": "29.png"
-    },
-    {
-        "name": "天使有约",
-        "speakers": null,
-        "topic": "创业者与投资人的约会",
-        "desc": "创业者与投资人近距离接触",
-        "date": "16",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=273"
-    },
-    {
-        "name": "全球创业创新大赛及科技趋势领袖峰会",
-        "speakers": null,
-        "topic": "聚焦全球创新投资方向、聚集云计算与物联网精英和投资精英的盛宴",
-        "desc": "1.前沿聚焦-创新创业大赛,发掘早期独角兽围绕前沿项目,挖掘和发现更多早期独角兽潜力项目。2. 行业聚集-打造行业分享结构活动聚集全球物联网行业巨头公司3. 交流盛典-全球顶级资源的开放交流预计定向邀请20家以上全球领先企业参与4. 舆论焦点流媒体全程曝光,制造舆论焦点超过50家主流媒体报道论坛5.The Venture“赢之有道”中国站给项目社会化,国际化的接触空,并有超级奖金6．AWS专业架构师的现场指导项目的快速发展需要有先进技术的支撑",
-        "date": "17",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=217"
-    },
-    {
-        "name": "2016全球创业周教育科技论坛",
-        "speakers": null,
-        "topic": "教育科技论坛",
-        "desc": "桃李资本由美股及A股并购、IPO专家发起,聚焦教育机构并购与IPO的财务顾问、教育行业投融资服务、教育行业研究及上市公司战略梳理等业务,是国内首家专注于“教育+”的精品投行。",
-        "date": "17",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=268"
-    },
-    {
-        "name": "上海众创空间市场透视＆报告发布",
-        "speakers": "万里江 ,方糖CEO,徐颖,家语APP创始人,丁强 ,马上办公联合创始人,黎明,腾讯众创空间（杨浦）负责人",
-        "topic": "嘉宾分享",
-        "desc": "马上办公是办公室在线租赁平台。马上办公于2015年1月正式上线,目前业务分布在上海、北京、苏州等多个城市,为用户提供高性价比的办公室和会议室租赁服务,提供各类办公空间,包括共享办公空间、众创空间、联合办公、商务中心、传统办公、孵化器等等空间在线预约平台。并且马上办公的第三方企业服务为创业者提供投融资面对面对接,更好的为创业者,企业家服务",
-        "date": "17",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=233",
-        "pic": "33.png"
-    },
-    {
-        "name": "让众创空间成为创新与梦想的舞台",
-        "speakers": "张继峰,国家千人计划专家,顾威,来投吧创始人&CEO,徐今宏,中国工业设计研究区域设计创新合作中心主任",
-        "topic": "嘉宾分享",
-        "desc": "本次活动定位于众创空间的创新服务模式,以“让众创空间成为创新与梦想的舞台！”为主题,针对众创空间核心创新孵化模块,邀请该领域内顶尖机构高管进行行业解读和资源输出,与优秀的高新技术创业企业进行现场直接对接导入,加速企业产品质量、市场份额、主营收入、项目估值的提升。",
-        "date": "17",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=237"
-    },
-    {
-        "name": "摧毁通向成功—优秀创业者的修炼秘籍",
-        "speakers": null,
-        "topic": "嘉宾分享",
-        "desc": "起点下属的活动品牌包括：创业马拉松、创业预备役、创业非诚勿扰、青春大篷车、创业烧烤、密室论剑等。这些丰富多彩的活动,吸引了来自全国各地,以及香港、台湾、美国等地的几十万人,数千团队。起点已培育出多家行业内的优秀创业企业,如：饿了么、31会议网、猎上网、美食送、优纳新材料等。",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=240",
-        "pic": "35.png"
-    },
-    {
-        "name": "2016寻找中国好人才年度高峰会\r\n新媒体营销人才专场",
-        "speakers": "程正伟,御之马创始人,刘江涛,引客宝 创始人",
-        "topic": "主题演讲",
-        "desc": "御之马专注于新媒体营销人才培养,寻找中国好人才是御之马联合多家机构发起和运营的半公益性项目。我们挑选高校优秀应届生或者新媒体从业者,经过实操培养后输送到企业。培养的形式包含实操培训、实操演练、企业参访和企业实习。",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=221",
-        "pic": "36.png"
-    },
-    {
-        "name": "太库全球大健康加速器开放日（上海站）",
-        "speakers": null,
-        "topic": "项目路演",
-        "desc": "太库科技创业发展有限公司作为一家专注于孵化器运营管理和科技创业企业培育的专业机构,致力于成为全球领先的创业生态系统的生力军。太库致力于搭建创业者国度,营造全方位创业生态系统,通过多层次创业创新产品与服务,真正帮助企业快速成长,实现创业者的梦想。",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=279"
-    },
-    {
-        "name": "2016天使中国科技创新大赛医疗健康专场",
-        "speakers": null,
-        "topic": "科创大赛路演项目",
-        "desc": "天使中国创新创业大赛是由旗智资本于2012年发起。服务于早期及成长期科技创新企业（涉及互联网、医疗健康/生物医药、新材料、节能环保/高端制造业等领域）。举办至今,已服务超过4000家创业企业、500多位投资人及投资机构,帮助近50家企业实现融资,融资总额近10亿元人民币。",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=224",
-        "pic": "38.png"
-    },
-    {
-        "name": "HiMed2016四季度医疗早期项目路演",
-        "speakers": null,
-        "topic": "天使项目路演",
-        "desc": "HiMed是由热衷于医疗创新创业的36位先驱者和追梦人首期共同发起,是张江医疗创新创业交流对接的平台。 HiMed隔周周三与张江举办一次线下行业沙龙,经过两年多的发展,HiMed已打造了医创空间、发起了HiMed医疗天使基金、建立了3个医疗创业公共实验平台,并正在打造适合医疗创业服务台,正在努力完善社区的交流体系",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=225"
-    },
-    {
-        "name": "众筹天使-创业者的新投资人",
-        "speakers": null,
-        "topic": "众筹天使论坛",
-        "desc": "本次活动我们邀请了去年到今年通过众筹方式融资成功,发展也不错的项目方做一个分享和现阶段项目状况的一个路演,然后邀请股权众筹行业的资深投资人,和项目方共同探讨一下未来的投资行业的趋势,以及众筹行业存在的一些问题和解决方案。",
-        "date": "17",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=216",
-        "pic": "40.png"
-    },
-    {
-        "name": "天使有约",
-        "speakers": null,
-        "topic": "创业者与投资人的约会",
-        "desc": "创业者与投资人近距离接触",
-        "date": "17",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=273"
-    },
-    {
-        "name": "WE+|年轻的社会创新者们",
-        "speakers": "周子书,北京的地下室——地底下的“异托邦”,阿蔡,Bottom dream,梁峰,悦跑圈,MatildaHo,米市集创始人,何善恒,WE+联合创始人,刘彦燊,WE+众创空间 创始人兼首席执行官CEO,徐甜甜,美丽中国,乡村改造计划倡导者,杨大卫,Green Monday倡导者",
-        "topic": "创新者演讲",
-        "desc": "WE+作为空间的缔造者,在这里,我们致力于打破人与人之间的陌生隔阂,\r\n打造有温度、彼此信任与分享的社区。\r\n打造社区的同时,WE+渴望并追求创新,希望自己的存在对整个社会起到一个积极的反馈。年轻一代是我们现在关注的重点社会变革力量,他们掌握着高科技,比以往的任何一代都更有力量。\r\n",
-        "date": "18",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=277"
-    },
-    {
-        "name": "创业服务生态圈的联动及发展",
-        "speakers": null,
-        "topic": "主题演讲",
-        "desc": "中国（上海）创业者公共实训基地是由国家人力资源和社会保障部冠名,上海市人力资源社会保障局和杨浦区人民政府共同规划建设,是国内首个由政府设立的专门为创业者提供服务的公共实训平台。基地积极探索政府推动和社会参与相结合新路,坚持公益性和开放性,以促进创业、培养高技能人才为总体目标,提供创业能力实训、创业产品试制、创业服务、创业孵化、技能实训、引进培训等内容,是大学生创业就业的有力“助推器”和“加速器”。",
-        "date": "18",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=226"
-    },
-    {
-        "name": "2016天使中国科技创新大赛智能制造专场",
-        "speakers": null,
-        "topic": "主题演讲+创业活动",
-        "desc": "报告着眼于上海科创企业技术领域分布和当今热门技术概念的联系,通过对创业者个人背景特征及在创业过程中表现出来的差异性的挖掘,阐释当下科创企业经营中对于经营及团队管理中的现状, 对企业后续发展中商业资本等要素作用进行分析。",
-        "date": "18",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=223"
-    },
-    {
-        "name": "36氪 Open Day 消费风暴下的炼金术",
-        "speakers": null,
-        "topic": "36氪空间分享与体检",
-        "desc": " 当寻常的台灯、办公椅、牙刷都有了“匠人精神”,当低卡健康的轻体餐、每周一束花的生活美学开始充满诱惑力,万亿美元的潜在消费升级市场早已摆在眼前。 从保守消费到超前消费,从活在当下到预支未来,消费升级的杠杆释放出消费金融巨大的市场空间。 想要快速抢滩却不知如何深入链接人与服务?满足细分客群用户的新体验还是让你挠头不已?消费金融切入消费场景该以何种角度?11.18,一起来玩转消费升级时代下的炼金术与驭险术。\r\n",
-        "date": "18",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=269"
-    },
-    {
-        "name": "DoerLink 500强创新需求发布会",
-        "speakers": null,
-        "topic": "战略合作协议签署仪式",
-        "desc": "战略合作协议签署仪式和战略合作协议签署仪式",
-        "date": "18",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=229",
-        "pic": "46.png"
-    },
-    {
-        "name": "2016“创业在上海”创业数据研究报告",
-        "speakers": null,
-        "topic": "主题演讲+创业活动",
-        "desc": "报告着眼于上海科创企业技术领域分布和当今热门技术概念的联系,通过对创业者个人背景特征及在创业过程中表现出来的差异性的挖掘,阐释当下科创企业经营中对于经营及团队管理中的现状, 对企业后续发展中商业资本等要素作用进行分析。",
-        "date": "18",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=215",
-        "pic": "47.png"
-    },
-    {
-        "name": "Startup Leadership Program GEW Launch Event",
-        "speakers": "章宇辰（YC）,Founder @爱合伙,FrancoPapeschi,Creative Director at Frog Design,章宇辰（YC）,Founder @爱合伙,FrancoPapeschi,Creative Director at Frog Design,WilliamBaoBean,中国加速,SOS Ventures, 管理合伙人,章宇辰（YC）,Founder @爱合伙,FrancoPapeschi,Creative Director at Frog Design,章宇辰（YC）,Founder @爱合伙,FrancoPapeschi,Creative Director at Frog Design,WilliamBaoBean,中国加速,SOS Ventures, 管理合伙人,Ryan,Startup guy",
-        "topic": "国际项目路演",
-        "desc": "亮点一：国际视野、跨境合作,邀请对中国市场有需求的国外企业（以色列、美国）创始人高管,作为演讲嘉宾或路演项目来寻觅中国合伙人；亮点二：跨境投资,带着钱来的投资大佬,以精锐的眼光审视项目,毫不犹豫地将真金白银投给杰出的项目。亮点三：创业领导力的养成的演说,助力创业人士培养影响力,提高团队工作效率。",
-        "date": "18",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=212",
-        "pic": "48.png"
-    },
-    {
-        "name": "联想之星创业联盟沙龙",
-        "speakers": null,
-        "topic": "主题演讲",
-        "desc": "企业服务（包括创业服务）市场正在进入深水区,更多垂直领域的深层次整合及模式探索也在进行过程中,那么各个领域的现状和未来如何？用户需求及发展趋势会怎样？希望以此次活动为契机进行行业资源深度对接+主题研讨。",
-        "date": "18",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=270"
-    },
-    {
-        "name": "天使投资特训营",
-        "speakers": null,
-        "topic": "天使投资特训营招生",
-        "desc": "上海天使投资特训营借助行业内一线投资人的力量,为有志从事风险投资行业的高净值个人提供专业的投资培训,并提供与一线投资人共同投资早期项目的机会。",
-        "date": "18",
-        "start_time": "9:30",
-        "end_time": "11:30"
-    },
-    {
-        "name": "天使有约",
-        "speakers": null,
-        "topic": "创业者与投资人的约会",
-        "desc": "创业者与投资人近距离接触",
-        "date": "18",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=273"
-    },
-    {
-        "name": "2016全球青年大创-消费升级&互联网+专场",
-        "speakers": "2016全球青年大创-消费升级&互联网+专场,HRMAC百徕劳权大型论坛",
-        "topic": "项目路演&分享",
-        "desc": "大赛设法帮助更多优秀的创业项目获得更佳的投资机会,挖掘出其更多潜力,为渴望在即将到来的下一轮融资中达到更高的高度的优质项目争取再一次飞跃的机会",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=236",
-        "pic": "52.png"
-    },
-    {
-        "name": "HRMAC百徕劳权大型论坛",
-        "speakers": null,
-        "topic": "主题演讲",
-        "desc": "HRMAC是由人力资源管理者自筹自建的行业互助型组织。 我们通过搭建中高端HR圈子和各类共享平台,将个体弱小的HR凝聚成强有力的互助体,致力于为人力资源管理者提供自我发展和自我实现的平台,实现“助HR驾驭人力资源,让人力资源回馈HR”的愿景。",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=271"
-    },
-    {
-        "name": "创“翼”未来",
-        "speakers": null,
-        "topic": "招商银行分享创“翼”未来",
-        "desc": "创客们“未来生活之翼” 先锋产品大秀场  \r\n投资大佬、金融专家的“ 翼想诊断报告“\r\n创客说未来 我们说未来“ 未来之翼 展业之翼“\r\n",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=259"
-    },
-    {
-        "name": "天使投资特训营",
-        "speakers": null,
-        "topic": "天使投资特训营招生",
-        "desc": "上海天使投资俱乐部成立于2008年,由科技部火炬中心出任指导单位,中国技术创业协会、上海市创业投资行业协会和上海市大学生科技创业基金会共同发起。旨在聚集全国天使投资人,提升天使投资专业水平,进一步完善社会创业投融资环境。为上海乃至全国较早的天使投资团体。目前俱乐部投资人会员数已有近千位,其中合伙人级别百余位,覆盖上海近80%的天使投资机构,拥有全国排名前30的大部分投资机构。",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": null,
-        "pic": "55.png"
-    },
-    {
-        "name": "头脑风暴工作坊：付费客户,平台如何吸引？",
-        "speakers": null,
-        "topic": "头脑风暴",
-        "desc": "1. 改变“台上念PPT,台下刷手机,大咖很牛逼,我仍然很苦逼”模式,让人人脑洞大开,而且现场出落地解决方案,回去执行后,切实突破企业团队瓶颈。\r\n2. 实操高效的思维模式、问题解决模式,以后能反复使用；\r\n3. 形成紧密合作小组,找到志同道合的伙伴\r\n",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=250",
-        "pic": "56.png"
-    },
-    {
-        "name": "2016全球新创发布会",
-        "speakers": null,
-        "topic": "创业企业的新创产品发布",
-        "desc": "全球新创发布会是全球创业周旗下最重要的子活动之一,其集聚媒体、投资、孵化、政府、社会等多方资源,为国内外早期创业者召开线下产品发布会,同时寻找线上产品发布渠道,为创业企业的产品提供集中式的市场营销平台。2015年全球新创发布会顺应“互联网+”潮,“牵手”淘宝潮电街。",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=228",
-        "pic": "57.png"
-    },
-    {
-        "name": "文化新势力,青春新主张 青年文化产品创新论坛",
-        "speakers": null,
-        "topic": "主题演讲",
-        "desc": "E STARTUP 立足中国,放眼全球,以“连接全球创业者”（Connect Entrepreneurs Worldwide) 为使命,致力于构建新生代国际化创业服务平台,将线下私密互动结合线上移动互联,垂直细分专属精英创业者价值分享平台。",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=249",
-        "pic": "58.png"
-    },
-    {
-        "name": "天使投资特训营公开课",
-        "speakers": null,
-        "topic": "天使投资特训营招生",
-        "desc": "上海天使投资特训营借助行业内一线投资人的力量,为有志从事风险投资行业的高净值个人提供专业的投资培训,并提供与一线投资人共同投资早期项目的机会。",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=241"
-    },
-    {
-        "name": "社会创新-做时代的创变者",
-        "speakers": "肖万明,上海大头咨询、上海海丽贸易董事长、魔豆工坊孵化器联合创始人",
-        "topic": "嘉宾主题分享",
-        "desc": "杭州创业发展促进会（时代强鹰）是一家专注于社会创新的社会组织,以推动“公益创新”和“社会创新”协同发展为使命,以研究社会组织模式与引导青年人才发展为公益主旨,以开展商业模式培训,创业项目孵化服务,创业咨询等业务为商业发展方向,致力于成为众创时代下强大的创新引擎！",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=209",
-        "pic": "60.png"
-    },
-    {
-        "name": "灵青创新挑战赛专场路演",
-        "speakers": null,
-        "topic": "专场路演",
-        "desc": "上海灵青公益发展中心前身为无锡灵山慈善基金会青年发展计划,为推动项目发展,于2015年独立注册。灵青公益是一家关注青年成长的公益机构,通过联合政府、企业、媒体、学界的力量,支持高中生和大学生关参与社会创新和创业实践,推动个人成长与发展,践履社会责任。",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=206",
-        "pic": "61.png"
-    },
-    {
-        "name": "JA创新思维工作坊",
-        "speakers": null,
-        "topic": "创新思维工作坊",
-        "desc": "创业思维工作坊的目的就是要培养和建立创新自信力。创造力本是孩子与生俱来的特质之一,然而随着成长以及接受各种教育影响后,这种特质就渐渐地淡化和削弱。为了重建这一特质,人们开始利用一些方式渠道来重新开发潜在的创造性才能,而这些方法则是被斯坦福以及波茨坦的设计学院所建议使用,并在IDEO, P&G, Google, SAP 等企业中广泛运用。",
-        "date": "19",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=258"
-    },
-    {
-        "name": "天使有约",
-        "speakers": null,
-        "topic": "创业者与投资人的约会",
-        "desc": "创业者与投资人近距离接触",
-        "date": "19",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=273"
-    },
-    {
-        "name": "第47期创投圈挑战路演&高峰论坛",
-        "speakers": "姚海波,昆仲资本合伙人,梁维弘,熊猫资本合伙人,袁文达,红点创投 合伙人,石矛,中路资本 合伙人,兰宗华,君联资本 副总裁,潘翔,光速安振 助理合伙人,张利,软银中国 副总裁,杨凌晔,银泰资本 副总裁,李冉,达晨创投 投资总监,冯晓娜,创新工场 投资总监,丁厅,龙腾资本 投资总监,毛振桦,纪源资本 投资经理",
-        "topic": "高峰论坛&项目展示",
-        "desc": "全球创业周由英、美、中等国家于2008年发起并推动,迄今全球创业周已覆盖约160个国家、超过1000万青年创业者关注并参与。中国国家主席习近平曾为第七届全球创业周中国站发来贺信。美国总统奥巴马曾在白宫官网签发创业周启动公告；英国、法国等知名政要以各类形式参与其中,共同推动了创业精神在世界范围的传播。",
-        "date": "20",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=199"
-    },
-    {
-        "name": "我与AI有个约会——2016走向奇点的人工智能",
-        "speakers": "王玉,知了背调创始人.赵惊雷,阅面科技CEO.尹相志,华院数据首席科学家.陈运文,达观数据科技 CEO.施旦霁,23seed CEO,王志瑛,23seed VP",
-        "topic": "人工智能创业项目与产品展示",
-        "desc": "我们即将迎来“认知时代”,无论你是传统企业管理者还是互联网创业者,是天使投资人还是科研工作者,都有必要去了解这个巨头正大批涌入的新行业,去试着占领机器学习和模式识别计算的新高地。23Seed为推动人工智能产业的快速发展与交流合作,邀请了多位领域专家、人工智能创业者与行业投资人,一起感受“认知时代”。",
-        "date": "20",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=211",
-        "pic": "65.png"
-    },
-    {
-        "name": "对话未来独角兽",
-        "speakers": null,
-        "topic": "主题演讲&圆桌论坛",
-        "desc": "与独角兽创业企业的交流分享",
-        "date": "20",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=253",
-        "pic": "66.png"
-    },
-    {
-        "name": "寻找数字之星——D-Star人工智能与大数据加速计划项目巡演",
-        "speakers": "陈升,世纪互联董事长",
-        "topic": "主题演讲&路演",
-        "desc": "拟邀请主题演讲嘉宾　世纪互联董事长　陈升先生",
-        "date": "20",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=272"
-    },
-    {
-        "name": "AI DAY,人工智能的未来",
-        "speakers": null,
-        "topic": "TED演讲&圆桌会议",
-        "desc": "Recruit集团是一家从事人才综合服务与信息服务的企业,公司成立于1960年,现已发展成为日本最大全球前四的人力资源集团。去年10月于日本上市,目前市值200亿美元。\r\nRecruit集团是中国No.1的人力资源服务机构前程无忧(51Job)最大的股东,同时也是58同城的投资方。作为Recruit集团的中国战略,通过孵化及投资生活服务类的互联网,移动互联网早期团队,寻找未来有潜质的战略合作伙伴。\r\n",
-        "date": "20",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=203",
-        "pic": "68.png"
-    },
-    {
-        "name": "EMBA创业者说之老兵创战纪",
-        "speakers": "汪丛青AlvinGralinWang,现HTC VIVE 大中华区总裁,孙于淼,寒诀互娱执行总裁兼创始人,季斐翀,现跑步猫创始人,侯柏安,台湾吉而好股份有限公司行銷長,周文武贝,中国新生代电影人,王帅军,文化天使投资人兼怪物世界（北京）动漫文化发展有限公司董事怪物世界（北京）动漫文化发展有限公司董事,童琳,口袋停联合创始人",
-        "topic": "主题演讲",
-        "desc": "  “100创客•EMBA之家”是由同济、复旦、交大、长江、中欧等国内顶尖商学院EMBA校友联合发起创立,以EMBA校友为平台、服务于大众创业以及EMBA校友资源整合、企业转型与二次创业的创客实体平台。聚合高校、媒体、产业、资本资源, 加速孵化并助力企业升级,打造中国顶尖EMBA商业生态圈。",
-        "date": "20",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=245",
-        "pic": "69.png"
-    },
-    {
-        "name": "CEO年会",
-        "speakers": null,
-        "topic": "主题演讲&GEO论坛",
-        "desc": "GEO年会",
-        "date": "20",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=227"
-    },
-    {
-        "name": "2016“创动未来”项目路演峰会",
-        "speakers": null,
-        "topic": "干货分享、项目路演",
-        "desc": "上海弥赛亚资本是第三方金融服务平台,为全国中小微企业提供专业的投融资服务、融资顾问、项目打磨、项目申报政府补贴、创业辅导、各类创业培训等个性化服务。",
-        "date": "20",
-        "start_time": "14:00",
-        "end_time": "17:00",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=256"
-    },
-    {
-        "name": "GCC上海站高校论坛",
-        "speakers": null,
-        "topic": "创业团队与导师交流",
-        "desc": "1.各高校创业组织带领创业团队与导师一起交流学习,激发创业新想法。\r\n2.推广立信潜力创业项目：针对解决大学生创业方面财务处理的相关问题,立信创协建立了相关的财务团队,帮助上海各大高校优秀的创业团队去解决相关的财务方面的问题并与导师、其他团队交流学习。\r\n",
-        "date": "20",
-        "start_time": "9:30",
-        "end_time": "11:30",
-        "href": "http://www.eweekchina.org/2016/thisyear-activity-details.php?id=257"
+        "name": "After Party",
+        "speakers": "",
+        "start_time": "18:30",
+        "end_time": "21:30",
+        "date": "8"
     }
 ]

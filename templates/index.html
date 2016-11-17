@@ -1,23 +1,13 @@
 <define id="schedule_board_item">
 	<div data-date="{{date}}" data-start='{{start}}' data-end='{{end}}' class="schedule_board_item" onclick="location.href='/?q={{name}}'">
 		<div class="time">{{start_time}} - {{end_time}}</div>
-		<div class="title" style="color:#{{color}}">{{name}}</div>
-		<div class="speakers" style="color:#{{color}}">{{speakers}}</div>
+		<div class="title">{{name}}</div>
+		<div class="speakers">{{speakers}}</div>
 	</div>
 </define>
 
 <inject appendTo="#outerlayer">
 	<style>
-		#outerlayer{
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			height: 100%;
-			width: 100%;
-			overflow: auto;
-		}
 		.bgHolder {
 			position: fixed;
 			top: 0;
@@ -27,45 +17,20 @@
 		}
 		
 		.main {
-			position: relative;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 			color: white;
 			text-align: center;
-		    height: 100%;
-		    width: 100%;
-			box-sizing: border-box;
-			-webkit-box-sizing:border-box; /* Safari */
-			overflow: hidden;
-		}
-
-		.main .logo_contain{
-			width: 180px;
-			height: 33px;
-			margin: 2rem auto;
-			text-align: center;
-			line-height: 33px;
-			font-size: 0;
-		}
-
-		.main .logo1{
-			width: 76px;
-			height: 33px;
-			display: inline-block;
-			margin-right: 10px;
-		}
-
-		.main .logo2{
-			width: 89px;
-			height: 22px;
-			display: inline-block;
 		}
 		
 		.main h1 {
 			text-align: center;
 			font-size: 25px;
-			padding: 0;
-			margin: 0 0 2rem;
+			padding-top: 1.2rem;
 			font-weight: bold;
-			color: #5f6d9a;
 		}
 		
 		.main .logo {
@@ -75,16 +40,45 @@
 		}
 		
 		.schedule_board {
-			border: 1px solid rgba(102,119,157,.7);
+			border: 1px solid rgba(255, 255, 255, 0);
 			background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
 			background-repeat: no-repeat;
 			height: 25%;
-			margin: 2rem 1rem 0;
-			transition: all .3s ease;
+			margin: 1.0rem;
 		}
-
-		.schedule_board.focus {
-			transform: translateY(2rem);
+		
+		.entries {
+			width: 100%;
+			color: white;
+			text-align: center;
+			white-space: nowrap;
+			margin-top: 30px;
+			font-size: 0.8em;
+		}
+		
+		.entries a img {
+			display: inline-block;
+			height: 20px;
+			margin: 5px;
+			margin-top: 5px;
+			margin-bottom: 8px;
+		}
+		
+		.entries a span {
+			font-weight: 300;
+			display: block;
+			color: white;
+		}
+		
+		.entries a {
+			width: 22%;
+			display: inline-block;
+			text-decoration: none;
+			text-align: center;
+		}
+		
+		.entries a:visited {
+			color: white;
 		}
 		
 		.schedule_board_item {
@@ -95,10 +89,10 @@
 		
 		.schedule_board_item .time {
 			display: inline-block;
-			color: rgb(197, 43, 50);
+			color: white;
 			font-size: 0.8em;
 			margin-bottom: 10px;
-			border-bottom: 4px solid rgb(197, 43, 50);
+			border-bottom: 4px solid rgb(43, 253, 146);
 		}
 		
 		.schedule_board_item .title {
@@ -115,7 +109,7 @@
 		}
 		
 		.schedule_board_item {
-			border-bottom: 1px solid rgba(102, 119, 157, .5);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 		}
 		
 		.schedule_board_item:last-child {
@@ -126,18 +120,34 @@
 		<template id="bg" />
 	</div>
 	<div class="main">
-		<div class="logo_contain">
-			<img src="{{root}}/assets/logo1.png" class="logo1"/>
-			<img src="{{root}}/assets/logo2.png" class="logo2"/>
-		</div>
-		<h1><span style="font-family: Arial;font-size: 20px;">2016(第10届)</span><br>创业周暨全球创业周中国站<br><span style="font-family: Arial;font-size: 12px;">2016 GLOBAL ENTREPRENEURSHIP WEEK CHINA</span></h1>
-		<template id="searchbar" />
+		<img class="logo" src="{{root}}/assets/tc-logo.png" />
+		<h1><span style="font-family: Arial">SEE THE FUTURE</span><br>看见未来</h1>
 		<div class="schedule_board dots">
 			<div id="schedule_board_container" class="rbox scrollbox">
 
 			</div>
 		</div>
-		<template id="entries" />
+		<template id="searchbar" />
+		<div class="entries">
+			<a href="{{root}}/?q=日程">
+				<img src="{{root}}/assets/calendar.png" />
+				<span>议程安排</span>
+			</a>
+			<a href="{{root}}/?q=场景搜索">
+				<img src="{{root}}/assets/scene.png" style="transform:translateY(1.5px) scale(1.2);" />
+				<span>场景搜索</span>
+			</a href="#">
+			<a href="http://cn.technode.com" target="_blank">
+				<img src="{{root}}/assets/news.png" style="scale(0.95);" />
+				<span>动点新闻</span>
+			</a>
+			<a href="{{root}}/?q=关于">
+				<img src="{{root}}/assets/tc.png" />
+				<span>关于TC</span>
+			</a>
+		</div>
+		<a href="http://emerge.cc" target="_blank" class="dots btn" style="margin-top: 30px; margin-bottom: 30px;">了解下一代场景化Wi-Fi科技</a>
+		<template id="poweredBy"></template>
 	</div>
 </inject>
 
@@ -145,17 +155,14 @@
 
 var all = [];
 var t = $("#schedule_board_container");
-var len = colors.length;
 for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
-	var n = i % len;
-	var obj = $$$.extend($$$edgeData$$$.schedule[i],{color: colors[n]});
-    all.push($$$template("schedule_board_item", obj).appendTo(t));
+    all.push($$$template("schedule_board_item", $$$edgeData$$$.schedule[i]).appendTo(t));
 }
 
 function update() {
     var now = new Date();
     var time = now.getTime();
-    var mindate = now.getDate();
+    var mindate = 0;
     for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
         var sch = $$$edgeData$$$.schedule[i];
         if (mindate > 0 && mindate !== parseInt(sch.date)) {

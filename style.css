@@ -12,11 +12,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    background:  white;
+    background:  black;
     font-family: "Rajdhani", "PingFang SC", "Microsoft Yahei UI Light", "Microsoft Yahei", "OpenSans", "Helvetica", "Helvetica Neue", "Arial", sans-serif;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
 }
 
 .rbox {
@@ -43,6 +40,18 @@ body, html {
     right: -2px;
 }
 
+.dots:after, .dots:before {
+    content: "";
+    position: absolute;
+    width: 3.5px;
+    top: -2px;
+    bottom: -2px;
+    background-image: linear-gradient( to bottom, white, white), linear-gradient( to bottom, white, white);
+    background-size: 3.5px 3.5px;
+    background-position: top center, bottom center;
+    background-repeat: no-repeat;
+}
+
 .dots.green:after, .dots.green:before {
     background-image: linear-gradient( to bottom, rgb(47, 143, 35), rgb(47, 143, 35)), linear-gradient( to bottom, rgb(47, 143, 35), rgb(47, 143, 35));
 }
@@ -61,5 +70,9 @@ body, html {
 }
 
 .disabled {
-    color: rgba(78, 78, 78, .5) !important;
+    color: #666 !important;
+}
+
+.active {
+    color: rgb(47, 143, 35) !important;
 }

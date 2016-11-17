@@ -4,137 +4,168 @@
 			background: white;
 			padding: 30px;
 			text-align: center;
-			color: rgb(95, 109, 154);
+			color: rgb(26, 157, 27);
 			font-size: 1em;
 		}
 		
+		.about img {
+			margin: 10px;
+		}
+		
 		.about a {
-			color: #e38f2a;
+			color: rgb(26, 157, 27);
 			text-decoration: none;
 			font-weight: 800;
 			font-size: 1.2em;
 			margin: 5px;
-			display: block;
 		}
 		
-		.about .underline {
-			display: inline-block;
-			border-bottom: 1px solid #e38f2a;
+		.about a:visited {
+			color: rgb(26, 157, 27);
+			text-decoration: none;
+		}
+		
+		.gridline {
+			height: 1px;
+			background: rgba(26, 157, 27, 0.4);
+			margin: 30px;
+			margin-left: -30px;
+			margin-right: -30px;
 		}
 	</style>
 	<div class='about'>
-		<div>/联系我们</div>
+		<img src="{{root}}/assets/email.png" height=20 width=20/>
+		<div>活动合作</div>
 		<div>
-			<a target="_blank" href="mailto:eweek@stefg.org">eweek@stefg.org</a>
-			<a href="tel:021-55238377" target="_blank">021-55238377</a>
-			<a href="tel:021-55235592" target="_blank">021-55235592</a>
+			<a target="_blank" href="mailto:event@technode.com">event@technode.com</a>
 		</div>
 		<br>
-		<div>/创业基金会</div>
+		<div>商务合作</div>
 		<div>
-			<a class="underline" target="_blank" href="www.stefg.org">www.stefg.org</a>
+			<a target="_blank" href="mailto:bd@technode.com">bd@technode.com</a>
 		</div>
 		<br>
-		<div>/全球创业周</div>
+		<div>寻求报道</div>
 		<div>
-			<a class="underline" target="_blank" href="www.genglobal.org">www.genglobal.org</a>
+			<a target="_blank" href="mailto:tip@technode.com">tip@technode.com</a>
+		</div>
+		<div class="gridline"></div>
+
+		<img src="{{root}}/assets/ball.png" height=20 width=20/>
+		<div>TechCrunch 英文版</div>
+		<div>
+			<a target="_blank" href="techcrunch.com">techcrunch.com</a>
+		</div>
+		<br>
+		<div>TechCrunch 中文版</div>
+		<div>
+			<a target="_blank" href="techcrunch.cn">techcrunch.cn</a>
+		</div>
+		<br>
+		<div>TechNode 英文版</div>
+		<div>
+			<a target="_blank" href="technode.com">technode.com</a>
+		</div>
+		<br>
+		<div>TechNode 中文版</div>
+		<div>
+			<a target="_blank" href="cn.technode.com">cn.technode.com</a>
 		</div>
 	</div>
 </template>
 <template id="about">
 	<style>
-		.about-grid {
-			border: 1px solid #5f6d9a;
-			margin-bottom: 8px;
-		}
-		
-		.intro {
-			color: rgba(95, 109, 154, 0.7);
-		}
-		
-		.intro .introtitle {
-			padding: 0.5rem 1.5rem;
-			font-size: 1.4em;
-			color: #5f6d9a;
-			margin-bottom: 8px;
-			background: rgba(99, 154, 198, .2);
-		}
-		
-		.intro_content {
-			padding: 0 1rem;
-		}
-		
-		.intro_content p {
-			margin: 0;
-			padding: 0.5rem 0;
-			font-size: 0.8em;
-		}
-	</style>
-
-	<div class="intro">
-		<div class="introtitle">关于创业周<br>About</div>
-		<div class="intro_content">
-			<p>2004年，在前英国首相戈登·布朗推动下，英国创业周启动。受该活动的启发，美国于2007年首次举办美国创业周。全球创业周正是这两项活动的结合与拓展。2007中国上海市大学生科技创业基金会主办中国创业周。</p>
-			<p>在一周的时间内，通过当地、全国以及全球活动，将全世界数百万的年轻人联系起来，帮助他们激发创业和创新的潜能。创业者、学生、教育者、企业、商业领袖、雇员、非营利组织领导、政府官员等将参与一系列活动，发动社会各界的力量，让人们行动起来，通过推动当地和全球的创业活动，加速全球创业事业的发展。这一全球性的创举激励着年轻人开发创新能力、想象力和创造力。</p>
-			<p>全球创业周通过充满热情的全球互动活动，弘扬创业</p>
-		</div>
-	</div>
-</template>
-<template id="sns">
-	<style>
 		.sns {
-			color: #5f6d9a;
+			color: white;
 			text-align: center;
 			margin-top: 20px;
 			margin-bottom: 20px;
-			font-size: 1.2em;
 		}
 		
-		.sns > div {
-			white-space: nowrap;
-			margin: 0 auto 20px;
-			width: 11em;
-			height: 2.6em;
-			line-height: 2.6em;
-			border-radius: 6px;
-			color: white;
-			font-weight: 100;
+		.sns b {
+			font-size: 1.3em;
+			display: block;
+            margin-bottom: 20px;
 		}
 		
-		.sns .yellow {
-			background: #e38f2a;
+        .sns > div {
+            white-space: nowrap;
+        }
+
+		.sns .dots {
+            border: 1px solid rgba(255,255,255,0.5);
+			display: inline-block;
+            height: 2.5rem;
+            width: 2.5rem;
+            background-size: 80% auto;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            margin: 3px;
 		}
-		
-		.sns .gray {
-			background: #ccc;
-		}
-		
-		.splash {
-			transition: opacity 0.5s ease;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			opacity: 0;
-			background: rgba(0, 0, 0, 0.5);
-			background-position: 50% 50%;
-			z-index: 10000;
-			background-repeat: no-repeat;
-			background-size: 40% auto;
-			pointer-events: none;
-		}
-		
-		.splash.visible {
-			pointer-events: all;
-			opacity: 1;
-		}
+
+        .splash {
+            transition: opacity 0.5s ease;
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            opacity: 0;
+            background: rgba(0, 0, 0, 0.5);
+            background-position: 50% 50%;
+            z-index: 10000;
+            background-repeat: no-repeat;
+            background-size: 40% auto;
+            pointer-events: none;
+        }
+
+        .splash.visible {
+            pointer-events: all;
+            opacity: 1;
+        }
+
+        .intro {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .intro .introtitle{
+            font-size: 1.8em;
+            margin-top: 8px;
+            color: white;
+            border-bottom: 2px solid rgb(26, 157, 27);
+            margin-bottom: 8px;
+            display:inline-block
+        } 
+        
 	</style>
+
+    <div class="intro">
+        <div class="introtitle">TechCrunch</div>
+        <div>
+            TechCrunch是一家全球领先的科技媒体公司，狂热致力于记录创业公司、评测互联网新产品以及报道突发科技新闻。成立于2005年6月的 TechCrunch 及其附属网站已经拥有超过 1200 万独立访客，每月页面访问量超过 3700 万次。TechCrunch 社区在 Twitter、 Facebook、LinkedIn、谷歌以及其他社交媒体上的关注者已经超过 200 万人。TechCrunch 从 2011 年开始先后在美国旧金山、纽约和中国北京举办年度会议TechCrunch Disrupt，在会上科技初创公司有机会向风险投资者和媒体展示他们的产品和服务。2013 年 8 月，TechCrunch官方中文版TechCrunch.cn正式上线。至今TechCrunch国际创新峰会已经在中国举办4届，参会者从2013年的3000人到2015年的6000人，包括Google全球执行总裁Eric Schmidt、徐小平、包凡等在内的顶级业界企业家、投资人和创业者都会参与其中，每次峰会都吸引了200+创业公司参展，170+国内外一线媒体报道，并且同时吸引了800+创业公司和一线基金投资人参与特色环节“十分之约”。现在，TechCrunch国际创新创新峰会已经成为中国最顶级最国际性的创业盛事。
+        </div>
+        <div class="introtitle">TechNode</div>
+        <div>
+         动点科技TechNode，中国最具国际影响力的科技新媒体，也是中国首家用中英双语面向全球推荐中国科技创业企业的创新孵化平台。动点科技举办的ChinaBang Awards年度创新盛典，旨在发掘和激励中国创新初创企业，是中国互联网创新力量的摇篮；作为国际顶尖科技媒体品牌TechCrunch的中国独家合作伙伴，动点科技已经将TechCrunch中国创新峰会打造成为中国最顶尖、最国际化的互联网盛会。动点科技旗下品牌还包括TNT品牌创业沙龙、十分之约VC见面会、XFounder创始人俱乐部、NodeSpace加速器等。动点科技已经成为链接中国创业生态和国际创业生态最有公信力的平台之一。
+        </div>
+    </div>
+
 	<div class="sns">
-		<div class="yellow" onclick="document.querySelector('#qr-cyz').classList.add('visible')">微信关注全球创业周</div>
-		<div class="gray" onclick="document.querySelector('#qr-jjh').classList.add('visible')">微信关注创业基金会</div>
+		<b>官方微信</b>
+        <div>
+            <div onclick="document.querySelector('#logo-tc').classList.add('visible')" class="dots" style="background-image: url('{{root}}/assets/logo/logo-tc.png')">
+            </div>
+            <div onclick="document.querySelector('#logo-technodecn').classList.add('visible')"  class="dots" style="background-image: url('{{root}}/assets/logo/logo-technodecn.png')">
+            </div>
+            <div onclick="document.querySelector('#logo-technodeen').classList.add('visible')"  class="dots" style="background-image: url('{{root}}/assets/logo/logo-technodeen.png')">
+            </div>
+            <div onclick="document.querySelector('#logo-technodetv').classList.add('visible')"  class="dots" style="background-image: url('{{root}}/assets/logo/logo-technodetv.png')">
+            </div>
+        </div>
 	</div>
 
-	<div onclick="this.classList.remove('visible')" class="splash" id="qr-jjh" style="background-image:url({{root}}/assets/qr_jjh.png)"></div>
-	<div onclick="this.classList.remove('visible')" class="splash" id="qr-cyz" style="background-image:url({{root}}/assets/qr_cyz.png)"></div>
+    <div onclick="this.classList.remove('visible')" class="splash" id="logo-tc" style="background-image:url({{root}}/assets/logo/QR-tc.png)"></div>
+    <div onclick="this.classList.remove('visible')" class="splash" id="logo-technodecn" style="background-image:url({{root}}/assets/logo/QR-technodecn.png)"></div>
+    <div onclick="this.classList.remove('visible')" class="splash" id="logo-technodeen" style="background-image:url({{root}}/assets/logo/QR-technodeen.png)"></div>
+    <div onclick="this.classList.remove('visible')" class="splash" id="logo-technodetv" style="background-image:url({{root}}/assets/logo/QR-technodetv.png)"></div>
 </template>

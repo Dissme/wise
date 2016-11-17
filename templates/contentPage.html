@@ -19,28 +19,6 @@
 			z-index: 0;
 			overflow: hidden;
 		}
-
-		.header .logo_contain{
-			width: 180px;
-			height: 33px;
-			margin: 1rem auto;
-			text-align: center;
-			line-height: 33px;
-			font-size: 0;
-		}
-
-		.header .logo1{
-			width: 76px;
-			height: 33px;
-			display: inline-block;
-			margin-right: 10px;
-		}
-
-		.header .logo2{
-			width: 89px;
-			height: 22px;
-			display: inline-block;
-		}
 		
 		.header .display {
 			z-index: 1;
@@ -63,34 +41,23 @@
 			right: 15px;
 			color: white;
 		}
-
-		.entries{
-			position: relative!important;
-			bottom: -10px!important;
-		}
-
-		.countparent{
-			background: rgba(99, 154, 198, .2);
-		}
 	</style>
 	<div class="header">
 		<div class="bgHolder">
-			<template id="bg2" />
+			<template id="bg" />
 		</div>
 		<div class="display">
-			<div class="logo_contain">
-				<img src="{{root}}/assets/logo1.png" class="logo1"/>
-				<img src="{{root}}/assets/logo2.png" class="logo2"/>
+			<img onclick="window.location.href='/'" class="logo" src="{{root}}/assets/tc-logo.png" />
+			<div class="logoTxt">
+				<span style="font-family: Arial">SEE THE FUTURE</span><br> 看见未来
 			</div>
 			<template id="searchbar" />
 		</div>
-		<template id="entries" />
 	</div>
 	<div class="container">
 		<div class="about-grid" style="display: none">
 			<template id="about"></template>
 			<template id="contact"></template>
-			<template id="sns"></template>
 		</div>
 		<div class="matches"></div>
 		<!--<template id="schedule-detail"/>
@@ -99,14 +66,14 @@
 		<template id="speaker-detail"/>-->
 		<div class="countparent" id="expand-speaker">
 			<template id="expandable">
-				{ "section":"嘉宾介绍", "sec_en":"Guests", "icon": "speaker", "count": 0, "target": "#speaker-container", "open": "" }
+				{ "section":"演讲者", "icon": "speaker", "count": 0, "target": "#speaker-container", "open": "" }
 			</template>
 			<div class="list countme" id="speaker-container">
 			</div>
 		</div>
 		<div class="countparent" id="expand-schedule">
 			<template id="expandable">
-				{ "section":"活动安排", "sec_en":"Agenda", "icon": "schedule", "count": 0, "target": "#schedule-container", "open": "" }
+				{ "section":"日程", "icon": "schedule", "count": 0, "target": "#schedule-container", "open": "" }
 			</template>
 			<div class="tablist" id="schedule-container">
 				<div class="tabs">
@@ -119,9 +86,24 @@
 			</div>
 		</div>
 
+		<div class="countparent" id="expand-investor">
+			<template id="expandable">
+				{ "section":"十分之约", "icon": "meetup", "count": 0, "target": "#investor-container", "open": "" }
+			</template>
+			<div class="tablist" id="investor-container">
+				<div class="tabs">
+					<!--<div data-day="7">Mon<b>07</b></div>
+					<div data-day="8">Tues<b>08</b></div>-->
+				</div>
+				<div class="countme tabContainer">
+
+				</div>
+			</div>
+		</div>
+
 		<div class="countparent" id="expand-company">
 			<template id="expandable">
-				{ "section":"参展项目", "sec_en":"Projects", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
+				{ "section":"参展公司", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
 			</template>
 			<div class="list countme" style="padding-bottom:0" id="company-container">
 			</div>
@@ -131,10 +113,15 @@
 			<div style="color: #aaa; text-align: center;">暂未找到结果</div>
 		</div>
 	</div>
+
+	<div style="color: white; text-align: center">
+		<template id="poweredBy"></template>
+	</div>
 </inject>
 
 
 <script>
+	console.log(gresult, fresult)
 	var total = gresult.length + fresult.length;
 
 	var gsch = [];
@@ -226,15 +213,11 @@
 	}
 
 	var dayMap = {
-		7: "#1da1d3",
-		8: "#e38f2a",
-		14: "#1da1d3",
-		15: "#e38f2a",
-		16: "#df93a0",
-		17: "#cec91e",
-		18: "#cc372b",
-		19: "#942a62",
-		20: "#6676a1"
+		7: "Mon",
+		8: "Tues",
+		27: "Demo",
+		28: "Demo",
+		29: "Demo",
 	}
 
 	var tabs = $(".tablist");
@@ -260,11 +243,11 @@
 					dayObjs[day[j]].push($(children[i]));
 				}
 			}
-			function select(j, color) {
+			function select(j) {
 				for(var key in dayObjs) {
 					if(key.toString() == j) {
 						for(var l in dayObjs[key]) {
-							dayObjs[key][l].css({"display":"block", "color":color});
+							dayObjs[key][l].css("display", "block");
 						}
 					} else {
 						for(var l in dayObjs[key]) {
@@ -277,23 +260,21 @@
 			var allTabs = [];
 			for(var j = 0; j < days.length; j++){
 				(function (j){
-					var tab = $("<div data-day='" + days[j] + "' data-color='" + dayMap[days[j]] + "'>" + twoDigits(days[j]) + "</div>");
+					var tab = $("<div data-day='" + days[j] + "'>" + dayMap[days[j]] + "<b>" + twoDigits(days[j]) + "</b></div>");
 					tab.appendTo(tabcontainer);
 					if(j == 0) {
 						tab.addClass("active");
-						tab.css({"background":tab.data("color"),"color":"white"});
-						select(days[j], tab.data("color"));
+						select(days[j]);
 					}
 					allTabs.push(tab);
 					tab.click(function(){
 						for(var q = 0; q < allTabs.length; q++) {
 							if(allTabs[q] != tab) {
-								allTabs[q].removeClass("active").css({"background":"none","color":"rgba(102, 118, 161, 0.5)"});
+								allTabs[q].removeClass("active");
 							}
 						}
 						tab.addClass("active");
-						tab.css({"background":tab.data("color"),"color":"white"});
-						select(days[j], tab.data("color"));
+						select(days[j]);
 					});
 				})(j)
 			}
@@ -322,7 +303,7 @@
 	setInterval(handleSchedules, 5000);
 	handleSchedules();
 
-	if((/(week china|GLOBAL ENTREPRENEURSHIP|联系|关于|contact|about)/i).test(window.word)) {
+	if((/(techcrunch|tc|technode|联系|关于|contact|about)/i).test(window.word)) {
 		document.querySelector(".about-grid").style.display = "block";
 	}
 </script>

@@ -4,15 +4,14 @@
 		
 		.expandable-title {
 			height: 3.5rem;
-			border-color: #6676a1;
+			border-color: rgb(47, 143, 35);
 			margin-top: -1px;
 			line-height: 3.5rem;
 			vertical-align: middle;
-			color: #6676a1;
+			color: white;
 			position: relative;
-			background: transparent;
+			background: black;
 			transition: all 0.5s ease;
-			padding: 1rem 1.5rem .5rem;
 		}
 		
 		.expandable-title img:nth-child(1) {
@@ -27,25 +26,20 @@
 		
 		.expandable-title span {
 			vertical-align: middle;
-			font-size: 1.4rem;
-			font-weight: 400;
+			font-size: 20px;
+			font-weight: bold;
 			margin-left: 8px;
 			opacity: 1;
-			line-height: 1.2;
-			margin: auto;
 		}
 		
 		.expandable-title .right {
 			position: absolute;
 			right: 4px;
-			top: 0;
-			bottom: 0;
-			height: 3.5rem;
-			margin: auto;
+			top: 4px;
 		}
 		
 		.expandable-title .right .count {
-			color: #e38f2a;
+			color: rgb(0, 160, 0);
 			font-size: 25px;
 		}
 		
@@ -67,7 +61,7 @@
 		}
 		
 		.expandable.open .expandable-title {
-			background: rgba(99, 154, 198, .2);
+			background: rgba(255, 255, 255, 0.3);
 		}
 		
 		.expandable.open .count {
@@ -89,7 +83,8 @@
     </script>
 	<div class="expandable {{open}}" onclick="$(this).toggleClass('open');$('{{target}}').toggleClass('close');">
 		<div class="expandable-title dots">
-			<span>{{section}}<br>{{sec_en}}</span>
+			<img src="{{root}}/assets/{{icon}}.png" />
+			<span>{{section}}</span>
 			<div class='right'>
 				<span class="count">{{count}}</span>
 				<img src="{{root}}/assets/up.png" />
@@ -100,13 +95,11 @@
 
 <style>
 	.list {
-		border: 1px solid rgb(102, 118, 161);
+		border: 1px solid rgb(47, 143, 35);
 		margin-top: -1px;
-		color: rgb(102, 118, 161);
+		color: rgb(47, 143, 35);
 		max-height: 400px;
 		overflow: scroll;
-		background: white;
-		text-align: center;
 	}
 	
 	.list > * {
@@ -117,9 +110,9 @@
 	}
 	
 	.tablist {
-		border: 1px solid #6676a1;
+		border: 1px solid rgb(47, 143, 35);
 		margin-top: -1px;
-		color: rgb(102, 118, 161);
+		color: rgb(47, 143, 35);
 	}
 
 	.tablist > .tabContainer {
@@ -132,8 +125,9 @@
 	}
 	
 	.tablist .tabs {
-		min-height: 3.5rem;
-		color: rgba(102, 118, 161, 0.5);
+		height: 3.5rem;
+		background: white;
+		color: rgba(47, 143, 35, 0.5);
 	}
 	
 	.tablist .tabs.selected {
@@ -141,14 +135,12 @@
 	}
 	
 	.tablist .tabs > div {
-		width: 2.4rem;
-		height: 2.4rem;
-		line-height: 2.4rem;
+		width: 3.5rem;
+		height: 3.5rem;
 		text-align: center;
+		padding-top: 0.5em;
 		display: inline-block;
-		font-size: 1.2rem;
-		border-radius: 50%;
-		margin: .5rem;
+		font-size: 0.9em;
 	}
 	
 	.tablist .tabs > div b {
@@ -170,32 +162,25 @@
 
 <style>
 	.speaker_item {
+		height: 3.8rem;
 		position: relative;
-		float: left;
-		width: 43%;
-	}
-
-	.speaker_item:nth-child(odd){
-		margin: 5% 2% 5% 5%;
-	}
-
-	.speaker_item:nth-child(even){
-		margin: 5% 5% 5% 2%;
+		background: white;
+		border-bottom: 1px solid rgb(47, 143, 35);
 	}
 	
 	.speaker_item > div:nth-child(1) {
-		width: 6rem;
-		background-repeat: no-repeat;
-		background-position: 50% 50%, 50% 50%;
-		background-size: cover, cover;
-		height: 6rem;
-		margin: auto;
-		border-radius: 50%;
+		width: 3.8rem;
+		background-position: 50% 50%;
+		background-size: cover;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
 	}
 	
 	.speaker_item > div:nth-child(2) {
-		height: 3rem;
-		text-align: center;
+		height: 100%;
+		margin-left: 4.5rem;
 	}
 	
 	.speaker_item b {
@@ -205,7 +190,6 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		font-weight: 500;
 	}
 	
 	.speaker_item span {
@@ -215,12 +199,11 @@
 		overflow: hidden;
 		font-size: 0.8em;
 		text-overflow: ellipsis;
-		opacity: .7;
 	}
 </style>
 <template id="speaker">
 	<div class="speaker_item" onclick="window.location.href='{{root}}/?q={{name}}'">
-		<div style="background-image:url('{{root}}/assets/circle.png'), url('{{root}}/assets/speakers/{{id}}.png')"></div>
+		<div style="background-image:url('{{root}}/assets/speakers/{{id}}.png')"></div>
 		<div>
 			<b>{{name}}</b>
 			<span>{{title}}</span>
@@ -230,33 +213,32 @@
 
 <style>
 	.company_item {
+		height: 3.8rem;
 		position: relative;
 		background: white;
-		display: inline-block;
-		width: 25%;
-		margin: 2.5%;
-		text-align: center;
-		overflow: hidden;
+		border-bottom: 1px solid rgb(47, 143, 35);
 	}
-
+	
 	.company_item > div:nth-child(1) {
-		width: 4rem;
+		width: 3.8rem;
+		background-position: 50% 50%;
+		background-size: contain;
 		background-repeat: no-repeat;
-		background-position: 50% 50%, 50% 50%;
-		background-size: cover, cover;
-		height: 4rem;
-		margin: auto;
-		border-radius: 50%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		border-right: 1px solid rgb(47, 143, 35);
+		top: 0;
 	}
 	
 	.company_item > div:nth-child(2) {
-		height: 2rem;
-		text-align: center;
+		height: 100%;
+		margin-left: 4.5rem;
 	}
 	
 	.company_item b {
 		display: block;
-		font-size: 0.8em;
+		font-size: 1.2em;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -273,7 +255,7 @@
 
 <template id="company">
 	<div class="company_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
-		<div style="background-image:url('{{root}}/assets/circle.png'),url('{{root}}/assets/company/{{id}}.png')"></div>
+		<div style="background-image:url('{{root}}/assets/company/{{id}}.png')"></div>
 		<div>
 			<div class="vmid">
 				<b>{{name}}</b>
@@ -288,7 +270,9 @@
 	.schedule_item {
 		height: 3.8rem;
 		position: relative;
-		background: white;
+		background: black;
+		color: white;
+		border-bottom: 1px solid rgb(47, 143, 35);
 	}
 	
 	.schedule_item > div:nth-child(1) {
@@ -332,15 +316,12 @@
 	.schedule_item .tag {
 		display: none;
 	}
-	.time{
-		color: #66779a;
-	}
 </style>
 <template id="schedule">
 	<div data-date="{{date}}" data-start="{{start}}" data-end="{{end}}" class="schedule_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
 		<div>
 			<div class="vmid">
-				<b class="time">{{start_time}}-{{end_time}}</b><br>
+				<b>{{start_time}}-{{end_time}}</b><br>
 				<span class="tag">正在进行</span>
 			</div>
 		</div>

@@ -165,6 +165,7 @@ window.$$$wrap$$$ = function () {
                 cur.remove();
             }
 
+
             var closure = function () {
                 var untils = d.children("wait");
                 for (var i = 0; i < untils.length; i++) {

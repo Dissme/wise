@@ -24,9 +24,13 @@ window.$$$wrap$$$ = function () {
                 gresult = [];
                 fresult = fillScores($$$edgeData$$$);
             }
-            else if ((/(活动|议程|日程|安排|agenda|schedule|时间)/i.test(window.word))) {
+            else if ((/(议程|日程|安排|agenda|schedule|时间)/i.test(window.word))) {
                 gresult = [];
                 fresult = fillScores({ schedule: $$$edgeData$$$.schedule });
+            }
+            else if ((/(投资|资本|investor|十分|pitch|路演|VC|融资|invest|venture)/i.test(window.word))) {
+                gresult = [];
+                fresult = fillScores({ investor: $$$edgeData$$$.investor });
             }
             else if ((/(演讲|嘉宾|参会|人|VIP)/i.test(window.word))) {
                 gresult = [];
@@ -53,6 +57,7 @@ window.$$$wrap$$$ = function () {
         res.push("templates/contentPage.html");
     }
 
+    
 
     edge.deploy(projroot, res, function () {
         hookSuggestion();

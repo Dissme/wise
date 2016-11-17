@@ -1,4 +1,5 @@
 window.$$$wrap$$$ = function () {
+
     //deal with all sch data
     for (var i in $$$edgeData$$$) {
         for(var j in $$$edgeData$$$[i]) {
@@ -15,6 +16,7 @@ window.$$$wrap$$$ = function () {
 
     window.iconmap = {
         "speaker": "street-view",
+        "investor": "star",
         "schedule": "calendar",
         "company": "rocket",
         "search": "search"
@@ -25,6 +27,12 @@ window.$$$wrap$$$ = function () {
             name: 5,
             title: 3,
             desc: 0.5
+        },
+        investor: {
+            name: 5,
+            time: 0.5,
+            desc: 0.5,
+            tags: 0.5
         },
         schedule: {
             name: 5,
@@ -42,6 +50,12 @@ window.$$$wrap$$$ = function () {
             name: 5,
             title: 3,
             desc: 0.5
+        },
+        investor: {
+            name: 5,
+            time: 0.5,
+            desc: 0.5,
+            tags: 0.5
         },
         schedule: {
             name: 5,
@@ -61,6 +75,9 @@ window.$$$wrap$$$ = function () {
         speaker: {
             name: 3,
             // title: 3,
+        },
+        investor: {
+            name: 3
         },
         schedule: {
             name: 3
@@ -100,12 +117,9 @@ window.$$$wrap$$$ = function () {
         return result;
     }
 
-    window.colors = ['762555','952b61','1fa1d3','ebbcbe','6775a1','1c5b8e','0c6396','0c659d','4862b8','6f6e81','6775a1','e093a0','f0d9a7','e49029','cc382b','ca832b','cec91e','d56652','75909d','543a25','774c2b','cc382b'];
-
     window.hookSuggestion = function (dataSet, scoreScheme) {
         var elem = $$$(document.querySelector(".searchbar input"));
         var container = $$$(document.querySelector(".searchbar .sug"));
-        var len = colors.length;
 
         elem.bind("propertychange change click keyup input paste", function (event) {
             // If value has changed...
@@ -118,8 +132,7 @@ window.$$$wrap$$$ = function () {
                 while (searched.length > 0 && i > 0) {
                     i--;
                     var e = searched.pop();
-                    var color = e.obj.id % len || Math.random() * 100 % len;
-                    var tmp = $$$template("search_sug", { icon: iconmap[e.key], keyword: encodeURIComponent(e.obj.name), text: e.obj.name, color: colors[~~color]}).appendTo(container);
+                    var tmp = $$$template("search_sug", { icon: iconmap[e.key], keyword: encodeURIComponent(e.obj.name), text: e.obj.name }).appendTo(container);
                     tmp.click(function () {
                         window.location.href = "/?q=" + encodeURIComponent(e.obj.name);
                     })
@@ -132,8 +145,9 @@ window.$$$wrap$$$ = function () {
     //deal with all sch data
     for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
         var cur = $$$edgeData$$$.schedule[i];
-        cur.start = dayhourTotime(cur.date, cur.start_time, 14);
-        cur.end = dayhourTotime(cur.date, cur.end_time, 14);
+        console.log(cur);
+        cur.start = dayhourTotime(cur.date, cur.start_time, 11);
+        cur.end = dayhourTotime(cur.date, cur.end_time, 11);
     }
 
 };

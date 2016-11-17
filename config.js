@@ -1,5 +1,4 @@
-var edgeroot = 'http://wifi.lan';
-// var edgeroot = 'http://192.168.40.37/'
+var edgeroot = 'http://localhost';
 window.edgeroot = edgeroot;
 window.projroot = edgeroot + "/";
 
@@ -11,9 +10,11 @@ window.$Edge = {
 
         [edgeroot + '/data/search.json'],
         [edgeroot + '/data/company.json'],
+        [edgeroot + '/data/investor.json'],
         [edgeroot + '/data/schedule.json'],
         [edgeroot + '/data/speaker.json'],
         [edgeroot + '/search.js'],
     ],
     init: [edgeroot + '/main.js']
 };
+
