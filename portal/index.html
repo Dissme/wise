@@ -71,10 +71,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('bg.png') no-repeat center 0;
-            background-size: cover;
+            /*background: url('bg.png') no-repeat center 0;
+            background-size: cover;*/
             overflow: hidden;
             text-align: center;
+            z-index: 200;
         }
         .logo{
             width: 137px;
@@ -185,59 +186,78 @@
     </div>
 
     <script>
-        var cv = document.createElement('canvas');
-        cv.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;'
-        var _w = 375, _h = 667;
-        cv.width = _w;
-        cv.height = _h;
-        var ctx = cv.getContext('2d');
-        ctx.fillStyle = '#000';
-        ctx.translate(0,50)
-        var t = 0;
-        var sin = Math.sin;
-        var cos = Math.cos;
-        var abs = Math.abs;
-        var pi = Math.PI;
-        var o = false;
-
-        function map(x, a, b, c, d) {
-            return (x - a) / (b - a) * (d - c);
-        }
-
-        function mi(x, a, b, c, d) {
-            return Math.floor(map(x,a,b,c,d));
-        }
-
-        function norm(x, c, d) {
-            return Math.floor(map(x * x,0, 1,c,d));
-        }
-
-
-        function render() {
-            t += 0.01;
-            // if (t > _w * 3 + 110){
-            //     t = 1;
-            //     o = !o
-            // }
-            // var _t = t % (pi / 2);
-            var grd = ctx.createRadialGradient(0, 0, 0, 0, 0, 500);
-
-            var a = Math.abs(sin(t));
-            var b = Math.abs(sin(t / 2));
-
-            grd.addColorStop(0,`rgb(${norm(b, 0x30, 0x70)}, ${norm(a, 0x4c, 0xf2)}, 255)`);
-            grd.addColorStop(1,`rgb(${norm(a, 0x30, 0x70)}, ${norm(b, 0x4c, 0xf2)}, 255)`);
-            ctx.fillStyle = grd;
-            ctx.clearRect(0, 0, _w, _h);
-            ctx.beginPath();
-            ctx.moveTo(0,0);
-            ctx.lineTo(_w + 100, _h / 4);
-            ctx.lineTo(0, _h / 2);
-            ctx.fill();
-            requestAnimationFrame(render);
-        }
-        render();
-        document.getElementsByClassName('bg')[0].append(cv);
+        ~function(){
+            var cv = document.createElement('canvas');
+            cv.style.cssText = 'position:fixed;top: 0;left: 0;right: 0;bottom: 0;z-index:100;height:100%;width:100%;'
+            var _w = 375, _h = 667;
+            cv.width = _w;
+            cv.height = _h;
+            var ctx = cv.getContext('2d');
+            ctx.fillStyle = '#000';
+            ctx.translate(0,65)
+            var t = 0;
+            var sin = Math.sin;
+            var abs = Math.abs;
+            var req = +function(){
+                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(cb){setTimeout(cb, 160)}
+            }();
+            var objs = [{
+                x1: _w / 2,y1: _h / 4 -50,
+                x2: _w + 200,y2: 0,
+                x3: _w + 200,y3: _h / 4,
+                color1: [0xde,0x57,0xb4],color2: [0x67,0x00,0x6b] 
+            },{
+                x1: -200,y1: 0,
+                x2: _w + 200,y2: _h / 4,
+                x3: -200,y3: _h / 2,
+                color1: [0xf4,0xa2,0x36],color2: [0xed,0x6b,0x00] 
+            },{
+                x1: _w + 200,y1: _h / 4,
+                x2: -200,y2: _h / 2,
+                x3: _w + 200,y3: _h + 50,
+                color1: [0xf7,0x74,0x78],color2: [0xbd,0x1a,0x1a]
+            },{
+                x1: _w - 80,y1: _h / 4 + 60,
+                x2: _w + 200,y2: _h / 4,
+                x3: _w + 200,y3: _h / 4 + 90,
+                color1: [0x30,0xa2,0xff],color2: [0x00,0x4c,0xff]
+            },{
+                x1: -200,y1: _h / 2,
+                x2: _w + 200,y2: _h + 50,
+                x3: -200,y3: _h + 50,
+                color1: [0x30,0xa2,0xff],color2: [0x00,0x4c,0xff]
+            }]
+            function map(x, a, b, c, d) {
+                return (x - a) / (b - a) * (d - c) + c;
+            }
+            function mi(x, a, b, c, d) {
+                return Math.floor(map(x,a,b,c,d));
+            }
+            function norm(x, c, d) {
+                return Math.floor(map(x * x,0, 1,c,d));
+            }
+            function render() {
+                t += 0.01;
+                var a = abs(sin(t));
+                var b = abs(sin(t / 2));
+                ctx.clearRect(0, 0, _w, _h);
+                for(var i = 0;i<objs.length;i++){
+                    var grd = ctx.createRadialGradient(0,0,0,0,0,500);
+                    grd.addColorStop(0,'rgb('+norm(b,objs[i].color1[0],objs[i].color2[0])+','+norm(a,objs[i].color1[1],objs[i].color2[1])+','+norm(b,objs[i].color1[2],objs[i].color2[2])+')');
+                    grd.addColorStop(1,'rgb('+norm(a,objs[i].color1[0],objs[i].color2[0])+','+norm(b,objs[i].color1[1],objs[i].color2[1])+','+norm(a,objs[i].color1[2],objs[i].color2[2])+')');
+                    ctx.beginPath();
+                    ctx.moveTo(objs[i].x1, objs[i].y1);
+                    ctx.lineTo(objs[i].x2, objs[i].y2);
+                    ctx.lineTo(objs[i].x3, objs[i].y3);
+                    ctx.fillStyle = grd;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+                requestAnimationFrame(render);
+            }
+            render();
+            document.getElementsByTagName('body')[0].appendChild(cv);
+        }()
     </script>
 
     <script>
