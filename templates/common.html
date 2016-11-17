@@ -8,109 +8,83 @@
 			transition: all 0.2s ease;
 			transform: translate(0, 0);
 		}
-		
-		.bg > div:nth-child(1) {
-			background-image: url("{{root}}/assets/pattern.png");
-			position: absolute;
+		.bg canvas{
 			width: 100%;
 			height: 100%;
-			opacity: 0.5;
-			background-size: 20px auto;
-			transition: all 1s linear;
-		}
-		
-		.bg > div:nth-child(3) {
-			position: absolute;
-			width: 14rem;
-			height: 14rem;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%) scale(1);
-		}
-		
-		.bg > div:nth-child(2) {
-			position: absolute;
-			width: 25rem;
-			height: 25rem;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%) scale(1);
-		}
-		
-		.bg > div:nth-child(2) > div {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background-size: 100% 100%;
-			opacity: 0.5;
-			transition: all 1s linear;
-		}
-		
-		.bg > div:nth-child(3) > div {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			opacity: 0.4;
-			border-radius: 100000px;
-			mix-blend-mode: overlay;
-			transition: all 1s linear;
 		}
 	</style>
 	<div class="bg">
-		<div></div>
-		<div>
-			<div style="background-image: url({{root}}/assets/circle.png); transform: scale(0.9)"></div>
-			<div style="background-image: url({{root}}/assets/circle.png); transform: scale(0.95)"></div>
-			<div style="background-image: url({{root}}/assets/circle.png); transform: scale(1)"></div>
-		</div>
-		<div>
-			<div style="transform: translate(-16.1478px, 32.0335px); background: linear-gradient(rgb(46, 175, 255), rgb(26, 156, 26));"></div>
-			<div style="transform: translate(30.1478px, -32.0335px); background: linear-gradient(rgb(26, 156, 26), rgb(46, 175, 255));"></div>
-			<div style="transform: translate(5.1478px, 32.0335px); background: rgb(46, 175, 255);"></div>
-			<div style="transform: translate(-16.1478px, 5.0335px); background: rgb(26, 156, 26)"></div>
-			<div style="transform: translate(-5.1478px, 5.0335px); border: 1px solid rgb(44, 252, 120);"></div>
-			<div style="transform: translate(-25.1478px, -5.0335px); border: 1px solid #fff;"></div>
-			<div style="transform: translate(-15.1478px, 32.0335px); border:  1px solid rgb(44, 40, 255);"></div>
-		</div>
+		<canvas id="canvas"></canvas>
 	</div>
 
 	<script>
-		(function() {
-        var bgContainer = document.querySelector('.bg');
-        var bg = document.querySelectorAll('.bg > div:nth-child(3) > div');
-        var rings = document.querySelectorAll('.bg > div:nth-child(2) > div');
-        var bgPattern = document.querySelector('.bg > div:nth-child(1)');
-        var update = 0;
-        var t = 0;
-        (function raf() {
-            t += 0.005;
-            if(update == 0) {
-                for(var i = 0; i < bg.length; i++) {
-                    var cur = bg[i];
-                    cur.style.transform = "translate(" + Math.sin(i + t * 1) * 30 + "px, " + Math.cos(i * 10 + t * 1) * 30 + "px)";
-                    var blur = Math.cos(i * 100 + t * 1) * Math.cos(i * 100 + t * 1) * 2;
-                    if (blur > 1) {
-                        cur.style.filter = "blur(" + Math.cos(i * 100 + t * 1) * 2 + "px)";
-                    } else {
-                        cur.style.filter = "";
-                    }
-                }
-                for(var i = 0; i < rings.length; i++) {
-                    var cur = rings[i];
-                    var scale = 1 - i * 0.05;
-                     cur.style.opacity = (i + 1) * 0.2;
-                    cur.style.transform = "scale(" + scale + ") rotate(" + (t * (i + 1) * 10) + "deg)";
-                }
-                bgPattern.style["opacity"] = Math.max(0, Math.sin(t) * 0.5) + 0.1;
-            }
-            update ++;
-            if(update > 50) {
-                update = 0;
-            }
-            requestAnimationFrame(raf);
-        })();
-		})();
-    </script>
+		~function(){
+			var w = 357,h = 667;
+			var size = 30,seeds = Math.max(h,w) / 30;
+			var sin = Math.sin, abs = Math.abs, cos = Math.cos, rd = Math.round;
+			var canvasBody = document.getElementById("canvas"),ctx = canvasBody.getContext("2d");
+			var t = 0;
+			var triangle = function(x,y){
+				this.x = x;
+				this.y = y;
+				this.draw = function(){
+					t += 0.00001;
+					var a = abs(sin(t));
+					var b = abs(sin(t / 2));
+					var cl = {color1: [0x30,0xa2,0xff],color2: [0x00,0x4c,0xff]};
+					var gb = ctx.createLinearGradient(0,0,100,100);
+					var gb2 = ctx.createLinearGradient(0,0,100,100);
+					gb.addColorStop(0,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
+					gb.addColorStop(1,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
+					gb2.addColorStop(0,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
+					gb2.addColorStop(1,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
+					ctx.beginPath();
+					ctx.moveTo(this.x,this.y);
+					ctx.lineTo(this.x + size,this.y);
+					ctx.lineTo(this.x + size / 2,this.y + size);
+					ctx.fillStyle = gb;
+					ctx.fill();
+					ctx.closePath();
+
+					ctx.beginPath();
+					ctx.moveTo(this.x,this.y);
+					ctx.lineTo(this.x,this.y + size);
+					ctx.lineTo(this.x + size / 2,this.y + size);
+					ctx.fillStyle = gb2;
+					ctx.fill();
+					ctx.closePath();
+					
+					ctx.beginPath();
+					ctx.moveTo(this.x + size,this.y);
+					ctx.lineTo(this.x + size,this.y + size);
+					ctx.lineTo(this.x + size / 2,this.y + size);
+					ctx.fillStyle = gb2;
+					ctx.fill();
+					ctx.closePath();
+				}
+			}
+			var pool = [];
+			for(var i = 0; i < seeds; i ++){
+				for(var j = 0; j < seeds; j++){
+					pool.push(new triangle(i * size,j * size));
+				}
+			}
+			function map(x, a, b, c, d) {
+				return (x - a) / (b - a) * (d - c) + c;
+			}
+			function norm(x, c, d) {
+				return Math.floor(map(x * x,0, 1,c,d));
+			}
+			var render = function () {
+				ctx.clearRect(0,0,w,h);
+				for(var i = 0; i < pool.length; i ++){
+					pool[i].draw();
+				}
+				requestAnimationFrame(render);
+			}
+			render();
+		}()
+	</script>
 
 </template>
 

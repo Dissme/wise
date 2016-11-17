@@ -230,9 +230,6 @@
             function map(x, a, b, c, d) {
                 return (x - a) / (b - a) * (d - c) + c;
             }
-            function mi(x, a, b, c, d) {
-                return Math.floor(map(x,a,b,c,d));
-            }
             function norm(x, c, d) {
                 return Math.floor(map(x * x,0, 1,c,d));
             }
