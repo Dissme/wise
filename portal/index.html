@@ -223,10 +223,10 @@
             var grd = ctx.createRadialGradient(0, 0, 0, 0, 0, 500);
 
             var a = Math.abs(sin(t));
-            var b = Math.abs(cos(t /3));
+            var b = Math.abs(sin(t / 2));
 
-            grd.addColorStop(0,`rgb(${norm(a, 0, 0x30)}, ${norm(a, 0x4c, 0xa2)}, 255)`);
-            grd.addColorStop(1,`rgb(${norm(b, 0, 0x30)}, ${norm(b, 0x4c, 0xa2)}, 255)`);
+            grd.addColorStop(0,`rgb(${norm(b, 0x30, 0x70)}, ${norm(a, 0x4c, 0xf2)}, 255)`);
+            grd.addColorStop(1,`rgb(${norm(a, 0x30, 0x70)}, ${norm(b, 0x4c, 0xf2)}, 255)`);
             ctx.fillStyle = grd;
             ctx.clearRect(0, 0, _w, _h);
             ctx.beginPath();
