@@ -35,8 +35,34 @@
 		
 		.main .logo {
 			display: block;
-			height: 25px;
-			margin: 15px;
+			height: 150px;
+			width: 250px;
+			position: relative;
+			z-index: 100;
+			overflow: hidden;
+		}
+
+		.main .logo:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 0;
+			height: 0;
+			content: '';
+			border: 125px solid #fff;
+			border-top: 75px solid #fff;
+			border-bottom: 75px solid transparent;
+			border-right-color: transparent;
+			z-index: 101;
+		}
+
+		.main .logo img{
+			height: 47px;
+			display: block;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			z-index: 102;
 		}
 		
 		.schedule_board {
@@ -120,8 +146,9 @@
 		<template id="bg" />
 	</div>
 	<div class="main">
-		<img class="logo" src="{{root}}/assets/tc-logo.png" />
-		<h1><span style="font-family: Arial">SEE THE FUTURE</span><br>看见未来</h1>
+		<div class="logo">
+			<img src="{{root}}/assets/tc-logo.png" />
+		</div>
 		<div class="schedule_board dots">
 			<div id="schedule_board_container" class="rbox scrollbox">
 

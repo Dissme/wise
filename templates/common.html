@@ -23,52 +23,11 @@
 			var size = 30,seeds = Math.max(h,w) / 30;
 			var sin = Math.sin, abs = Math.abs, cos = Math.cos, rd = Math.round;
 			var canvasBody = document.getElementById("canvas"),ctx = canvasBody.getContext("2d");
+			var heightScale = 1;
 			var t = 0;
-			var triangle = function(x,y){
-				this.x = x;
-				this.y = y;
-				this.draw = function(){
-					t += 0.00001;
-					var a = abs(sin(t));
-					var b = abs(sin(t / 2));
-					var cl = {color1: [0x30,0xa2,0xff],color2: [0x00,0x4c,0xff]};
-					var gb = ctx.createLinearGradient(0,0,100,100);
-					var gb2 = ctx.createLinearGradient(0,0,100,100);
-					gb.addColorStop(0,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
-					gb.addColorStop(1,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
-					gb2.addColorStop(0,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
-					gb2.addColorStop(1,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
-					ctx.beginPath();
-					ctx.moveTo(this.x,this.y);
-					ctx.lineTo(this.x + size,this.y);
-					ctx.lineTo(this.x + size / 2,this.y + size);
-					ctx.fillStyle = gb;
-					ctx.fill();
-					ctx.closePath();
-
-					ctx.beginPath();
-					ctx.moveTo(this.x,this.y);
-					ctx.lineTo(this.x,this.y + size);
-					ctx.lineTo(this.x + size / 2,this.y + size);
-					ctx.fillStyle = gb2;
-					ctx.fill();
-					ctx.closePath();
-					
-					ctx.beginPath();
-					ctx.moveTo(this.x + size,this.y);
-					ctx.lineTo(this.x + size,this.y + size);
-					ctx.lineTo(this.x + size / 2,this.y + size);
-					ctx.fillStyle = gb2;
-					ctx.fill();
-					ctx.closePath();
-				}
-			}
-			var pool = [];
-			for(var i = 0; i < seeds; i ++){
-				for(var j = 0; j < seeds; j++){
-					pool.push(new triangle(i * size,j * size));
-				}
-			}
+			var rnd = function (min, max) {
+				return Math.floor((Math.random() * (max - min + 1)) + min);
+			};
 			function map(x, a, b, c, d) {
 				return (x - a) / (b - a) * (d - c) + c;
 			}
@@ -77,9 +36,61 @@
 			}
 			var render = function () {
 				ctx.clearRect(0,0,w,h);
-				for(var i = 0; i < pool.length; i ++){
-					pool[i].draw();
-				}
+				var hueStart = rnd(0, 360);
+				var triSide = 20;
+				var halfSide = triSide / 2;
+				var rowHeight = Math.floor(triSide * heightScale);
+				var columns = Math.ceil(w / triSide) + 1;
+				var rows = Math.ceil(h / rowHeight);
+				t += 0.01;
+				for (row = 0; row < rows; row++) {
+					for (col = 0; col < columns; col++) {
+						var a = abs(sin(t));
+						var b = abs(sin(t / 2));
+						var cl = {color1: [0x30,0xa2,0xff],color2: [0x00,0x4c,0xff]};
+						var gb = ctx.createLinearGradient(0,0,100,100);
+						var gb2 = ctx.createLinearGradient(0,0,100,100);
+						gb.addColorStop(0,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
+						gb.addColorStop(1,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
+						gb2.addColorStop(0,'rgb('+norm(a,cl.color1[0],cl.color2[0])+','+norm(a,cl.color1[1],cl.color2[1])+','+norm(b,cl.color1[2],cl.color2[2])+')');
+						gb2.addColorStop(1,'rgb('+norm(b,cl.color1[0],cl.color2[0])+','+norm(b,cl.color1[1],cl.color2[1])+','+norm(a,cl.color1[2],cl.color2[2])+')');
+
+						var hue = norm(a, 207, 222);
+
+						var x = col * triSide;
+						var y = row * rowHeight;
+						var clr;
+
+						if (row % 2 != 0) {
+							x -= halfSide;
+						}
+
+						// upward pointing triangle
+						clr = 'hsl(' + hue + ', 50%, ' + map(row, 0, rows, 30, 60) + '%)';
+						ctx.fillStyle = clr;
+						ctx.strokeStyle = clr;
+						ctx.beginPath();
+						ctx.moveTo(x, y);
+						ctx.lineTo(x + halfSide, y + rowHeight);
+						ctx.lineTo(x - halfSide, y + rowHeight);
+						ctx.closePath();
+						ctx.fill();
+						ctx.stroke(); // needed to fill antialiased gaps on edges
+
+						// downward pointing triangle
+						clr = 'hsl(' + hue + ', 50%, ' + map(row, 0, rows, 30, 60) + '%)';
+						ctx.fillStyle = clr;
+						ctx.strokeStyle = clr;
+						ctx.beginPath();
+						ctx.moveTo(x, y);
+						ctx.lineTo(x + triSide, y);
+						ctx.lineTo(x + halfSide, y + rowHeight);
+						ctx.closePath();
+						ctx.fill();
+						ctx.stroke();
+
+					};
+				};
 				requestAnimationFrame(render);
 			}
 			render();
@@ -114,7 +125,7 @@
 			position: absolute;
 			right: 0;
 			top: 0;
-			background: rgb(26, 156, 26);
+			background: #0f68ff;
 			background-image: url("{{root}}/assets/search.png");
 			background-size: 20px 20px;
 			background-position: 50% 50%;
