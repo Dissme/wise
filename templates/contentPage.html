@@ -21,25 +21,81 @@
 		}
 		
 		.header .display {
-			z-index: 1;
+			z-index: 100;
 			position: relative;
+			padding-top: 90px;
 		}
 		
 		.logo {
 			display: block;
+			left: 0;
+			top: 0;
+			position: absolute;
+			z-index: 100;
+		}
+
+		.logo:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 0;
+			height: 0;
+			content: '';
+			border: 80px solid #fff;
+			border-top: 40px solid #fff;
+			border-bottom: 40px solid transparent;
+			border-right-color: transparent;
+			z-index: 101;
+		}
+
+		.logo img{
 			height: 25px;
-			margin: 15px;
-			margin-bottom: 30px;
+			display: block;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			z-index: 102;
 		}
 		
 		.logoTxt {
 			display: block;
 			position: absolute;
-			top: 0px;
-			font-weight: 900;
+			top: 10px;
+			font-weight: 100;
 			text-align: right;
-			right: 15px;
+			right: 10px;
 			color: white;
+			padding: 10px;
+			line-height: 1.2;
+			z-index: 100;
+		}
+
+		.logoTxt:before{
+			position: absolute;
+			top: 0;
+			right: 0;
+			border: none;
+			border-top: 3px solid white;
+			border-right: 3px solid white;
+			content: '';
+			height: 15px;
+			width: 20px;
+		}
+		
+		.logoTxt:after{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border: none;
+			border-bottom: 3px solid white;
+			border-left: 3px solid white;
+			content: '';
+			height: 15px;
+			width: 20px;
+		}
+
+		.searchbar{
+			z-index: 200;
 		}
 	</style>
 	<div class="header">
@@ -47,9 +103,11 @@
 			<template id="bg" />
 		</div>
 		<div class="display">
-			<img onclick="window.location.href='/'" class="logo" src="{{root}}/assets/tc-logo.png" />
+			<div class="logo">
+				<img onclick="window.location.href='/'" class="logo" src="{{root}}/assets/tc-logo.png" />
+			</div>
 			<div class="logoTxt">
-				<span style="font-family: Arial">SEE THE FUTURE</span><br> 看见未来
+				<span style="font-family: Arial">Keep Fighting<br>and<br>Carry on</span>
 			</div>
 			<template id="searchbar" />
 		</div>

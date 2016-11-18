@@ -1,7 +1,7 @@
 <style>
 	.detail {
 		text-align: middle;
-		color: rgb(47, 143, 35);
+		color: rgb(15, 104, 255);
 		border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
 		margin: 30px;
 		padding-bottom: 30px;
@@ -14,7 +14,7 @@
 	.detail .dots {
 		padding: 0;
 		margin: 0;
-		border-color: rgb(47, 143, 35);
+		border-color: rgb(15, 104, 255);
 	}
 	
 	.dots[data-desc=""] {
@@ -26,13 +26,13 @@
 	}
 	
 	.detail .avatar {
-		border-color: rgb(47, 143, 35);
+		border-color: rgb(15, 104, 255);
 		width: 5rem;
 		height: 5rem;
 		padding: 0;
 		margin: auto auto;
 		margin-bottom: 15px;
-		background: white;
+		background: #666;
 		background-position: 50% 50%;
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 	}
 	
 	.detail .text {
-		color: white;
+		color: #666;
 		margin: 20px;
 		font-size: 15px;
 	}
@@ -68,10 +68,10 @@
 		display: block;
 		padding: 15px;
 		text-decoration: none;
-		color: white;
+		color: #666;
 		font-size: 17px;
 		font-weight: bold;
-		background: rgb(47, 143, 35);
+		background: rgb(15, 104, 255);
 	}
 	
 	.detail .url[href=''] {
@@ -87,13 +87,12 @@
 	}
 	
 	.schedule-detail {
-		background: white;
 		position: relative;
-		border-bottom: 1px solid rgb(47, 143, 35);
+		border-bottom: 1px solid rgba(15, 104, 255, .5);
 	}
 	
 	.schedule-detail .time {
-		color: rgb(47, 143, 35);
+		color: rgb(15, 104, 255);
 		text-align: center;
 		font-weight: bold;
 		position: absolute;
@@ -104,7 +103,7 @@
 	}
 	
 	.schedule-detail .text {
-		color: rgb(47, 143, 35);
+		color: rgb(15, 104, 255);
 		text-align: left;
 		font-size: 18px;
 		font-weight: bold;
@@ -143,8 +142,8 @@
 <template id="speaker-detail">
 	<div class="speaker-detail detail">
 		<div class="dots avatar" style="background-image:url('{{root}}/assets/speakers/{{id}}.png')"></div>
-		<div class="name" style="color: white">{{name}}</div>
-		<div class="subname" style="color: white">{{title}}</div>
+		<div class="name" style="color: #666">{{name}}</div>
+		<div class="subname" style="color: #666">{{title}}</div>
 		<div class="dots" data-desc="{{desc}}">
 			<div class="text">{{desc}}</div>
 		</div>
