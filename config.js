@@ -7,7 +7,7 @@ window.$Edge = {
         [edgeroot + '/utils/common.js'],
         [edgeroot + '/utils/pinyin.js'],
         [edgeroot + '/utils/searchutil.js'],
-
+        [edgeroot + '/utils/three.min.js'],
         [edgeroot + '/data/search.json'],
         [edgeroot + '/data/company.json'],
         [edgeroot + '/data/investor.json'],
