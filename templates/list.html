@@ -2,7 +2,7 @@
 	<style>
 		.expandable-title {
 			height: 3.5rem;
-			margin-top: -1px;
+			margin: -1px 15px;
 			line-height: 3.5rem;
 			vertical-align: middle;
 			position: relative;
@@ -25,6 +25,7 @@
 			font-weight: bold;
 			margin-left: 8px;
 			opacity: 1;
+			color: rgb(15, 104, 255);
 		}
 		
 		.expandable-title .right {
@@ -34,7 +35,7 @@
 		}
 		
 		.expandable-title .right .count {
-			color: rgb(15,104,255);
+			color: #666;
 			font-size: 25px;
 		}
 		
@@ -48,10 +49,6 @@
 		
 		.expandable.open .right img {
 			transform: rotate(-180deg);
-		}
-		
-		.expandable.open .count {
-			color: rgba(0, 0, 0, 0);
 		}
 		
 		.close {
@@ -80,8 +77,6 @@
 
 <style>
 	.list {
-		border: 1px solid rgb(15, 104, 255);
-		margin-top: -1px;
 		color: rgb(15, 104, 255);
 		max-height: 400px;
 		overflow: scroll;
@@ -95,8 +90,9 @@
 	}
 	
 	.tablist {
-		margin-top: -1px;
 		color: rgb(15, 104, 255);
+		margin: -1px 15px 0;
+		border-bottom: 1px solid rgba(15, 104, 255, 0.5); 
 	}
 
 	.tablist > .tabContainer {
@@ -142,14 +138,22 @@
 
 <style>
 	.speaker_item {
-		height: 3.8rem;
+		height: 4rem;
 		position: relative;
-		background: white;
-		border-bottom: 1px solid rgb(15, 104, 255);
+		color: #fff;
+		font-weight: 100;
+	}
+
+	.speaker_item:nth-child(odd){
+		background: #30a2ff;
+	}
+
+	.speaker_item:nth-child(even){
+		background: #004cff;
 	}
 	
 	.speaker_item > div:nth-child(1) {
-		width: 3.8rem;
+		width: 4rem;
 		background-position: 50% 50%;
 		background-size: cover;
 		height: 100%;
@@ -183,7 +187,7 @@
 </style>
 <template id="speaker">
 	<div class="speaker_item" onclick="window.location.href='{{root}}/?q={{name}}'">
-		<div style="background-image:url('{{root}}/assets/speakers/{{id}}.png')"></div>
+		<div style="background-image:url('{{root}}/assets/speakers/{{id}}.png'),radial-gradient(at center center,#a3afc8,#5e719d)"></div>
 		<div>
 			<b>{{name}}</b>
 			<span>{{company}} {{position}}</span>
@@ -193,21 +197,21 @@
 
 <style>
 	.company_item {
-		height: 3.8rem;
+		height: 4rem;
 		position: relative;
-		background: white;
-		border-bottom: 1px solid rgb(15, 104, 255);
+		border-bottom: 1px solid rgba(15, 104, 255, .5);
+		color: #666;
+		margin: 0 15px;
 	}
-	
+
 	.company_item > div:nth-child(1) {
-		width: 3.8rem;
+		width: 4rem;
 		background-position: 50% 50%;
 		background-size: contain;
 		background-repeat: no-repeat;
 		height: 100%;
 		position: absolute;
 		left: 0;
-		border-right: 1px solid rgb(15, 104, 255);
 		top: 0;
 	}
 	
@@ -248,7 +252,7 @@
 
 <style>
 	.schedule_item {
-		height: 3.8rem;
+		height: 4rem;
 		position: relative;
 		border-bottom: 1px solid rgba(15, 104, 255, .5);
 	}
@@ -314,7 +318,7 @@
 
 <style>
 	.investor_item {
-		height: 3.8rem;
+		height: 4rem;
 		position: relative;
 		border-bottom: 1px solid rgb(15, 104, 255);
 	}

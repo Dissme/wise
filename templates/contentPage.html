@@ -6,10 +6,6 @@
 			margin-bottom: 15px;
 		}
 		
-		.container {
-			margin: 15px;
-		}
-		
 		.bgHolder {
 			top: -15px;
 			left: 0;
@@ -21,9 +17,18 @@
 		}
 		
 		.header .display {
+			transition: all .3s ease;
 			z-index: 100;
 			position: relative;
 			padding-top: 90px;
+		}
+
+		.header.short .display{
+			padding-top: 45px;
+		}
+
+		.header.short .logoTxt{
+			opacity: 0;
 		}
 		
 		.logo {
@@ -58,6 +63,7 @@
 		}
 		
 		.logoTxt {
+			transition: all .3s ease;
 			display: block;
 			position: absolute;
 			top: 10px;
@@ -97,6 +103,11 @@
 		.searchbar{
 			z-index: 200;
 		}
+
+		#company-container{
+			margin: 1px 0 0;
+			border-bottom: 1px solid rgba(15, 104, 255, .5); 
+		}
 	</style>
 	<div class="header">
 		<div class="bgHolder">
@@ -113,7 +124,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="about-grid" style="display: none">
+		<div class="about-grid" style="display: none;margin: 15px;">
 			<template id="about"></template>
 			<template id="contact"></template>
 		</div>
@@ -172,7 +183,7 @@
 		</div>
 	</div>
 
-	<div style="color: white; text-align: center">
+	<div style="color: white; text-align: center;background: #000;">
 		<template id="poweredBy"></template>
 	</div>
 </inject>
@@ -245,9 +256,23 @@
 	//finish loading
 	//count
 	var counts = $(".countme");
+	var hd = $('.header');
 	var parts = 0;
 	for(var i = 0; i < counts.length; i++) {
 		var cur = $(counts[i]);
+		cur.on('scroll',function(e){
+			var _tt = e.currentTarget;
+			if(!_tt.dataset.sc){
+				_tt.dataset.sc = 100;
+			} 
+			if (_tt.scrollTop - _tt.dataset.sc > 120) {
+				_tt.dataset.sc = _tt.scrollTop;
+				hd.addClass('short');
+			} else if (_tt.scrollTop - _tt.dataset.sc < -120) {
+				_tt.dataset.sc = _tt.scrollTop;
+				hd.removeClass('short');
+			}
+		});
 		var par = cur.parents(".countparent");
 		if(cur.children().length == 0) {
 			par.remove();
