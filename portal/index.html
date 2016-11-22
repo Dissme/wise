@@ -198,9 +198,9 @@
             var t = 0;
             var sin = Math.sin;
             var abs = Math.abs;
-            var req = +function(){
+            var req = (function(){
                 return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(cb){setTimeout(cb, 160)}
-            }();
+            })();
             var objs = [{
                 x1: _w / 2,y1: _h / 4 -50,
                 x2: _w + 200,y2: 0,
@@ -250,7 +250,7 @@
                     ctx.fill();
                     ctx.closePath();
                 }
-                requestAnimationFrame(render);
+                req(render);
             }
             render();
             document.getElementsByTagName('body')[0].appendChild(cv);
