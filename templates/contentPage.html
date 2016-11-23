@@ -1,9 +1,13 @@
 <inject appendTo="body">
 	<style>
 		.header {
-			position: relative;
+			position: fixed;
 			padding-bottom: 10px;
 			margin-bottom: 15px;
+			left: 0;
+			right: 0;
+			top: 0;
+			z-index: 100;
 		}
 		
 		.bgHolder {
@@ -123,7 +127,7 @@
 			<template id="searchbar" />
 		</div>
 	</div>
-	<div class="container">
+	<div class="container" style="margin-top: 155px;transition: all .3s ease;">
 		<div class="about-grid" style="display: none;margin: 15px;">
 			<template id="about"></template>
 			<template id="contact"></template>
@@ -183,8 +187,8 @@
 		</div>
 	</div>
 
-	<div style="color: white; text-align: center;background: #000;">
-		<template id="poweredBy"></template>
+	<div style="color: #666; text-align: center;">
+		<template id="poweredBy">{"em" : "emerge2"}</template>
 	</div>
 </inject>
 
@@ -257,6 +261,7 @@
 	//count
 	var counts = $(".countme");
 	var hd = $('.header');
+	var cn = $('.container');
 	var parts = 0;
 	for(var i = 0; i < counts.length; i++) {
 		var cur = $(counts[i]);
@@ -265,12 +270,14 @@
 			if(!_tt.dataset.sc){
 				_tt.dataset.sc = 100;
 			} 
-			if (_tt.scrollTop - _tt.dataset.sc > 120) {
+			if (_tt.scrollTop - _tt.dataset.sc > 200) {
 				_tt.dataset.sc = _tt.scrollTop;
 				hd.addClass('short');
-			} else if (_tt.scrollTop - _tt.dataset.sc < -120) {
+				cn.css('transform','translate(0,-45px)');
+			} else if (_tt.scrollTop - _tt.dataset.sc < -200) {
 				_tt.dataset.sc = _tt.scrollTop;
 				hd.removeClass('short');
+				cn.css('transform','translate(0,0)');
 			}
 		});
 		var par = cur.parents(".countparent");

@@ -23,7 +23,7 @@ body, html {
 }
 
 .scrollbox {
-    overflow: scroll;
+    overflow: auto;
 }
 
 .dots {
