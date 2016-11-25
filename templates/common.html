@@ -8,7 +8,8 @@
 			transition: all 0.2s ease;
 			transform: translate(0, 0);
 		}
-		.bg canvas{
+		
+		.bg canvas {
 			width: 100%!important;
 		}
 	</style>
@@ -106,51 +107,156 @@
 <template id="entries">
 	<style>
 		.entries {
-				width: 100%;
-				color: white;
-				text-align: center;
-				white-space: nowrap;
-				margin-top: 30px;
-				font-size: 0.8em;
-			}
-			
-			.entries a img {
-				display: inline-block;
-				height: 20px;
-				margin: 5px;
-				margin-top: 5px;
-				margin-bottom: 8px;
-			}
-			
-			.entries a span {
-				font-weight: 300;
-				display: block;
-				color: white;
-			}
-			
-			.entries a {
-				width: 22%;
-				display: inline-block;
-				text-decoration: none;
-				text-align: center;
-				color: white;
-			}
+			width: 100%;
+			color: white;
+			text-align: center;
+			white-space: nowrap;
+			margin-top: 30px;
+			font-size: 0.8em;
+		}
+		
+		.entries a img {
+			display: inline-block;
+			height: 20px;
+			margin: 5px;
+			margin-top: 5px;
+			margin-bottom: 8px;
+		}
+		
+		.entries a span {
+			font-weight: 300;
+			display: block;
+			color: white;
+		}
+		
+		.entries a {
+			width: 22%;
+			height: 3rem;
+			display: inline-block;
+			text-decoration: none;
+			text-align: center;
+			color: white;
+			overflow: hidden;
+		}
+		
+		.entries a svg {
+			max-width: 100%;
+			max-height: 2rem;
+			fill: #fff;
+		}
 	</style>
 	<div class="entries">
 		<a href="{{root}}/?q=日程">
-			<img src="{{root}}/assets/calendar.png" />
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="550"
+				height="550" viewBox="0 0 550 550" enable-background="new 0 0 550 550" xml:space="preserve" style="transform:translate(0,-20%)">
+				<g>
+					<path d="M530.206,207.676H64.446v-93.152h465.761V207.676z" />
+				</g>
+				<g>
+					<rect x="64.446" y="387.95" width="91.969" height="91.961" />
+					<rect x="189.026" y="387.95" width="91.969" height="91.961" />
+					<rect x="313.656" y="387.95" width="91.947" height="91.961" />
+					<rect x="438.244" y="387.95" width="91.969" height="91.961" />
+				</g>
+				<g>
+					<rect x="64.446" y="251.53" width="91.969" height="91.969" />
+					<rect x="189.026" y="251.53" width="91.969" height="91.969" />
+					<rect x="313.656" y="251.53" width="91.947" height="91.969" />
+					<rect x="438.244" y="251.53" width="91.969" height="91.969" />
+				</g>
+			</svg>
 			<span>议程安排</span>
 		</a>
 		<a href="{{root}}/?q=场景搜索">
-			<img src="{{root}}/assets/scene.png" style="transform:translateY(1.5px) scale(1.2);" />
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="100"
+				height="130" viewBox="0 0 100 130" enable-background="new 0 0 100 130" xml:space="preserve">
+				<g>
+					<defs>
+						<rect id="SVGID_1_" width="130.098" height="104.341" />
+					</defs>
+					<clipPath id="SVGID_2_">
+						<use xlink:href="#SVGID_1_" overflow="visible" />
+					</clipPath>
+
+					<rect x="109.083" y="90.863" transform="matrix(-0.7283 -0.6853 0.6853 -0.7283 142.4314 245.2669)" clip-path="url(#SVGID_2_)"
+						width="21.519" height="7.064" />
+					<g clip-path="url(#SVGID_2_)">
+						<defs>
+							<rect id="SVGID_3_" width="130.098" height="104.341" />
+						</defs>
+						<clipPath id="SVGID_4_">
+							<use xlink:href="#SVGID_3_" overflow="visible" />
+						</clipPath>
+						<path clip-path="url(#SVGID_4_)" d="M97.843,55.993c9.961,0,18.065,8.104,18.065,18.066
+			c0,9.961-8.104,18.065-18.065,18.065c-9.962,0-18.066-8.104-18.066-18.065C79.776,64.098,87.881,55.993,97.843,55.993
+			 M97.843,51.993c-12.188,0-22.066,9.879-22.066,22.066c0,12.186,9.879,22.065,22.066,22.065c12.187,0,22.065-9.88,22.065-22.065
+			C119.908,61.872,110.029,51.993,97.843,51.993" />
+						<polygon clip-path="url(#SVGID_4_)" points="48.111,0 0,0 0,49.779 56.474,37.023 		" />
+						<polygon clip-path="url(#SVGID_4_)" points="60.712,0 68.463,34.314 102.477,26.631 102.477,0 		" />
+						<polygon clip-path="url(#SVGID_4_)" points="20.7,57.707 0,62.381 0,77.634 25.203,77.634 		" />
+						<g opacity="0.41" clip-path="url(#SVGID_4_)">
+							<g>
+								<defs>
+									<path id="SVGID_5_" d="M20.7,57.707L20.7,57.707z" />
+								</defs>
+								<clipPath id="SVGID_6_">
+									<use xlink:href="#SVGID_5_" overflow="visible" />
+								</clipPath>
+							</g>
+						</g>
+						<path clip-path="url(#SVGID_4_)" d="M37.804,77.634h35.053c-0.166-1.168-0.258-2.361-0.258-3.575
+			c0-13.94,11.302-25.242,25.242-25.242c1.584,0,3.132,0.153,4.635,0.432V39.233L32.688,54.997L37.804,77.634z" />
+					</g>
+				</g>
+			</svg>
 			<span>场景搜索</span>
 		</a href="#">
 		<a href="http://36kr.com/topics/117" target="_blank">
-			<img src="{{root}}/assets/news.png" style="scale(0.95);" />
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="40" height="40"
+				viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" style="transform:translate(-10%,-10%)">
+				<g transform="translate(0,-952.36218)">
+					<path d="M15.8,959.562v22.6c0,1.144-0.434,2.191-1.137,3H38.6c1.884,0,3.2-1.316,3.2-3.2v-22.399H15.8z M31,963.562h6.4
+		c0.443,0,0.8,0.356,0.8,0.8s-0.356,0.8-0.8,0.8H31c-0.443,0-0.8-0.356-0.8-0.8S30.557,963.562,31,963.562z M8.2,964.362v17.8
+		c0,1.662,1.338,3,3,3c1.662,0,3-1.338,3-3v-17.8H8.2z M20.2,964.362H26.6v5.6H20.2V964.362z M31,969.162h6.4
+		c0.443,0,0.8,0.357,0.8,0.8c0,0.443-0.356,0.8-0.8,0.8H31c-0.443,0-0.8-0.357-0.8-0.8C30.2,969.519,30.557,969.162,31,969.162z
+		 M20.2,974.362h17.2c0.443,0,0.8,0.357,0.8,0.8c0,0.443-0.356,0.8-0.8,0.8H20.2c-0.443,0-0.8-0.357-0.8-0.8
+		C19.4,974.719,19.757,974.362,20.2,974.362z M20.2,979.562h17.2c0.443,0,0.8,0.356,0.8,0.8s-0.356,0.8-0.8,0.8H20.2
+		c-0.443,0-0.8-0.356-0.8-0.8S19.757,979.562,20.2,979.562z" />
+				</g>
+			</svg>
 			<span>动点新闻</span>
 		</a>
 		<a href="{{root}}/?q=关于">
-			<img src="{{root}}/assets/tc.png" />
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="700"
+				height="550" viewBox="0 0 700 550" enable-background="new 0 0 700 550" xml:space="preserve" style="transform: scale(3.5) translate(-1%,-15%)">
+				<path d="M448.715,312.928l0.059,68.668l-16.624-16.625l0.017-35.502L448.715,312.928z M449.812,310.276
+		l-18.747,18.738l-0.017,36.412l18.828,18.828L449.812,310.276z" />
+				<path d="M399.264,311.375l-8.4,38.941l-14.818-16.704l4.84-22.237H399.264z M400.627,310.276H380l-5.148,23.648
+		l16.629,18.746L400.627,310.276z" />
+				<path d="M249.264,311.375l16.893,72.16h-17.729l-16.044-72.16H249.264z M250.136,310.276h-19.123l16.533,74.359
+		h19.998L250.136,310.276z" />
+				<path d="M290.953,311.375l27.775,72.16h-18.776l-15.661-41.635l-1.036-2.756l-1.025,2.76l-15.451,41.631h-17.627
+		l28-72.16H290.953z M291.708,310.276h-15.309l-28.853,74.359h19.998l15.718-42.348l15.929,42.348h21.139L291.708,310.276z"
+				/>
+				<path d="M334.422,311.375l-14.987,72.16h-18.856l16.943-72.16H334.422z M335.774,310.276h-19.123l-17.46,74.359
+		h21.139L335.774,310.276z" />
+				<path d="M408.435,335.014l14.177,16.551h-30.637l-14.677-16.551H408.435z M408.941,333.915h-34.089l16.629,18.75
+		h33.523L408.941,333.915z" />
+				<path d="M409.545,336.304l14.267,16.651l-6.613,30.58h-17.934L409.545,336.304z M408.941,333.909l-11.042,50.728
+		h20.188l6.917-31.981L408.941,333.909z" />
+				<path d="M489.197,332.077l-44.963,44.979l-11.63-11.63l33.356-33.35H489.197z M491.852,330.976h-26.348
+		l-34.455,34.45l13.186,13.186L491.852,330.976z" />
+				<path d="M501.799,366.526l-16.636,16.627h-34.831l-16.628-16.627H501.799z M504.454,365.426h-73.405l18.827,18.827
+		h35.742L504.454,365.426z" />
+				<path d="M364.894,316.09l13.974,67.445h-25.873L364.894,316.09z M364.807,310.25l-13.123,74.385h28.535
+		L364.807,310.25z" />
+				<path d="M361.518,311.375l-12.735,72.16H331.18l14.998-72.16H361.518z M362.829,310.276h-17.546l-15.455,74.359
+		h19.878L362.829,310.276z" />
+				<path d="M485.701,311.375l12.045,12.146l-4.394,4.393h-59.631l16.546-16.539H485.701z M486.16,310.276h-36.348
+		l-18.747,18.738h62.743l5.49-5.489L486.16,310.276z" />
+				<path d="M354.719,278.919l7.458,26.517h-14.916L354.719,278.919z M354.719,274.856l-8.91,31.68h17.82
+		L354.719,274.856z" />
+			</svg>
 			<span>关于WISE</span>
 		</a>
 	</div>

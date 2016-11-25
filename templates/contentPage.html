@@ -120,13 +120,26 @@
 			left: 0;
 			right: 0;
 			transition: all .3s ease;
-			/*transform: translate(0,100%);*/
+			transform: translate(0,100%);
 			opacity: 1;
-			background: rgba(245, 245, 245, .7);
-			padding: 10px 0;
+			background: rgba(255, 255, 255, .9);
+			padding: 10px 0 0;
 		}
+
+		.entries.open{
+			transform: translate(0,0);
+		}
+
+		.entries a{
+			height: 2rem!important;
+		}
+
 		.entries a span{
 			display: none!important;
+		}
+
+		.entries a svg{
+			fill: #666!important;
 		}
 	</style>
 	<div class="header">
@@ -413,4 +426,13 @@
 	if((/(techcrunch|tc|technode|联系|关于|contact|about)/i).test(window.word)) {
 		document.querySelector(".about-grid").style.display = "block";
 	}
+
+	var _w = $(window);
+	_w.on('scroll',function(e){
+		if(_w.scrollTop() >= 110){
+			$('.entries').addClass('open');
+		}else{
+			$('.entries').removeClass('open');
+		}
+	});
 </script>
