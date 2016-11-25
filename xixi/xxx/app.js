@@ -1,6 +1,7 @@
 	var fs = require('fs');
 	var request = require("request");
 	var cheerio = require("cheerio");
+	var xlsx = require("node-xlsx");
 	 
 	var url = 'http://huodong.36kr.com/wise3/';
 	var speakers = [],company = [];
