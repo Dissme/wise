@@ -73,40 +73,6 @@
 			margin: 1.0rem;
 		}
 		
-		.entries {
-			width: 100%;
-			color: white;
-			text-align: center;
-			white-space: nowrap;
-			margin-top: 30px;
-			font-size: 0.8em;
-		}
-		
-		.entries a img {
-			display: inline-block;
-			height: 20px;
-			margin: 5px;
-			margin-top: 5px;
-			margin-bottom: 8px;
-		}
-		
-		.entries a span {
-			font-weight: 300;
-			display: block;
-			color: white;
-		}
-		
-		.entries a {
-			width: 22%;
-			display: inline-block;
-			text-decoration: none;
-			text-align: center;
-		}
-		
-		.entries a:visited {
-			color: white;
-		}
-		
 		.schedule_board_item {
 			background: transparent;
 			text-align: left;
@@ -118,7 +84,7 @@
 			color: white;
 			font-size: 0.8em;
 			margin-bottom: 10px;
-			border-bottom: 4px solid rgb(43, 253, 146);
+			border-bottom: 4px solid rgb(78, 146, 232);
 		}
 		
 		.schedule_board_item .title {
@@ -155,24 +121,7 @@
 			</div>
 		</div>
 		<template id="searchbar" />
-		<div class="entries">
-			<a href="{{root}}/?q=日程">
-				<img src="{{root}}/assets/calendar.png" />
-				<span>议程安排</span>
-			</a>
-			<a href="{{root}}/?q=场景搜索">
-				<img src="{{root}}/assets/scene.png" style="transform:translateY(1.5px) scale(1.2);" />
-				<span>场景搜索</span>
-			</a href="#">
-			<a href="http://36kr.com/topics/117" target="_blank">
-				<img src="{{root}}/assets/news.png" style="scale(0.95);" />
-				<span>动点新闻</span>
-			</a>
-			<a href="{{root}}/?q=关于">
-				<img src="{{root}}/assets/tc.png" />
-				<span>关于TC</span>
-			</a>
-		</div>
+		<template id="entries" />
 		<a href="http://emerge.cc" target="_blank" class="dots btn" style="margin-top: 30px; margin-bottom: 30px;">了解下一代场景化Wi-Fi科技</a>
 		<template id="poweredBy">{"em" : "emerge"}</template>
 	</div>
@@ -188,7 +137,8 @@ for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
 
 function update() {
     var now = new Date();
-    var time = now.getTime();
+    // var time = now.getTime();
+	var time = 0;
     var mindate = 0;
     for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
         var sch = $$$edgeData$$$.schedule[i];

@@ -65,8 +65,9 @@
 			top: 10px;
 			z-index: 102;
 		}
-		
+
 		.logoTxt {
+			font-family: "Montserrat";
 			transition: all .3s ease;
 			display: block;
 			position: absolute;
@@ -112,6 +113,21 @@
 			margin: 1px 0 0;
 			border-bottom: 1px solid rgba(15, 104, 255, .5); 
 		}
+
+		.entries{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			transition: all .3s ease;
+			/*transform: translate(0,100%);*/
+			opacity: 1;
+			background: rgba(245, 245, 245, .7);
+			padding: 10px 0;
+		}
+		.entries a span{
+			display: none!important;
+		}
 	</style>
 	<div class="header">
 		<div class="bgHolder">
@@ -122,7 +138,7 @@
 				<img onclick="window.location.href='/'" class="logo" src="{{root}}/assets/tc-logo.png" />
 			</div>
 			<div class="logoTxt">
-				<span style="font-family: Arial">Keep Fighting<br>and<br>Carry on</span>
+				<span>Keep Fighting<br>and<br>Carry on</span>
 			</div>
 			<template id="searchbar" />
 		</div>
@@ -190,6 +206,8 @@
 	<div style="color: #666; text-align: center;">
 		<template id="poweredBy">{"em" : "emerge2"}</template>
 	</div>
+
+	<template id="entries"/>
 </inject>
 
 

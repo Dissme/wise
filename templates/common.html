@@ -102,9 +102,59 @@
 		}
 	}()
 	</script>
-
 </template>
-
+<template id="entries">
+	<style>
+		.entries {
+				width: 100%;
+				color: white;
+				text-align: center;
+				white-space: nowrap;
+				margin-top: 30px;
+				font-size: 0.8em;
+			}
+			
+			.entries a img {
+				display: inline-block;
+				height: 20px;
+				margin: 5px;
+				margin-top: 5px;
+				margin-bottom: 8px;
+			}
+			
+			.entries a span {
+				font-weight: 300;
+				display: block;
+				color: white;
+			}
+			
+			.entries a {
+				width: 22%;
+				display: inline-block;
+				text-decoration: none;
+				text-align: center;
+				color: white;
+			}
+	</style>
+	<div class="entries">
+		<a href="{{root}}/?q=日程">
+			<img src="{{root}}/assets/calendar.png" />
+			<span>议程安排</span>
+		</a>
+		<a href="{{root}}/?q=场景搜索">
+			<img src="{{root}}/assets/scene.png" style="transform:translateY(1.5px) scale(1.2);" />
+			<span>场景搜索</span>
+		</a href="#">
+		<a href="http://36kr.com/topics/117" target="_blank">
+			<img src="{{root}}/assets/news.png" style="scale(0.95);" />
+			<span>动点新闻</span>
+		</a>
+		<a href="{{root}}/?q=关于">
+			<img src="{{root}}/assets/tc.png" />
+			<span>关于WISE</span>
+		</a>
+	</div>
+</template>
 
 <template id="searchbar">
 	<style>
@@ -121,7 +171,7 @@
 			margin-right: 1rem;
 			width: auto;
 			outline: none;
-			border: 1px solid rgb(15, 104, 255);
+			border: 1px solid rgba(15, 104, 255, .3);
 		}
 		
 		.searchbar > .rbox > div:nth-of-type(1) {
