@@ -24,6 +24,7 @@
 			bottom: 0;
 			color: white;
 			text-align: center;
+			padding-top: 150px
 		}
 		
 		.main h1 {
@@ -37,9 +38,11 @@
 			display: block;
 			height: 150px;
 			width: 250px;
-			position: relative;
+			position: absolute;
 			z-index: 100;
 			overflow: hidden;
+			top: 0;
+			left: 0;
 		}
 
 		.main .logo:before{
@@ -137,8 +140,7 @@ for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
 
 function update() {
     var now = new Date();
-    // var time = now.getTime();
-	var time = 0;
+    var time = now.getTime();
     var mindate = 0;
     for (var i = 0; i < $$$edgeData$$$.schedule.length; i++) {
         var sch = $$$edgeData$$$.schedule[i];

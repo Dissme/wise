@@ -1,4 +1,4 @@
-var edgeroot = 'http://192.168.40.37';
+var edgeroot = 'http://192.168.1.7';
 window.edgeroot = edgeroot;
 window.projroot = edgeroot + "/";
 
@@ -12,7 +12,6 @@ window.$Edge = {
         [edgeroot + '/utils/CanvasRenderer.js'],
         [edgeroot + '/data/search.json'],
         [edgeroot + '/data/company.json'],
-        [edgeroot + '/data/investor.json'],
         [edgeroot + '/data/schedule.json'],
         [edgeroot + '/data/speaker.json'],
         [edgeroot + '/search.js'],

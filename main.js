@@ -24,19 +24,15 @@ window.$$$wrap$$$ = function () {
                 gresult = [];
                 fresult = fillScores($$$edgeData$$$);
             }
-            else if ((/(议程|日程|安排|agenda|schedule|时间)/i.test(window.word))) {
+            else if ((/(议程|议程安排|安排|agenda|schedule|时间)/i.test(window.word))) {
                 gresult = [];
                 fresult = fillScores({ schedule: $$$edgeData$$$.schedule });
             }
-            else if ((/(投资|资本|investor|十分|pitch|路演|VC|融资|invest|venture)/i.test(window.word))) {
-                gresult = [];
-                fresult = fillScores({ investor: $$$edgeData$$$.investor });
-            }
-            else if ((/(演讲|嘉宾|参会|人|VIP)/i.test(window.word))) {
+            else if ((/(演讲嘉宾|参会|人|VIP)/i.test(window.word))) {
                 gresult = [];
                 fresult = fillScores({ speaker: $$$edgeData$$$.speaker });
             }
-            else if ((/(项目|start|up|创业|project|公司|参展)/i.test(window.word))) {
+            else if ((/(合作|start|up|伙伴|project|公司|参展)/i.test(window.word))) {
                 gresult = [];
                 fresult = fillScores({ company: $$$edgeData$$$.company });
             }

@@ -1,8 +1,16 @@
 <inject appendTo="body">
 	<style>
+		.expandable{
+			position: relative;
+			right: 0;
+			left: 0;
+			background: #f2f2f2;
+			z-index: 50;
+		}
+
 		.expandable-title {
 			height: 3.5rem;
-			margin: -1px 15px;
+			margin: 0 15px;
 			line-height: 3.5rem;
 			vertical-align: middle;
 			position: relative;
@@ -62,6 +70,7 @@
         if("{{open}}") {
         } else {
             $('{{target}}').addClass('close');
+            console.log('{{target}}');
         }
     </script>
 	<div class="expandable {{open}}" onclick="$(this).toggleClass('open');$('{{target}}').toggleClass('close');">
@@ -78,7 +87,6 @@
 <style>
 	.list {
 		color: rgb(15, 104, 255);
-		max-height: 400px;
 		overflow: auto;
 	}
 	
@@ -96,7 +104,6 @@
 	}
 
 	.tablist > .tabContainer {
-		max-height: 250px;
 		overflow: auto;
 	}
 	
@@ -196,7 +203,6 @@
 
 <style>
 	.company_item {
-		min-height: 5rem;
 		position: relative;
 		border-bottom: 1px solid rgba(15, 104, 255, .5);
 		color: #666;
@@ -209,15 +215,14 @@
 		background-position: 50% 50%;
 		background-size: contain;
 		background-repeat: no-repeat;
-		height: 5rem;
-		position: absolute;
-		left: 0;
-		top: 0;
+		height: 4rem;
+		float: left;
 	}
 	
 	.company_item > div:nth-child(2) {
-		min-height: 5rem;
-		margin-left: 5.5rem;
+		margin: 0;
+		margin-left: 6rem;
+		transform: translate(0,50%);
 	}
 	
 	.company_item b {
@@ -227,14 +232,9 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		color: #333;
-		margin: 1em 0;
-	}
-
-	.company_item p {
-		margin: 1em 0;
-		display: block;
-		font-size: 14px;
-		overflow: hidden;
+		margin: 0;
+		line-height: 1.2;
+		transform: translate(0,-50%);
 	}
 	
 	.company_item span {
@@ -243,6 +243,9 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		font-size: 12px;
+		line-height: 1.5;
+		transform: translate(0,-50%);
 	}
 </style>
 
@@ -250,8 +253,8 @@
 	<div class="company_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
 		<div style="background-image:url('{{root}}/assets/company/{{id}}.png')"></div>
 		<div>
+			<span>{{level}}</span>
 			<b>{{name}}</b>
-			<p>{{desc}}</p>
 		</div>
 	</div>
 </template>

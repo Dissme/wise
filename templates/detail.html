@@ -91,6 +91,8 @@
 	.schedule-detail {
 		position: relative;
 		border-bottom: 1px solid rgba(15, 104, 255, .5);
+		padding: 0 0 0 70px;
+		overflow: hidden;
 	}
 	
 	.schedule-detail .time {
@@ -108,36 +110,46 @@
 		color: rgb(15, 104, 255);
 		text-align: left;
 		font-size: 18px;
+		line-height: 1.2;
 		font-weight: bold;
-		display: inline-block;
-		margin: 10px;
-		margin-left: 70px;
+		margin: 10px 0 0;
 	}
 
 	.name {
 		white-space: pre-line;
+	}
+
+	.schedule-detail .des{
+		margin: 5px 0;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 0;
+	}
+
+	.schedule-detail .des > div{
+		font-size: 12px;
+		display: inline-block;
+		margin: 0 15px 0 0;
+		color: rgb(15, 104, 255);
+		line-height: 1.2;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.detail .level{
+		font-size: 12px;
+    	line-height: 1.5;
+    	text-align: center;
 	}
 </style>
 
 <template id="company-detail">
 	<div class="detail">
 		<div class="dots avatar" style="background-image:url('{{root}}/assets/company/{{id}}.png')"></div>
+		<div class="level">{{level}}</div>
 		<div class="name">{{name}}</div>
-		<div class="dots">
-			<div class="text">{{desc}}</div>
-			<a href="{{url}}" target="_blank" class="url">官方网站</a>
-		</div>
-	</div>
-</template>
-
-<template id="investor-detail">
-	<div class="investor-detail detail">
-		<div data-img="asdf" class="dots avatar" style="background-image:url('{{root}}/assets/investors/{{id}}.png')"></div>
-		<div class="name" style="color:rgb(250, 110, 0)">{{name}}</div>
-		<div class="dots">
-			<div data-desc="{{desc}}" class="text">{{desc}}</div>
-			<a href="{{url}}" target="_blank" class="url">官方网站</a>
-		</div>
 	</div>
 </template>
 
@@ -145,9 +157,9 @@
 	<div class="speaker-detail detail">
 		<div class="dots avatar" style="background-image:url('{{root}}/assets/speakers/{{id}}.png')"></div>
 		<div class="name" style="color: #666">{{name}}</div>
-		<div class="subname" style="color: #666">{{company}}</div>
-		<div class="dots" data-desc="{{position}}">
-			<div class="text">{{position}}</div>
+		<div class="subname" style="color: #666">{{company}} {{position}}</div>
+		<div class="dots" data-desc="{{desc}}">
+			<div class="text">{{desc}}</div>
 		</div>
 	</div>
 </template>
@@ -160,6 +172,14 @@
 			</div>
 			<div class='text'>
 				{{name}}
+			</div>
+			<div class="des">
+				<div class="part">
+					{{part}}
+				</div>
+				<div class="position">
+					{{position}}
+				</div>
 			</div>
 		</div>
 		<div data-speakers="{{speakers}}" class="schedule-speaker-container">

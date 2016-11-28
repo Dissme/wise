@@ -168,14 +168,14 @@
 		<template id="speaker-detail"/>-->
 		<div class="countparent" id="expand-speaker">
 			<template id="expandable">
-				{ "section":"演讲者", "icon": "speaker", "count": 0, "target": "#speaker-container", "open": "" }
+				{ "section":"演讲嘉宾", "icon": "speaker", "count": 0, "target": "#speaker-container", "open": "" }
 			</template>
 			<div class="list countme" id="speaker-container">
 			</div>
 		</div>
 		<div class="countparent" id="expand-schedule">
 			<template id="expandable">
-				{ "section":"日程", "icon": "schedule", "count": 0, "target": "#schedule-container", "open": "" }
+				{ "section":"议程安排", "icon": "schedule", "count": 0, "target": "#schedule-container", "open": "" }
 			</template>
 			<div class="tablist" id="schedule-container">
 				<div class="tabs">
@@ -188,24 +188,9 @@
 			</div>
 		</div>
 
-		<div class="countparent" id="expand-investor">
-			<template id="expandable">
-				{ "section":"十分之约", "icon": "meetup", "count": 0, "target": "#investor-container", "open": "" }
-			</template>
-			<div class="tablist" id="investor-container">
-				<div class="tabs">
-					<!--<div data-day="7">Mon<b>07</b></div>
-					<div data-day="8">Tues<b>08</b></div>-->
-				</div>
-				<div class="countme tabContainer">
-
-				</div>
-			</div>
-		</div>
-
 		<div class="countparent" id="expand-company">
 			<template id="expandable">
-				{ "section":"参展公司", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
+				{ "section":"合作伙伴", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
 			</template>
 			<div class="list countme" style="padding-bottom:0" id="company-container">
 			</div>
@@ -291,26 +276,9 @@
 	//finish loading
 	//count
 	var counts = $(".countme");
-	var hd = $('.header');
-	var cn = $('.container');
 	var parts = 0;
 	for(var i = 0; i < counts.length; i++) {
 		var cur = $(counts[i]);
-		cur.on('scroll',function(e){
-			var _tt = e.currentTarget;
-			if(!_tt.dataset.sc){
-				_tt.dataset.sc = 100;
-			} 
-			if (_tt.scrollTop - _tt.dataset.sc > 200) {
-				_tt.dataset.sc = _tt.scrollTop;
-				hd.addClass('short');
-				cn.css('transform','translate(0,-45px)');
-			} else if (_tt.scrollTop - _tt.dataset.sc < -200) {
-				_tt.dataset.sc = _tt.scrollTop;
-				hd.removeClass('short');
-				cn.css('transform','translate(0,0)');
-			}
-		});
 		var par = cur.parents(".countparent");
 		if(cur.children().length == 0) {
 			par.remove();
@@ -333,11 +301,8 @@
 	}
 
 	var dayMap = {
-		7: "Mon",
-		8: "Tues",
-		27: "Demo",
-		28: "Demo",
-		29: "Demo",
+		6: "Tues",
+		7: "Wed"
 	}
 
 	var tabs = $(".tablist");
@@ -423,16 +388,31 @@
 	setInterval(handleSchedules, 5000);
 	handleSchedules();
 
-	if((/(techcrunch|tc|technode|联系|关于|contact|about)/i).test(window.word)) {
+	if((/(WISE|wise|联系|关于|contact|about)/i).test(window.word)) {
 		document.querySelector(".about-grid").style.display = "block";
 	}
 
 	var _w = $(window);
+	var hd = $('.header');
+	var exlist = $('.countparent');
 	_w.on('scroll',function(e){
 		if(_w.scrollTop() >= 110){
 			$('.entries').addClass('open');
+			hd.addClass('short');
+			exlist.each(function(idx) {
+				var top = this.getBoundingClientRect().top;
+				if (idx * 60 + 150 > top) {
+					$(this).find('.expandable').css({'position':'fixed','top': idx * 60 + hd.height() + 'px'});
+				}else{
+					$(this).find('.expandable').css({'position':'relative','top': 0});
+				}
+			});
 		}else{
 			$('.entries').removeClass('open');
+			hd.removeClass('short');
+			exlist.each(function () {
+				$(this).find('.expandable').css({'position':'relative','top': 0});
+			})
 		}
 	});
 </script>

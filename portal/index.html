@@ -163,12 +163,27 @@
             margin: .5rem auto 0;
             text-align: center;
             color: #fff;
-            font-size: 35px;
+            font-size: 30px;
             font-weight: 100;
             line-height: 1;
             padding: .2rem .4rem;
             border: 2px solid #fff;
             box-shadow: #333 0 1px 1px,inset #333 0 0 3px;
+        }
+        .check{
+            margin: .5rem auto;
+            font-size: 12px;
+            line-height: 2;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        .check input{
+            margin: 5px 5px 0;
+        }
+        .check a{
+            color: #fff;
+            text-decoration: none;
         }
     </style>
     <div class="bg">
@@ -180,7 +195,10 @@
             <div class="cn">保持战斗 继续前行</div>
         </div>
         <div onclick="callWechatBrowser()" class="button">
-            Seek for more
+            点击上网
+        </div>
+        <div class="check">
+            <input id="check" type="checkbox" checked="checked">用户已同意<a href="./detail.html">《Emerge场景网络使用协议》</a>
         </div>
         <div class="powered"></div>
     </div>
@@ -328,9 +346,12 @@
 
             function str_md5(s) { return binl2str(core_md5(str2binl(s), s.length * chrsz)); }
             function callWechatBrowser() {
-                var timestamp = Date.parse(new Date());
-                var sign = md5("wxe6c0021af5b44cc1" + "user" + timestamp + "2500980" + "http://wifi.weixin.qq.com/assistant/wifigw/auth.xhtml?httpCode=200" + "aa:aa:aa:aa:aa:aa" + " GEW-China" + "1e66125600702606027ff6fefec2fbab");
-                Wechat_GotoRedirect('wxe6c0021af5b44cc1', 'user', timestamp, sign, '2500980', 'http://wifi.weixin.qq.com/assistant/wifigw/auth.xhtml?httpCode=200', 'aa:aa:aa:aa:aa:aa', ' GEW-China');
+                var check  = document.getElementById('check').checked;
+                if (check) {
+                    var timestamp = Date.parse(new Date());
+                    var sign = md5("wxe6c0021af5b44cc1" + "user" + timestamp + "2500980" + "http://wifi.weixin.qq.com/assistant/wifigw/auth.xhtml?httpCode=200" + "aa:aa:aa:aa:aa:aa" + " GEW-China" + "1e66125600702606027ff6fefec2fbab");
+                    Wechat_GotoRedirect('wxe6c0021af5b44cc1', 'user', timestamp, sign, '2500980', 'http://wifi.weixin.qq.com/assistant/wifigw/auth.xhtml?httpCode=200', 'aa:aa:aa:aa:aa:aa', ' GEW-China');
+                };
             }
         </script>
 
