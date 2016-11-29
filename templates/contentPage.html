@@ -141,6 +141,12 @@
 		.entries a svg{
 			fill: #666!important;
 		}
+		.poweredBy{
+			color: #666!important;
+		}
+		.poweredBy svg{
+			fill: #666!important;
+		}
 	</style>
 	<div class="header">
 		<div class="bgHolder">
@@ -202,7 +208,7 @@
 	</div>
 
 	<div style="color: #666; text-align: center;">
-		<template id="poweredBy">{"em" : "emerge2"}</template>
+		<template id="poweredBy"></template>
 	</div>
 
 	<template id="entries"/>
@@ -402,7 +408,7 @@
 			exlist.each(function(idx) {
 				var top = this.getBoundingClientRect().top;
 				if (idx * 60 + 150 > top) {
-					$(this).find('.expandable').css({'position':'fixed','top': idx * 60 + hd.height() + 'px'});
+					$(this).find('.expandable').css({'position':'fixed','top': idx * 60 + 100 + 'px'});
 				}else{
 					$(this).find('.expandable').css({'position':'relative','top': 0});
 				}
