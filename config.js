@@ -1,4 +1,4 @@
-var edgeroot = 'http://192.168.1.7';
+var edgeroot = 'http://192.168.40.37';
 window.edgeroot = edgeroot;
 window.projroot = edgeroot + "/";
 
