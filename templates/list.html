@@ -50,15 +50,42 @@
 			font-size: 25px;
 		}
 		
-		.expandable-title .right img {
+		.expandable-title .right .img {
 			width: 20px;
+			height: 10px;
 			margin: 0px 15px;
 			transform-origin: 50% 50%;
 			transform: rotate(-180deg);
 			transition: all 0.5s ease;
+			position: relative;
+			display: inline-block;
+		}
+
+		.expandable-title .right .img::before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 0;
+			height: 0;
+			content: '';
+			border: 10px solid transparent;
+			border-top: 0;
+			border-bottom-color: #004cff;
+		}
+
+		.expandable-title .right .img::after{
+			position: absolute;
+			left: 2px;
+			top: 2px;
+			width: 0;
+			height: 0;
+			content: '';
+			border: 8px solid transparent;
+			border-top: 0;
+			border-bottom-color: #f2f2f2;
 		}
 		
-		.expandable.open .right img {
+		.expandable.open .right .img {
 			transform: rotate(0deg);
 		}
 		
@@ -81,7 +108,7 @@
 			<span>{{section}}</span>
 			<div class='right'>
 				<span class="count">{{count}}</span>
-				<img src="{{root}}/assets/up.png" />
+				<div class="img"></div>
 			</div>
 		</div>
 	</div>
