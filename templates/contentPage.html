@@ -8,6 +8,7 @@
 			right: 0;
 			top: 0;
 			z-index: 100;
+			transition: all .3s ease;
 		}
 		
 		.bgHolder {
@@ -27,8 +28,12 @@
 			padding-top: 90px;
 		}
 
-		.header.short .display{
-			padding-top: 45px;
+		.header.short{
+			transform: translateY(-45px);
+		}
+
+		.header.short .logo{
+			transform: translateY(45px);
 		}
 
 		.header.short .logoTxt{
@@ -41,6 +46,7 @@
 			top: 0;
 			position: absolute;
 			z-index: 100;
+			transition: all .3s ease;
 		}
 
 		.logo:before{
@@ -154,7 +160,7 @@
 		</div>
 		<div class="display">
 			<div class="logo">
-				<img onclick="window.location.href='/'" class="logo" src="{{root}}/assets/tc-logo.png" />
+				<img onclick="window.location.href='/'" src="{{root}}/assets/tc-logo.png" />
 			</div>
 			<div class="logoTxt">
 				<span>Keep Fighting<br>and<br>Carry on</span>
