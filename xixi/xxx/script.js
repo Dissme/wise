@@ -1,6 +1,7 @@
 var http = require("http");
 var fs = require("fs");
 var xlsx = require("node-xlsx");
+var cheerio = require("cheerio");
 
 // var list = xlsx.parse("/Users/emerge_2/Downloads/嘉宾同步1124—大阳更新.xlsx");
 
@@ -93,34 +94,39 @@ var xlsx = require("node-xlsx");
 //         desc: v[13]?v[13]:null
 //     });
 // });
-
-// fs.readdir(path, function(err, files) {
-//     files.forEach(function(filename) {
-//         var newPath = res.find(v=>!!filename.match(v.name));
-//         var oldPath = path + filename;
-//         if(newPath){
-//             newPath = path + newPath.id + '.png';
-//             fs.rename(oldPath, newPath, function(err) {
-//                 if (!err) {
-//                     console.log(filename + '副本替换成功!')
-//                 }
-//             })
-//         }
-//     })
-// });
+var path = '../../ipad/logo/';
+var res = '';
+fs.readdir(path, function(err, files) {
+    files.forEach(function(filename) {
+		var $ = cheerio.load(fs.readFileSync(path+filename));
+        // var newPath = res.find(v=>!!filename.match(v.name));
+        // var oldPath = path + filename;
+        // if(newPath){
+        //     newPath = path + newPath.id + '.png';
+        //     fs.rename(oldPath, newPath, function(err) {
+        //         if (!err) {
+        //             console.log(filename + '副本替换成功!')
+        //         }
+        //     })
+        // }
+		var h = $.html('svg');
+		res+=`<div class="comp">${h}</div>`;
+    });
+	fs.writeFile('svgs',res);
+});
 
 // fs.writeFile('./speakers.json',JSON.stringify(res));
-var file = fs.readFileSync('../../data/schedule.json').toString('utf8');
-var json = JSON.parse(file);
-var res = []
-json.forEach(v=>{
-	var time = v.time.split(' – ');
-	if(time[1]){
-		var start_time = time[0];
-		var end_time = time[1];
-		var sp = v.speakers?v.speakers.split(','):[];
-		var speakers = sp.map(x => {var xxx = x.split(' ');return xxx[xxx.length - 1]})
-		res.push(Object.assign({},v,{speakers:speakers.join(','),start_time,end_time}))
-	}
-})
-fs.writeFile('../../data/schedule3.json',JSON.stringify(res));
+// var file = fs.readFileSync('../../data/schedule.json').toString('utf8');
+// var json = JSON.parse(file);
+// var res = []
+// json.forEach(v=>{
+// 	var time = v.time.split(' – ');
+// 	if(time[1]){
+// 		var start_time = time[0];
+// 		var end_time = time[1];
+// 		var sp = v.speakers?v.speakers.split(','):[];
+// 		var speakers = sp.map(x => {var xxx = x.split(' ');return xxx[xxx.length - 1]})
+// 		res.push(Object.assign({},v,{speakers:speakers.join(','),start_time,end_time}))
+// 	}
+// })
+// fs.writeFile('../../data/schedule3.json',JSON.stringify(res));
