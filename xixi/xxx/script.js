@@ -8,7 +8,8 @@ var cheerio = require("cheerio");
 // list.forEach(v=>{
 //     fs.writeFile(v.name+'_schedule.json',JSON.stringify(v.data));
 // })
-var file = fs.readFileSync('活动流程_schedule.json').toString('utf8');
+// var file = fs.readFileSync('../../data/investor.json').toString('utf8');
+// var file2 = fs.readFileSync('../../data/company.json').toString('utf8');
 // [
 //         "会议名称",
 //         "地点",
@@ -31,29 +32,55 @@ var file = fs.readFileSync('活动流程_schedule.json').toString('utf8');
 //         "end_time": "09:05"
 //     },
 
-var json = JSON.parse(file);
-var res = []
-var part = '';
-var position = '';
-json.forEach(v=>{
-    if(v.length){
-        part = v[0]||part;
-        position = v[1]||position;
-        console.log(v);
-        var time = v[2].split(' – ');
-        var start_time = time[0];
-        var end_time = time[1];
-        var date = 6;
-        if(/(时代峰会)|(企服年会)/.test(part)){
-            date = 7;
-            console.log(part);
-        };
-        var speakers = v[4]?v[4].split('\r\n'):[];
-        if(speakers){speakers = speakers.map(x=>x.replace(/｜.*/,'').trim())}
-        res.push({date,part,position,start_time,end_time,name: v[3],speakers:speakers.join(',')});
-    }
-})
-fs.writeFile('schedule.json',JSON.stringify(res));
+// var json = JSON.parse(file);
+// var json2 = JSON.parse(file2);
+// var part = '';
+// var position = '';
+// json.forEach(v=>{
+//     if(v.length){
+//         part = v[0]||part;
+//         position = v[1]||position;
+//         console.log(v);
+//         var time = v[2].split(' – ');
+//         var start_time = time[0];
+//         var end_time = time[1];
+//         var date = 6;
+//         if(/(时代峰会)|(企服年会)/.test(part)){
+//             date = 7;
+//             console.log(part);
+//         };
+//         var speakers = v[4]?v[4].split('\r\n'):[];
+//         if(speakers){speakers = speakers.map(x=>x.replace(/｜.*/,'').trim())}
+//         res.push({date,part,position,start_time,end_time,name: v[3],speakers:speakers.join(',')});
+//     }
+// })
+
+// var o = {};
+// json.forEach(v=>{
+//     if(o[v.name]){
+//         o[v.name].area = o[v.name].area + ' ' + v.area;
+//     }else{
+//         o[v.name] = v;
+//     }
+// })
+// var res = [];
+// for(var i in o){
+//     res.push(o[i]);
+// }
+// json.forEach(v=>{
+//     if(!v.svg)
+//     json2.forEach(x=>{
+//         if(v.name == x.name && x.svg)v.svg = x.svg
+//     })
+// })
+// json2.forEach(v=>{
+//     if(!v.svg)
+//     json.forEach(x=>{
+//         if(v.name == x.name && x.svg)v.svg = x.svg
+//     })
+// })
+// fs.writeFile('investor.json',JSON.stringify(json));
+// fs.writeFile('company.json',JSON.stringify(json2));
 // [
 //         null,
 //         "级别",
