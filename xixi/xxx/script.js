@@ -3,8 +3,86 @@ var fs = require("fs");
 var xlsx = require("node-xlsx");
 var cheerio = require("cheerio");
 
-// var list = xlsx.parse("/Users/emerge_2/Downloads/嘉宾同步1124—大阳更新.xlsx");
+// var list = xlsx.parse("/Users/emerge_2/Downloads/嘉宾同步1128-rbb.xlsx");
+// var file = fs.readFileSync('嘉宾资料xxx.json');
+// var json = JSON.parse(file);
+// var res = [];
+// json.forEach(v=>{
+//     if(v&&v[0])res.push({
+//         id: v[0],
+//         genera: v[1]||null,
+//         name: v[2]||null,
+//         company: v[3]||null,
+//         position: v[4]||null,
+//         sign: v[6]?true:false,
+//         on: v[7]?true:false,
+//         unicorn: v[8]?true:false,
+//         future: v[9]?true:false,
+//         investor: v[10]?true:false,
+//         epoch: v[11]?true:false,
+//         es: v[12]?true:false,
+//         desc: v[13]||null
+//     })
+// })
+// res.forEach(v=>{
+//     Object.keys(v).forEach(x=>{
+//         if(typeof v[x] == "string"){
+//             v[x] = v[x].trim();
+//         }
+//     })
+// })
+// fs.writeFile('speaker.json',JSON.stringify(res));
+var path = '../../assets/speakers/';
+fs.readdir(path,(err,files)=>{
+    if(err)return console.log(err);
+    var i = 0;
+    files.forEach(filename=>{
+        if(/.png$/.test(filename))fs.rename(path + filename,'speaker/' + (filename.replace('.png','') - 1) + '.png');
+    })
+})
+// [
+//         "排序",
+//         "归属",
+//         "姓名",
+//         "公司",
+//         "职位",
+//         "照片",
+//         "签名",
+//         "上不上",
+//         "独角兽",
+//         "未来",
+//         "投资人",
+//         "时代",
+//         "企服",
+//         "简介"
+//     ],
 
+// {
+//         "id": 1,
+//         "genera": "媒体",
+//         "name": "柳传志",
+//         "company": "联想",
+//         "position": "联想控股董事长，联想集团创始人",
+//         "sign": false,
+//         "on": true,
+//         "unicorn": true,
+//         "future": false,
+//         "investor": false,
+//         "epoch": false,
+//         "es": false,
+//         "desc": null
+//     },
+
+// list.forEach(v=>{
+//     fs.writeFile(v.name + 'xxx.json',JSON.stringify(v.data));
+// })
+// var file = fs.readdirSync('活动流程.json').toString("utf8");
+// var json = JSON.parse(file);
+// var res = [];
+// json.forEach(v=>{
+    
+// })
+// fs.writeFile('schedule.json',JSON.stringify(list));
 
 // var file = require('fs').readFileSync('schedule.json').toString("utf8");
 // var json = JSON.parse(file);
@@ -94,26 +172,26 @@ var cheerio = require("cheerio");
 //         desc: v[13]?v[13]:null
 //     });
 // });
-var path = '../../ipad/logo/';
-var res = '';
-fs.readdir(path, function(err, files) {
-    files.forEach(function(filename) {
-		var $ = cheerio.load(fs.readFileSync(path+filename));
-        // var newPath = res.find(v=>!!filename.match(v.name));
-        // var oldPath = path + filename;
-        // if(newPath){
-        //     newPath = path + newPath.id + '.png';
-        //     fs.rename(oldPath, newPath, function(err) {
-        //         if (!err) {
-        //             console.log(filename + '副本替换成功!')
-        //         }
-        //     })
-        // }
-		var h = $.html('svg');
-		res+=`<div class="comp">${h}</div>`;
-    });
-	fs.writeFile('svgs',res);
-});
+// var path = '../../ipad/logo/';
+// var res = '';
+// fs.readdir(path, function(err, files) {
+//     files.forEach(function(filename) {
+// 		var $ = cheerio.load(fs.readFileSync(path+filename));
+//         // var newPath = res.find(v=>!!filename.match(v.name));
+//         // var oldPath = path + filename;
+//         // if(newPath){
+//         //     newPath = path + newPath.id + '.png';
+//         //     fs.rename(oldPath, newPath, function(err) {
+//         //         if (!err) {
+//         //             console.log(filename + '副本替换成功!')
+//         //         }
+//         //     })
+//         // }
+// 		var h = $.html('svg');
+// 		res+=`<div class="comp">${h}</div>`;
+//     });
+// 	fs.writeFile('svgs',res);
+// });
 
 // fs.writeFile('./speakers.json',JSON.stringify(res));
 // var file = fs.readFileSync('../../data/schedule.json').toString('utf8');
