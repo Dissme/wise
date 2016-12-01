@@ -130,6 +130,7 @@
 			opacity: 1;
 			background: rgba(255, 255, 255, .9);
 			padding: 10px 0 0;
+			z-index: 200;
 		}
 
 		.entries.open{
@@ -200,6 +201,14 @@
 			</div>
 		</div>
 
+		<div class="countparent" id="expand-investor">
+			<template id="expandable">
+				{ "section":"参展项目", "icon": "investor", "count": 0, "target": "#investor-container", "open": "" }
+			</template>
+			<div class="list countme" style="padding-bottom:0" id="investor-container">
+			</div>
+		</div>
+
 		<div class="countparent" id="expand-company">
 			<template id="expandable">
 				{ "section":"合作伙伴", "icon": "project", "count": 0, "target": "#company-container", "open": "" }
@@ -225,6 +234,19 @@
 	var total = gresult.length + fresult.length;
 
 	var gsch = [];
+	for(var i = 0; i < gresult.length; i++) {
+		var cur = gresult[i];
+		if(cur.key == 'investor'){
+			cur.obj.level = cur.obj.level||null;
+			for(var j = 0; j < gresult.length; j++){
+				var _c = gresult[j];
+				if(_c.key == 'company' && _c.obj.name == cur.obj.name){
+					cur.obj.level = _c.obj.level;
+					gresult.splice(j,1);
+				}
+			}
+		}	
+	}
 	for(var i = 0; i < gresult.length; i++) {
 		var cur = gresult[i];
 		if(cur.key == "schedule") {

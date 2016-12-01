@@ -1,8 +1,6 @@
 <style>
 	.detail {
-		text-align: middle;
 		border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-		margin: 30px;
 		padding-bottom: 30px;
 		padding-top: 10px;
 		margin-left: 0;
@@ -32,10 +30,23 @@
 		padding: 0;
 		margin: auto auto;
 		margin-bottom: 15px;
-		background: #666;
+		background: #fff;
 		background-position: 50% 50%;
 		background-size: contain;
 		background-repeat: no-repeat;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.detail svg{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		fill: rgb(15, 104, 255);
+		stroke: rgb(15, 104, 255);
+		max-width: 100%;
+		max-height: 100%;
 	}
 	
 	.detail .avatar[data-img=""] {
@@ -143,14 +154,42 @@
     	line-height: 1.5;
     	text-align: center;
 	}
+
+	.detail .href{
+		display: block;
+		text-align: center;
+		font-size: 18px;
+		line-height: 2.5;
+		color: #fff;
+		background: rgb(15, 104, 255);
+		text-decoration: none;
+		border-radius: 50px;
+		width: 200px;
+		margin: 10px auto;
+	}
 </style>
 
 <template id="company-detail">
-	<div class="detail">
-		<div class="dots avatar" style="background-image:url('{{root}}/assets/company/{{id}}.png')"></div>
+	<div class="detail company-detail">
+		<div class="avatar">{{svg}}</div>
 		<div class="level">{{level}}</div>
 		<div class="name">{{name}}</div>
 	</div>
+</template>
+
+<template id="investor-detail">
+	<div class="detail">
+		<div class="avatar">{{svg}}</div>
+		<div class="level">{{level}}</div>
+		<div class="name">{{name}}</div>
+		<div class="text">{{desc}}</div>
+		<a class="href" href="{{href}}">官方网站</a>
+	</div>
+	<script>
+		if(!'{{href}}'){
+			$('.href').remove();
+		}
+	</script>
 </template>
 
 <template id="speaker-detail">

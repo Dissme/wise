@@ -123,14 +123,10 @@
 	.list > * {
 		background: transparent;
 	}
-	.list > *:last-child {
-		border-bottom: none;
-	}
 	
 	.tablist {
 		color: rgb(15, 104, 255);
-		margin: -1px 15px 0;
-		border-bottom: 1px solid rgba(15, 104, 255, 0.5); 
+		margin: -1px 15px 0; 
 	}
 
 	.tablist > .tabContainer {
@@ -240,13 +236,27 @@
 		overflow: hidden;
 	}
 
+	.company_item:last-child{
+		border: none;
+	}
+
 	.company_item > div:nth-child(1) {
 		width: 5rem;
-		background-position: 50% 50%;
-		background-size: contain;
-		background-repeat: no-repeat;
+		overflow: hidden;
+		position: relative;
 		height: 4rem;
 		float: left;
+	}
+
+	.company_item > div:nth-child(1) svg{
+		max-width: 100%;
+		max-height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		fill: #666;
+		stroke: #666;
 	}
 	
 	.company_item > div:nth-child(2) {
@@ -281,7 +291,9 @@
 
 <template id="company">
 	<div class="company_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
-		<div style="background-image:url('{{root}}/assets/company/{{id}}.png')"></div>
+		<div>
+			{{svg}}
+		</div>
 		<div>
 			<span>{{level}}</span>
 			<b>{{name}}</b>
@@ -359,61 +371,67 @@
 
 <style>
 	.investor_item {
-		height: 4rem;
 		position: relative;
-		border-bottom: 1px solid rgb(15, 104, 255);
+		border-bottom: 1px solid rgba(15, 104, 255, .5);
+		color: #666;
+		margin: 0 15px;
+		overflow: hidden;
 	}
-	
+
 	.investor_item > div:nth-child(1) {
-		width: 5.8rem;
-		background-position: 50% 50%;
-		background-size: cover;
-		height: 100%;
+		width: 5rem;
+		overflow: hidden;
+		position: relative;
+		height: 4rem;
+		float: left;
+	}
+
+	.investor_item > div:nth-child(1) svg{
+		max-width: 100%;
+		max-height: 100%;
 		position: absolute;
-		left: 0;
-		top: 0;
-		padding-left: 0.8rem;
-		text-align: left;
-		font-size: 0.8em;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		fill: rgb(15, 104, 255);
+		stroke: rgb(15, 104, 255);
 	}
 	
 	.investor_item > div:nth-child(2) {
-		height: 100%;
-		text-align: left;
-		margin-left: 7.2rem;
+		margin: 0;
+		overflow: hidden;
+		padding: .5rem 0 .5rem 1rem;
 	}
 	
-	.investor_item .invtext b {
+	.investor_item b {
 		display: block;
-		font-size: 1.2em;
+		font-size: 18px;
 		white-space: nowrap;
 		overflow: hidden;
-		margin-top: 0.1em;
-		margin-bottom: -0.1em;
 		text-overflow: ellipsis;
+		color: #333;
+		margin: 0;
+		line-height: 1.5;
 	}
 	
-	.investor_item .invtext span {
+	.investor_item p {
 		display: block;
+		margin: 0;
 		padding-top: 0.1rem;
-		white-space: nowrap;
 		overflow: hidden;
-		text-overflow: ellipsis;
+		font-size: 14px;
+		line-height: 1.2;
 	}
 </style>
 
 <template id="investor">
-	<div data-datespan="{{time}}" class="investor_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
+	<div class="investor_item" onclick="window.location.href='{{root}}/?q={{qname}}'">
 		<div>
-			<div class="vmid">
-				<b>{{name}}</b>
-			</div>
+			{{svg}}
 		</div>
-		<div class="invtext">
-			<div class="vmid">
-				<b>{{tags}}</b>
-			</div>
+		<div>
+			<b>{{name}}</b>
+			<p>{{desc}}</p>
 		</div>
 	</div>
 </template>
-

@@ -14,6 +14,7 @@ window.$Edge = {
         [edgeroot + '/data/company.json'],
         [edgeroot + '/data/schedule.json'],
         [edgeroot + '/data/speaker.json'],
+        [edgeroot + '/data/investor.json'],
         [edgeroot + '/search.js'],
     ],
     init: [edgeroot + '/main.js']

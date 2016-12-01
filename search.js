@@ -25,14 +25,14 @@ window.$$$wrap$$$ = function () {
     window.scores = {
         speaker: {
             name: 5,
-            title: 3,
+            position: 3,
             desc: 0.5
         },
         investor: {
             name: 5,
-            time: 0.5,
+            area: 2,
             desc: 0.5,
-            tags: 0.5
+            type: 1
         },
         schedule: {
             name: 5,
@@ -40,7 +40,7 @@ window.$$$wrap$$$ = function () {
         },
         company: {
             name: 5,
-            products: 5,
+            level: .5,
             desc: 3
         }
     };
@@ -48,14 +48,14 @@ window.$$$wrap$$$ = function () {
     window.suggestion = {
         speaker: {
             name: 5,
-            title: 3,
+            position: 3,
             desc: 0.5
         },
         investor: {
             name: 5,
-            time: 0.5,
+            area: 2,
             desc: 0.5,
-            tags: 0.5
+            type: 1
         },
         schedule: {
             name: 5,
@@ -63,7 +63,7 @@ window.$$$wrap$$$ = function () {
         },
         company: {
             name: 5,
-            products: 5,
+            level: .5,
             desc: 3
         },
         search: {

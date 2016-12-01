@@ -32,9 +32,12 @@ window.$$$wrap$$$ = function () {
                 gresult = [];
                 fresult = fillScores({ speaker: $$$edgeData$$$.speaker });
             }
-            else if ((/(合作|start|up|伙伴|project|公司|参展)/i.test(window.word))) {
+            else if ((/(合作|start|up|伙伴|media|公司)/i.test(window.word))) {
                 gresult = [];
                 fresult = fillScores({ company: $$$edgeData$$$.company });
+            }else if (/(参展|项目|project)/.test(window.word)) {
+                gresult = [];
+                fresult = fillScores({ investor: $$$edgeData$$$.investor });
             }
         }
 
