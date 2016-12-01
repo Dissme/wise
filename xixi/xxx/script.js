@@ -3,7 +3,33 @@ var fs = require("fs");
 var xlsx = require("node-xlsx");
 var cheerio = require("cheerio");
 
-// var list = xlsx.parse("/Users/emerge_2/Downloads/嘉宾同步1128-rbb.xlsx");
+var path = '/Users/emerge_2/Downloads/展商/';
+// var list = xlsx.parse(`${path}` + '展商.xlsx');
+// list.forEach(v=>{
+//     fs.writeFile(v.name+'_展商.json',JSON.stringify(v.data));
+// })
+
+var file = fs.readFileSync('Sheet1_展商.json').toString('utf8');
+var json = JSON.parse(file);
+var res = [];
+var dir = fs.readdirSync(path+'展商logo');
+json.forEach(v=>{
+    if(v.length){
+        var fp = dir.find(x=>!!x.match(v[1])||!!x.match(v[0]));
+        console.log(fp);
+        var $ = cheerio.load(fs.readFileSync(path+'展商logo/'+fp));
+        res.push({
+            area: v[0]||null,
+            name: v[1]||null,
+            desc: v[2]||null,
+            href: v[3]||null,
+            type: v[4]||null,
+            svg: $.html('svg')
+        })
+    }
+})
+fs.writeFile('展商.json',JSON.stringify(res));
+
 // var file = fs.readFileSync('嘉宾资料xxx.json');
 // var json = JSON.parse(file);
 // var res = [];
@@ -32,14 +58,15 @@ var cheerio = require("cheerio");
 //     })
 // })
 // fs.writeFile('speaker.json',JSON.stringify(res));
-var path = '../../assets/speakers/';
-fs.readdir(path,(err,files)=>{
-    if(err)return console.log(err);
-    var i = 0;
-    files.forEach(filename=>{
-        if(/.png$/.test(filename))fs.rename(path + filename,'speaker/' + (filename.replace('.png','') - 1) + '.png');
-    })
-})
+
+// var path = '../../assets/speakers/';
+// fs.readdir(path,(err,files)=>{
+//     if(err)return console.log(err);
+//     var i = 0;
+//     files.forEach(filename=>{
+//         if(/.png$/.test(filename))fs.rename(path + filename,'speaker/' + (filename.replace('.png','') - 1) + '.png');
+//     })
+// })
 // [
 //         "排序",
 //         "归属",
