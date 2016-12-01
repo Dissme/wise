@@ -3,32 +3,108 @@ var fs = require("fs");
 var xlsx = require("node-xlsx");
 var cheerio = require("cheerio");
 
-var path = '/Users/emerge_2/Downloads/展商/';
-// var list = xlsx.parse(`${path}` + '展商.xlsx');
+// var path = '/Users/emerge_2/Downloads/合作/合作logo/';
+// var list = xlsx.parse('/Users/emerge_2/Downloads/WISE大会流程整理最！！！！终.xlsx');
 // list.forEach(v=>{
-//     fs.writeFile(v.name+'_展商.json',JSON.stringify(v.data));
+//     fs.writeFile(v.name+'_schedule.json',JSON.stringify(v.data));
 // })
+var file = fs.readFileSync('活动流程_schedule.json').toString('utf8');
+// [
+//         "会议名称",
+//         "地点",
+//         "时间",
+//         "环节",
+//         "嘉宾",
+//         null,
+//         "颜色"
+//     ],
 
-var file = fs.readFileSync('Sheet1_展商.json').toString('utf8');
+// {
+//         "date": "6",
+//         "part": "WISE 独角兽峰会",
+//         "slot": "全天",
+//         "position": "二层\r\n1号会议厅\r\n1500人",
+//         "time": "09:00 – 09:05",
+//         "name": "开场视频",
+//         "speakers": null,
+//         "start_time": "09:00",
+//         "end_time": "09:05"
+//     },
+
 var json = JSON.parse(file);
-var res = [];
-var dir = fs.readdirSync(path+'展商logo');
+var res = []
+var part = '';
+var position = '';
 json.forEach(v=>{
     if(v.length){
-        var fp = dir.find(x=>!!x.match(v[1])||!!x.match(v[0]));
-        console.log(fp);
-        var $ = cheerio.load(fs.readFileSync(path+'展商logo/'+fp));
-        res.push({
-            area: v[0]||null,
-            name: v[1]||null,
-            desc: v[2]||null,
-            href: v[3]||null,
-            type: v[4]||null,
-            svg: $.html('svg')
-        })
+        part = v[0]||part;
+        position = v[1]||position;
+        console.log(v);
+        var time = v[2].split(' – ');
+        var start_time = time[0];
+        var end_time = time[1];
+        var date = 6;
+        if(/(时代峰会)|(企服年会)/.test(part)){
+            date = 7;
+            console.log(part);
+        };
+        var speakers = v[4]?v[4].split('\r\n'):[];
+        if(speakers){speakers = speakers.map(x=>x.replace(/｜.*/,'').trim())}
+        res.push({date,part,position,start_time,end_time,name: v[3],speakers:speakers.join(',')});
     }
 })
-fs.writeFile('展商.json',JSON.stringify(res));
+fs.writeFile('schedule.json',JSON.stringify(res));
+// [
+//         null,
+//         "级别",
+//         "顺序",
+//         "渠道",
+//         "名称",
+//         "备注"
+//     ],
+
+// var file = fs.readFileSync('工作表1_company.json').toString('utf8');
+// var json = JSON.parse(file);
+// var res = [];
+// var dir = fs.readdirSync(path);
+
+// var level1 = null;
+// var level2 = '';
+// json.forEach(v=>{
+//     if(v.length){
+//         if(v[2]){
+//             level2 = v[1]||level2;
+//             var channel = v[3]||null;
+//             var fp = dir.find(x=>!!x.match(v[4]));
+//             if(!fp){
+//                 console.log(v[4]);
+//                 res.push({level: level1+' '+level2,channel,name: v[4],alt: v[5],svg: null})
+//             }else{
+//                 var $ = cheerio.load(fs.readFileSync(path+fp));
+//                 res.push({level: level1+' '+level2,channel,name: v[4],alt: v[5],svg: $.html('svg')});
+//             }
+//         }else{
+//             level1 = v[1]||level1;
+//         }
+//     }
+// })
+
+// json.forEach(v=>{
+//     if(v.length){
+//         var fp = dir.find(x=>!!x.match(v[1])||!!x.match(v[0]));
+//         console.log(fp);
+//         var $ = cheerio.load(fs.readFileSync(path+fp));
+//         res.push({
+//             area: v[0]||null,
+//             name: v[1]||null,
+//             desc: v[2]||null,
+//             href: v[3]||null,
+//             type: v[4]||null,
+//             svg: $.html('svg')
+//         })
+//     }
+// })
+// fs.writeFile('company.json',JSON.stringify(res));
 
 // var file = fs.readFileSync('嘉宾资料xxx.json');
 // var json = JSON.parse(file);
